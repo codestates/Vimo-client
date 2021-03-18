@@ -15,7 +15,6 @@ class MainPage extends React.Component {
     return (
       <div>
         <h1>MainPage</h1>
-        <h2></h2>
         <button onClick={() => this.handleClick()}>이동!</button>
       </div>
     );
