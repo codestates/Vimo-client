@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    font-weight: bold;
+}
+div{
+    border: 1px solid black;
+}
+
+.Nav{
+    border: 1px solid tomato;
+    display: flex;
+    background-color: #917e40;
+}
+
+#extend{
+    height: 3rem;
+    margin: auto;
+}
+
+.logout{
+    flex: none;
+    margin-left: auto;
+    padding: 20px 30px;
+    background-color: rgba(0, 0, 0, .4);
+  }
+  
+  #userInfoBox{
+    display: flex;
+    height: 20rem;
+    width: 100rem;
+  }
+  
+  #imgBox{
+    flex: 1 0 auto;
+  }
+  
+  #userInfo{
+    flex: 3 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #username{
+    font-size: 4rem;
+  }
+  
+  #email{
+    font-size: 2rem;
+  }
+  
+  #myContents{
+    display: flex;
+    flex-direction: column;
+    padding-top: 4rem;
+  }
+  
+  .videoContainer{
+    display: flex;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  .video{
+    flex: 1 0 auto;
+    height: 15rem;
+    width: 10rem;
+    margin: 1rem;
+  }
+  
+  #btnContainer{
+    display: flex;
+  }
+
+  .home{
+    flex: none;
+    padding: 1rem 0.5rem;
+    background-color: rgba(0, 0, 0, .4);
+    cursor: pointer;
+  }
+  
+  .home:active {
+    position: relative;
+    transform: translateY(4px);
+  }
+  
+  .logo{
+    flex: none;
+    padding: 20px 30px;
+    background-color: tomato;
+  }
