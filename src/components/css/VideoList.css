@@ -1,0 +1,4 @@
+.mainVideoListEntryContainer {
+  display: flex;
+  flex-direction: row;
+}

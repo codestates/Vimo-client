@@ -1,6 +1,6 @@
 import React from "react";
 
-class MemoListEntry extends React.Component {
+class VideoListEntry extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -8,10 +8,11 @@ class MemoListEntry extends React.Component {
   render() {
     return (
       <div>
-        <span>비디오에 대한 메모입니다</span>
+        <img alt="" />
+        <span>영화제목</span>
       </div>
     );
   }
 }
 
-export default MemoListEntry;
+export default VideoListEntry;
