@@ -9,12 +9,15 @@ class VideoList extends React.Component {
   }
   render() {
     return (
-      <div className="mainVideoListEntryContainer">
-        <VideoListEntry></VideoListEntry>
-        <VideoListEntry></VideoListEntry>
-        <VideoListEntry></VideoListEntry>
-        <VideoListEntry></VideoListEntry>
-        <VideoListEntry></VideoListEntry>
+      <div className="VideoListContainer">
+        <div className="VideoListTitle">{this.props.title}</div>
+        <div className="mainVideoListEntryContainer">
+          <VideoListEntry></VideoListEntry>
+          <VideoListEntry></VideoListEntry>
+          <VideoListEntry></VideoListEntry>
+          <VideoListEntry></VideoListEntry>
+          <VideoListEntry></VideoListEntry>
+        </div>
       </div>
     );
   }

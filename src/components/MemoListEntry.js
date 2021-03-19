@@ -1,4 +1,5 @@
 import React from "react";
+import "./css/MemoListEntry.css";
 
 class MemoListEntry extends React.Component {
   constructor(props) {
@@ -6,9 +7,10 @@ class MemoListEntry extends React.Component {
     this.state = {};
   }
   render() {
+    const { openMemoModal } = this.props;
     return (
-      <div>
-        <span>비디오에 대한 메모입니다</span>
+      <div className="videoListEntryThumbnail" onClick={() => openMemoModal()}>
+        <div className="videoListEntryMemo">비디오에 대한 메모입니다</div>
       </div>
     );
   }

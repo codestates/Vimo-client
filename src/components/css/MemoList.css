@@ -1,0 +1,13 @@
+.MemoListContainer {
+  margin: 1rem;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.MemoListTitle {
+  font-size: 1.25rem;
+  text-align: center;
+  padding: 0.5rem;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import "./css/VideoListEntry.css";
 
 class VideoListEntry extends React.Component {
   constructor(props) {
@@ -7,9 +8,9 @@ class VideoListEntry extends React.Component {
   }
   render() {
     return (
-      <div>
-        <img alt="" />
-        <span>영화제목</span>
+      <div className="VideoListEntryContainer">
+        <div className="VideoListEntryThumbnail">영화 썸네일</div>
+        <div className="VideoListEntryTitle">영화제목</div>
       </div>
     );
   }
