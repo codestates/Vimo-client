@@ -29,7 +29,7 @@ class VideoPage extends React.Component {
     return (
       <div>
         <nav className="Nav">
-          <button className="home" onClick={() => this.handleHomeClick()}>홈으로</button>
+          <div className="home" onClick={() => this.handleHomeClick()}>Home</div>
           <span className="logo">VIMO</span>
           <div className="myImg" onClick={() => this.handleMyPageClick()}>img</div>
         </nav>
@@ -47,7 +47,7 @@ class VideoPage extends React.Component {
         </div>
         <div id="myModal" class="modal">
           <div class="modal-content">
-            <span class="close" onClick={this.handelQuitBtnClick}>&times;</span>                                                               
+            <div class="close" onClick={this.handelQuitBtnClick}>&times;</div>                                                            
             <div id="timeBox">Time</div>
             <div id="textMemoBox">
               <input id="textBox" type="text"></input>
