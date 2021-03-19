@@ -54,6 +54,9 @@ class MyPage extends React.Component {
   }
 
   handleVideoMemo = () => {
+    this.setState({
+      usermemo: "와 이 영화 대박 재밌네"
+    })
     document.getElementById("memo").style.display = "block";
   }
 
@@ -122,7 +125,7 @@ class MyPage extends React.Component {
         <div id="memo" class="modal">
           <div class="modal-content">
             <div class="close" onClick={this.handelQuitMemo}>&times;</div>                                                            
-            <div>{this.state.usermemo}</div>
+            <div id="memoBox">{this.state.usermemo}</div>
           </div>
         </div>
       </div>

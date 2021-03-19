@@ -13,7 +13,7 @@ class MyVideoListEntry extends React.Component{
     render() {
         return(
             <div className="videoContainer">
-                <div className="video" onClick={this.handleVideoMemo}></div>
+                <div className="video" onClick={()=>this.handleVideoMemo()}></div>
                 <div className="video" onClick={this.handleVideoMemo}></div>
                 <div className="video" onClick={this.handleVideoMemo}></div>
                 <div className="video" onClick={this.handleVideoMemo}></div>

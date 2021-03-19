@@ -207,3 +207,8 @@ div{
   text-align: center;
   color: red;
 }
+
+#memoBox{
+  height: 30rem;
+  width: 30rem;
+}
