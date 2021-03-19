@@ -1,0 +1,13 @@
+.VideoListEntryContainer {
+  margin: 1rem;
+}
+
+.VideoListEntryThumbnail {
+  height: 8rem;
+  width: 16rem;
+}
+
+.VideoListEntryTitle {
+  margin-left: 0.75rem;
+  margin-top: 0.25rem;
+}

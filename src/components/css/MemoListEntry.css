@@ -1,0 +1,20 @@
+.videoListEntryThumbnail {
+  margin: 1rem;
+  height: 10rem;
+  width: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s;
+}
+
+.videoListEntryThumbnail:hover {
+  background-color: tomato;
+}
+
+.videoListEntryMemo {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
