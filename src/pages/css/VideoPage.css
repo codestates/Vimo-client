@@ -18,89 +18,122 @@ div{
     z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  .modal-content {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    margin: 5% auto;
+    padding: 1rem;
     border: 1px solid #888;
-    width: 50%; /* Could be more or less, depending on screen size */                          
-  }
-  /* The Close Button */
-  .close {
+    width: 50%;
+    opacity: 0.5;                   
+}
+
+.close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
-  .close:hover,
-  .close:focus {
+    text-align: right;
+}
+.close:hover,
+.close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
-  
-  #timeBox{
+}
+
+#timeBox{
     flex: 1 0 auto;
     height: 10rem;
-  }
-  
-  #textMemoBox{
+}
+
+#textMemoBox{
     flex: 1 0 auto;
     height: 10rem;
     display: flex;
-  }
-  
-  #textBox{
+}
+
+#textBox{
     flex: 3 1 auto;
     font-size: 3rem;
-  }
+    background-color: gray;
+}
 
-  .myImg{
+.myImg{
     flex: none;
+    color: snow;
     margin-left: auto;
     padding: 20px 30px;
     background-color: rgba(0, 0, 0, .4);
-  }
+    border-radius: 1.5rem;
+}
 
-  .home{
-    flex: none;
-    padding: 1rem 0.5rem;
-    background-color: rgba(0, 0, 0, .4);
-    cursor: pointer;
-  }
-  
-  .home:active {
+.myImg:hover {
+    background-color: #3d3434
+}
+
+.myImg:active {
     position: relative;
     transform: translateY(4px);
-  }
-  
-  .logo{
+}
+
+.home{
+    flex: none;
+    color: snow;
+    padding: 1rem 0.5rem;
+    background-color: rgba(114, 100, 100, 0.4);
+    cursor: pointer;
+    outline: none;
+    border: none;
+    box-shadow: 0 9px rgb(49, 44, 44);
+}
+
+.home:hover {
+    background-color: #242020
+}
+
+.home:active {
+    position: relative;
+    transform: translateY(4px);
+}
+
+.logo{
     flex: none;
     padding: 20px 30px;
     background-color: tomato;
-  }
+}
 
-  #videoPlayer{
+#videoPlayer{
     display: flex;
-  }
-  
-  #descriptionBox{
+}
+
+#descriptionBox{
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
-  }
-  
-  #videoInfo{
+}
+
+#videoInfo{
     flex: 10 0 auto;
-  }
-  
-  #memoBtn{
+}
+
+#memoBtn{
     flex: 1 0 auto;
-  }
+}
+
+#memoBtn:hover {
+    background-color: #96a86b
+}
+
+.memoBtn:active {
+    position: relative;
+    transform: translateY(4px);
+}
