@@ -17,6 +17,9 @@ class VideoList extends React.Component {
           <VideoListEntry></VideoListEntry>
           <VideoListEntry></VideoListEntry>
           <VideoListEntry></VideoListEntry>
+          <VideoListEntry></VideoListEntry>
+          <VideoListEntry></VideoListEntry>
+          <VideoListEntry></VideoListEntry>
         </div>
       </div>
     );

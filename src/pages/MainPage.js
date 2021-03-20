@@ -5,6 +5,7 @@ import MemoList from "../components/MemoList";
 import LoginModal from "../components/LoginModal";
 import MemoModal from "../components/MemoModal";
 import "./css/MainPage.css";
+import axios from "axios";
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class MainPage extends React.Component {
     this.state = {
       isLoginModalOn: false,
       isMemoModalOn: false,
+      bgNum: 1,
     };
     this.handleVideoClick = this.handleVideoClick.bind(this);
   }
@@ -31,6 +33,12 @@ class MainPage extends React.Component {
     this.props.history.push("/video");
   };
 
+  componentDidMount() {
+    axios.get("https://server.vimo.link/link/mainpage").then((res) => {
+      console.log(res.data);
+    });
+  }
+
   render() {
     return (
       <>
@@ -41,37 +49,62 @@ class MainPage extends React.Component {
         <MemoModal
           isMemoModalOn={this.state.isMemoModalOn}
           close={this.closeMemoModal}
+          handleVideoClick={this.handleVideoClick}
         />
         <div className="mainContainer">
           <nav className="mainNavBar">
-            <img className="mainNavLogo" alt="logo" />
-            <div>
-              <input type="text" placeholder="검색어 입력" />
-              <button onClick={this.handleVideoClick}>검색</button>
+            <div className="mainNavLogo" alt="logo" />
+            <div className="mainSearchBoxContainer">
+              <input
+                className="searchBoxInput"
+                type="text"
+                placeholder="검색어를 입력하세요"
+              />
             </div>
-            <div onClick={this.openModal}>
-              <img src="https://imgur.com/SifRQnT" alt="profileImage" />
-              <span>Username</span>
+            <div className="mainNavUserContainer" onClick={this.openModal}>
+              <div className="mainNavProfilePic"></div>
+              <div className="mainNavUsernameBox">
+                <div className="mainNavUsername">Anonymous</div>
+              </div>
             </div>
           </nav>
-          <div className="mainMainBanner">
+          <div
+            className={
+              this.state.bgNum === 1
+                ? "mainMainBanner1"
+                : this.state.bgNum === 2
+                ? "mainMainBanner2"
+                : this.state.bgNum === 3
+                ? "mainMainBanner3"
+                : "mainMainBanner4"
+            }
+          >
             <div className="mainTextContainer">
-              <h1>Vimo</h1>
-              <h2>영상을 보며 떠오른 생각을 기록해두고 싶었던 적은 없나요?</h2>
+              <h1>Video + Memo = "Vimo"</h1>
               <h4>
-                영상을 보며 무언가를 기록해두고 싶었던 적이 있나요? 하지만
-                영상은 당신의 번쩍이는 아이디어를 기다려주지 않죠! 설상가상,
-                동영상 캡쳐도 허락하지 않는 OTT! 동영상에서 바로 메모를 남길 수
-                있다면 어떨까요? <br />
-                <br />
-                video + memo = VIMO!
+                영상을 보며 무언가를 기록해두고 싶었던 적이 있나요? <br />
+                하지만 영상은 당신의 번쩍이는 아이디어를 기다려주지 않죠! <br />
+                설상가상, 동영상 캡쳐조차 허락하지 않는 기존의 OTT서비스! <br />
+                동영상에서 바로 메모를 남길 수 있다면 어떨까요? <br />
               </h4>
             </div>
             <div className="mainImgChangeBtnContainer">
-              <button className="mainImgChangeBtn"></button>
-              <button className="mainImgChangeBtn"></button>
-              <button className="mainImgChangeBtn"></button>
-              <button className="mainImgChangeBtn"></button>
+              <button
+                className="mainImgChangeBtn"
+                onClick={() => this.setState({ bgNum: 1 })}
+              ></button>
+              <button
+                className="mainImgChangeBtn"
+                onClick={() => this.setState({ bgNum: 2 })}
+              ></button>
+              <button
+                className="mainImgChangeBtn"
+                onClick={() => this.setState({ bgNum: 3 })}
+              ></button>
+              <button
+                className="mainImgChangeBtn"
+                onClick={() => this.setState({ bgNum: 4 })}
+              ></button>
             </div>
           </div>
           <div className="mainVideoContainer">

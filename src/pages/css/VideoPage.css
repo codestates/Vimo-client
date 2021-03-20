@@ -1,139 +1,139 @@
 * {
-    box-sizing: border-box;
-    font-weight: bold;
+  box-sizing: border-box;
+  font-weight: bold;
 }
-div{
-    border: 1px solid black;
+div {
+  /* border: 1px solid black; */
 }
 
-.Nav{
-    border: 1px solid tomato;
-    display: flex;
-    background-color: #917e40;
+.Nav {
+  border: 1px solid tomato;
+  display: flex;
+  background-color: #917e40;
 }
 
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
-    display: flex;
-    flex-direction: column;
-    background-color: #fefefe;
-    margin: 5% auto;
-    padding: 1rem;
-    border: 1px solid #888;
-    width: 50%;
-    opacity: 0.5;                   
+  display: flex;
+  flex-direction: column;
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 1rem;
+  border: 1px solid #888;
+  width: 50%;
+  opacity: 0.5;
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    text-align: right;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: right;
 }
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-#timeBox{
-    flex: 1 0 auto;
-    height: 10rem;
+#timeBox {
+  flex: 1 0 auto;
+  height: 10rem;
 }
 
-#textMemoBox{
-    flex: 1 0 auto;
-    height: 10rem;
-    display: flex;
+#textMemoBox {
+  flex: 1 0 auto;
+  height: 10rem;
+  display: flex;
 }
 
-#textBox{
-    flex: 3 1 auto;
-    font-size: 3rem;
-    background-color: gray;
+#textBox {
+  flex: 3 1 auto;
+  font-size: 3rem;
+  background-color: gray;
 }
 
-.myImg{
-    flex: none;
-    color: snow;
-    margin-left: auto;
-    padding: 20px 30px;
-    background-color: rgba(0, 0, 0, .4);
-    border-radius: 1.5rem;
+.myImg {
+  flex: none;
+  color: snow;
+  margin-left: auto;
+  padding: 20px 30px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 1.5rem;
 }
 
 .myImg:hover {
-    background-color: #3d3434
+  background-color: #3d3434;
 }
 
 .myImg:active {
-    position: relative;
-    transform: translateY(4px);
+  position: relative;
+  transform: translateY(4px);
 }
 
-.home{
-    flex: none;
-    color: snow;
-    padding: 1rem 0.5rem;
-    background-color: rgba(114, 100, 100, 0.4);
-    cursor: pointer;
-    outline: none;
-    border: none;
-    box-shadow: 0 9px rgb(49, 44, 44);
+.home {
+  flex: none;
+  color: snow;
+  padding: 1rem 0.5rem;
+  background-color: rgba(114, 100, 100, 0.4);
+  cursor: pointer;
+  outline: none;
+  border: none;
+  box-shadow: 0 9px rgb(49, 44, 44);
 }
 
 .home:hover {
-    background-color: #242020
+  background-color: #242020;
 }
 
 .home:active {
-    position: relative;
-    transform: translateY(4px);
+  position: relative;
+  transform: translateY(4px);
 }
 
-.logo{
-    flex: none;
-    padding: 20px 30px;
-    background-color: tomato;
+.logo {
+  flex: none;
+  padding: 20px 30px;
+  background-color: tomato;
 }
 
-#videoPlayer{
-    display: flex;
+#videoPlayer {
+  display: flex;
 }
 
-#descriptionBox{
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
+#descriptionBox {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
-#videoInfo{
-    flex: 10 0 auto;
+#videoInfo {
+  flex: 10 0 auto;
 }
 
-#memoBtn{
-    flex: 1 0 auto;
+#memoBtn {
+  flex: 1 0 auto;
 }
 
 #memoBtn:hover {
-    background-color: #96a86b
+  background-color: #96a86b;
 }
 
 .memoBtn:active {
-    position: relative;
-    transform: translateY(4px);
+  position: relative;
+  transform: translateY(4px);
 }

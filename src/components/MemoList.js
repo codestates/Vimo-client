@@ -19,7 +19,6 @@ class MemoList extends React.Component {
           <MemoListEntry openMemoModal={openMemoModal}></MemoListEntry>
           <MemoListEntry openMemoModal={openMemoModal}></MemoListEntry>
         </div>
-        <button className="MemoListshowMoreBtn">더보기</button>
       </div>
     );
   }
