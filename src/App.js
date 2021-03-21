@@ -4,7 +4,6 @@ import React from "react";
 import MainPage from "./pages/MainPage";
 import VideoPage from "./pages/VideoPage";
 import MyPage from "./pages/MyPage";
-import TestPage from "./pages/TestPage";
 
 class App extends React.Component {
   render() {
@@ -19,9 +18,6 @@ class App extends React.Component {
           </Route>
           <Route path="/mypage">
             <MyPage />
-          </Route>
-          <Route path="/test">
-            <TestPage />
           </Route>
         </Switch>
       </div>
