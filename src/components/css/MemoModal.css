@@ -18,7 +18,17 @@
 }
 
 .memoModalContainer {
-  background-color: #fff;
+  background: var(--main-color-mustard);
+  background: -webkit-linear-gradient(
+    to right,
+    var(--main-color-mustard),
+    var(--main-color-gray)
+  );
+  background: linear-gradient(
+    to right,
+    var(--main-color-mustard),
+    var(--main-color-gray)
+  );
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
@@ -26,4 +36,96 @@
   width: 768px;
   max-width: 100%;
   min-height: 480px;
+  display: flex;
+}
+
+.MemoModalMemoPart {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.MemoModalMemoBanner {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border: 0.1rem solid var(--main-color-yellow);
+  border-radius: 1.5rem;
+  color: var(--main-color-black);
+  text-shadow: -1px 0 var(--main-color-yellow), 0 1px var(--main-color-yellow),
+    1px 0 var(--main-color-yellow), 0 -1px var(--main-color-yellow);
+}
+
+.MemoModalUserProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.MemoModalUserProfilePic {
+  width: 6rem;
+  height: 6rem;
+  background-image: url("https://i.imgur.com/FP3hraO.png");
+  background-position: center;
+  background-size: cover;
+  border: 0.1rem solid var(--main-color-yellow);
+  border-radius: 3rem;
+  margin: 1rem;
+}
+
+.MemoModalUsername {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: var(--main-color-black);
+}
+
+.MemoModalMemoContent {
+  color: var(--main-color-black);
+}
+
+.MemoModalVideoPart {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.MemoModalVideoBanner {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border: 0.1rem solid var(--main-color-yellow);
+  border-radius: 1.5rem;
+  color: var(--main-color-black);
+  text-shadow: -1px 0 var(--main-color-yellow), 0 1px var(--main-color-yellow),
+    1px 0 var(--main-color-yellow), 0 -1px var(--main-color-yellow);
+}
+
+.MemoModalVideoThumbnail {
+  background-image: url("https://i.imgur.com/GWWl6sO.png");
+  width: 10rem;
+  height: 13rem;
+  background-position: center;
+  background-size: cover;
+  margin: 1rem;
+  border: 0.1rem solid var(--main-color-yellow);
+}
+
+.MemoModalVideoDescription {
+  color: var(--main-color-black);
+  font-size: 1rem;
+}
+
+.MemoModalVideoBtn {
+  background-color: var(--main-color-gray);
+  border: 0.1rem solid var(--main-color-yellow);
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 2rem;
+  color: var(--main-color-yellow);
+  margin-top: 2rem;
+}
+
+.MemoModalVideoBtn:hover {
+  background-color: var(--main-color-yellow);
+  color: var(--main-color-gray);
 }

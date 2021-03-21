@@ -12,11 +12,30 @@ class VideoList extends React.Component {
       <div className="VideoListContainer">
         <div className="VideoListTitle">{this.props.title}</div>
         <div className="mainVideoListEntryContainer">
-          <VideoListEntry></VideoListEntry>
-          <VideoListEntry></VideoListEntry>
-          <VideoListEntry></VideoListEntry>
-          <VideoListEntry></VideoListEntry>
-          <VideoListEntry></VideoListEntry>
+          <VideoListEntry
+            handleVideoClick={this.props.handleVideoClick}
+          ></VideoListEntry>
+          <VideoListEntry
+            handleVideoClick={this.props.handleVideoClick}
+          ></VideoListEntry>
+          <VideoListEntry
+            handleVideoClick={this.props.handleVideoClick}
+          ></VideoListEntry>
+          <VideoListEntry
+            handleVideoClick={this.props.handleVideoClick}
+          ></VideoListEntry>
+          <VideoListEntry
+            handleVideoClick={this.props.handleVideoClick}
+          ></VideoListEntry>
+          <VideoListEntry
+            handleVideoClick={this.props.handleVideoClick}
+          ></VideoListEntry>
+          <VideoListEntry
+            handleVideoClick={this.props.handleVideoClick}
+          ></VideoListEntry>
+          <VideoListEntry
+            handleVideoClick={this.props.handleVideoClick}
+          ></VideoListEntry>
         </div>
       </div>
     );
