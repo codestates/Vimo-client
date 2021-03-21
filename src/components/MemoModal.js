@@ -15,9 +15,10 @@ export default class LoginModal extends Component {
           <div className="MemoModalWholeContainer">
             <div className="memoModalContainer">
               <div className="MemoModalMemoPart">
+                <div className="MemoModalMemoBanner">Memo</div>
                 <div className="MemoModalUserProfile">
-                  <img className="MemoModalUserProfilePic" src="" alt="" />
-                  <div className="MemoModalUsername">유저네임</div>
+                  <div className="MemoModalUserProfilePic" />
+                  <div className="MemoModalUsername">Anonymous</div>
                 </div>
                 <p className="MemoModalMemoContent">
                   헌법재판소 재판관의 임기는 6년으로 하며, 법률이 정하는 바에
@@ -29,18 +30,23 @@ export default class LoginModal extends Component {
                 </p>
               </div>
               <div className="MemoModalVideoPart">
-                <img className="MemoModalVideoThumbnail" src="" alt="" />
-                <p className="MemoModalVideoDescription">
-                  “메모와 함께 하는 OTT서비스 VIMO비모입니다. VIMO에서는
-                  유저들에게 최고의 경험을 전달하기 위해 늘 노력하고 있습니다.
-                  영화정보 제공 서비스 중 영화 내용 요약 부분은 현재 서비스
-                  준비중에 있습니다. 최대한 빠른 시일 내에 더 풍부한 영화정보를
-                  제공할 수 있도록 힘쓰겠습니다. VIMO를 이용해주시는 유저
-                  여러분들께 양해의 말씀과 감사의 말씀을 전합니다. 감사합니다.”
-                </p>
-                <button onClick={handleVideoClick}>이 영화 보기</button>
+                <div className="MemoModalVideoBanner">Video</div>
+                <div className="MemoModalVideoThumbnail" />
+                <div>
+                  <p>Video Title</p>
+                  <p>Director</p>
+                  <p>1900</p>
+                  <p>actor</p>
+                </div>
+                <button
+                  className="MemoModalVideoBtn"
+                  onClick={handleVideoClick}
+                >
+                  Watch
+                </button>
               </div>
             </div>
+            <i className="fas fa-times-circle"></i>
           </div>
         ) : null}
       </>

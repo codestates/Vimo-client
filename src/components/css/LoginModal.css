@@ -47,9 +47,9 @@
 
 .ModalWholeContainer button {
   border-radius: 20px;
-  border: 1px solid #ff4b2b;
-  background-color: #ff4b2b;
-  color: #ffffff;
+  border: 1px solid var(--main-color-yellow);
+  background-color: var(--main-color-yellow);
+  color: white;
   font-size: 12px;
   font-weight: bold;
   padding: 12px 45px;
@@ -162,9 +162,20 @@
 }
 
 .overlay {
-  background: #ff416c;
+  /* background: #ff416c;
   background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-  background: linear-gradient(to right, #ff4b2b, #ff416c);
+  background: linear-gradient(to right, #ff4b2b, #ff416c); */
+  background: var(--main-color-yellow);
+  background: -webkit-linear-gradient(
+    to right,
+    var(--main-color-mustard),
+    var(--main-color-yellow)
+  );
+  background: linear-gradient(
+    to right,
+    var(--main-color-mustard),
+    var(--main-color-yellow)
+  );
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;

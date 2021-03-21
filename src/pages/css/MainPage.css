@@ -1,3 +1,14 @@
+:root {
+  --main-color-white: #e1e1e0;
+  --main-color-yellow: #e0ad24;
+  --main-color-mustard: #8c7337;
+  --main-color-dark-yellow: #51431f;
+  --main-color-light-gray: #a2a3a4;
+  --main-color-gray: #747576;
+  --main-color-dark-gray: #333436;
+  --main-color-black: #1e2021;
+}
+
 * {
   /* border: 1px solid black; */
   padding: 0rem;
@@ -10,10 +21,10 @@
 }
 
 .mainNavBar {
-  /* position: fixed; */
-  background-color: rgb(177, 158, 130);
+  position: fixed;
+  background-color: var(--main-color-black);
   width: 100%;
-  height: 3.5rem;
+  height: 4rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -22,20 +33,130 @@
   margin-top: 0rem;
 }
 
-.mainMainBanner {
+.mainNavLogo {
+  width: 12rem;
+  background-image: url("https://i.imgur.com/aS8kJC1.png");
+  background-size: cover;
+  margin: 0.1rem;
+}
+
+.mainSearchBoxContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20rem;
+}
+
+.searchBoxInput {
+  padding: 0.7rem;
+  padding-left: 1rem;
+  width: 18rem;
+  background-color: var(--main-color-black);
+  border: 0.1rem solid var(--main-color-yellow);
+  border-radius: 1.5rem;
+  color: var(--main-color-light-gray);
+}
+
+.searchBoxInput:focus {
+  outline: none;
+}
+
+.mainNavUserContainer {
+  display: flex;
+  padding: 0.2rem;
+}
+
+.mainNavProfilePic {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 2rem;
+  /* background-image: url("https://i.imgur.com/FP3hraO.png");
+  background-size: cover;
+  background-position: center; */
+  border: 0.1rem solid var(--main-color-yellow);
+}
+
+.mainNavUsernameBox {
+  margin: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainNavUsername {
+  margin: 0.5rem;
+  color: var(--main-color-light-gray);
+  font-size: 1.125rem;
+}
+
+.mainMainBanner1 {
   height: 30rem;
-  background-color: rgb(146, 130, 107);
-  background-image: "https://i.imgur.com/Kr0nRL4.jpg";
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  background-image: url("https://i.imgur.com/yEw9tBu.png");
+  background-size: cover;
+  transition: 1s;
+  border-bottom: 0.2rem solid var(--main-color-mustard);
+  margin-top: 4rem;
+  background-position: center;
+}
+.mainMainBanner2 {
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-image: url("https://i.imgur.com/i6ZqHxE.png");
+  background-size: cover;
+  transition: 1s;
+  border-bottom: 0.2rem solid var(--main-color-mustard);
+  margin-top: 4rem;
+  background-position: center;
+}
+.mainMainBanner3 {
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-image: url("https://i.imgur.com/zBZZZop.png");
+  background-size: cover;
+  transition: 1s;
+  border-bottom: 0.2rem solid var(--main-color-mustard);
+  margin-top: 4rem;
+  background-position: center;
+}
+.mainMainBanner4 {
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-image: url("https://i.imgur.com/IgcVjPK.png");
+  background-size: cover;
+  transition: 1s;
+  border-bottom: 0.2rem solid var(--main-color-mustard);
+  margin-top: 4rem;
+  background-position: center;
 }
 
 .mainTextContainer {
-  padding-top: 6rem;
-  padding-left: 62.5%;
+  padding-top: 7.5rem;
+  padding-left: 60%;
   padding-right: 5%;
-  padding-bottom: 6rem;
+  padding-bottom: 3rem;
+}
+
+.mainTextContainer h1 {
+  color: var(--main-color-black);
+  font-size: 2.3rem;
+  margin: 1rem;
+  text-shadow: -1px 0 var(--main-color-yellow), 0 1px var(--main-color-yellow),
+    1px 0 var(--main-color-yellow), 0 -1px var(--main-color-yellow);
+}
+
+.mainTextContainer h4 {
+  color: var(--main-color-white);
+  font-size: 1.125rem;
+  margin: 1rem;
 }
 
 .mainImgChangeBtnContainer {
@@ -49,42 +170,63 @@
   height: 1rem;
   border-radius: 0.5rem;
   border: thin;
+  background-color: var(--main-color-yellow);
+}
+
+.mainImgChangeBtn:hover {
+  margin: 0.4rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.5rem;
+  border: thin;
+  background-color: var(--main-color-mustard);
+}
+
+.mainImgChangeBtn:focus {
+  outline: none;
 }
 
 .mainVideoContainer {
-  background-color: rgb(109, 96, 80);
+  background-color: var(--main-color-dark-gray);
   display: flex;
   flex-direction: column;
+  padding: 2rem;
+  border-bottom: 0.2rem solid var(--main-color-mustard);
 }
 
 .mainMemoContainer {
-  background-color: rgb(70, 61, 51);
+  background-color: var(--main-color-dark-gray);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 2rem;
+  border-bottom: 0.2rem solid var(--main-color-mustard);
 }
 
 .mainFooter {
-  background-color: rgb(34, 30, 25);
+  background-color: var(--main-color-black);
+  color: var(--main-color-light-gray);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mainFooterCodeStatesLogo {
+  width: 17.5rem;
+  height: 4rem;
+  background-image: url("https://i.imgur.com/RFPogmf.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.mainFooterVimoLogo {
+  width: 15rem;
+  height: 4rem;
+  background-image: url("https://i.imgur.com/aS8kJC1.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .footerContents {
   margin: 3rem;
-  text-align: center;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 99;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-.modal button {
-  outline: none;
-  cursor: pointer;
-  border: 0;
 }

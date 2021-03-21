@@ -11,11 +11,14 @@ class MainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      username: "Anonymous",
+      isLogin: false,
       isLoginModalOn: false,
       isMemoModalOn: false,
       bgNum: 1,
     };
     this.handleVideoClick = this.handleVideoClick.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
   openModal = () => {
     this.setState({ isLoginModalOn: true });
@@ -32,7 +35,18 @@ class MainPage extends React.Component {
   handleVideoClick = () => {
     this.props.history.push("/video");
   };
-
+  handleLoginChange = () => {
+    axios
+      .get("https://server.vimo.link/link/mainpage", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        this.setState({ isLogin: true });
+        this.setState({ username: res.data.data });
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
   componentDidMount() {
     axios.get("https://server.vimo.link/link/mainpage").then((res) => {
       console.log(res.data);
@@ -45,6 +59,7 @@ class MainPage extends React.Component {
         <LoginModal
           isLoginModalOn={this.state.isLoginModalOn}
           close={this.closeModal}
+          handleLoginChange={this.handleLoginChange}
         />
         <MemoModal
           isMemoModalOn={this.state.isMemoModalOn}
@@ -62,9 +77,13 @@ class MainPage extends React.Component {
               />
             </div>
             <div className="mainNavUserContainer" onClick={this.openModal}>
-              <div className="mainNavProfilePic"></div>
+              <img
+                className="mainNavProfilePic"
+                alt="profilePic"
+                src="https://i.imgur.com/FP3hraO.png"
+              />
               <div className="mainNavUsernameBox">
-                <div className="mainNavUsername">Anonymous</div>
+                <div className="mainNavUsername">{this.state.username}</div>
               </div>
             </div>
           </nav>
@@ -108,9 +127,18 @@ class MainPage extends React.Component {
             </div>
           </div>
           <div className="mainVideoContainer">
-            <VideoList title={"감상중인 콘텐츠"} />
-            <VideoList title={"메모가 가장 많은 콘텐츠"} />
-            <VideoList title={"새로운 콘텐츠"} />
+            <VideoList
+              title={"감상중인 콘텐츠"}
+              handleVideoClick={this.handleVideoClick}
+            />
+            <VideoList
+              title={"메모가 가장 많은 콘텐츠"}
+              handleVideoClick={this.handleVideoClick}
+            />
+            <VideoList
+              title={"새로운 콘텐츠"}
+              handleVideoClick={this.handleVideoClick}
+            />
           </div>
           <div className="mainMemoContainer">
             <MemoList
@@ -127,7 +155,11 @@ class MainPage extends React.Component {
             />
           </div>
           <footer className="mainFooter">
+            <div className="mainFooterCodeStatesLogo"></div>
+            <div className="mainFooterVimoLogo"></div>
             <div className="footerContents">
+              Team WodeCode <br />
+              <br />
               SEONA BAK / seonabak0109@gmail.com <br />
               JAEYOUNG SEONG / wodud2587@gmail.com <br />
               MINJE SHIN / sinminji1004@gmail.com <br />
