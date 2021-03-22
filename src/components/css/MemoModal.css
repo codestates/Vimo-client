@@ -37,6 +37,7 @@
   max-width: 100%;
   min-height: 480px;
   display: flex;
+  padding: 2rem;
 }
 
 .MemoModalMemoPart {
@@ -44,6 +45,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--main-color-light-gray);
+  border-radius: 0.75rem;
+  box-shadow: 4px 4px 8px rgb(85, 85, 85), 0 0 8px var(--main-color-mustard),
+    0 0 14px var(--main-color-dark-yellow);
 }
 
 .MemoModalMemoBanner {
@@ -110,9 +115,17 @@
   border: 0.1rem solid var(--main-color-yellow);
 }
 
-.MemoModalVideoDescription {
+.MemoModalTagContainer {
+  margin-top: 1rem;
+}
+
+.MemoModalTagContainer > span {
   color: var(--main-color-black);
-  font-size: 1rem;
+  font-size: 0.75rem;
+  padding: 0.5rem;
+  border: 0.1rem solid var(--main-color-yellow);
+  border-radius: 1.5rem;
+  margin: 0.5rem;
 }
 
 .MemoModalVideoBtn {
@@ -128,4 +141,12 @@
 .MemoModalVideoBtn:hover {
   background-color: var(--main-color-yellow);
   color: var(--main-color-gray);
+}
+
+.memoModalCloseBtn > i {
+  font-size: 2rem;
+  color: var(--main-color-gray);
+  padding-top: 1.5rem;
+  text-shadow: -1px 0 var(--main-color-yellow), 0 1px var(--main-color-yellow),
+    1px 0 var(--main-color-yellow), 0 -1px var(--main-color-yellow);
 }

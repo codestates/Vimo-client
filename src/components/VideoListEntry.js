@@ -9,11 +9,13 @@ class VideoListEntry extends React.Component {
   render() {
     return (
       <div className="VideoListEntryContainer">
-        <div
+        <img
+          src={this.props.thumbnail}
           className="VideoListEntryThumbnail"
           onClick={() => this.props.handleVideoClick()}
-        ></div>
-        <div className="VideoListEntryTitle">Video Title</div>
+          alt={this.props.title}
+        />
+        <div className="VideoListEntryTitle">{this.props.title}</div>
       </div>
     );
   }

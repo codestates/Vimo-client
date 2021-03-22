@@ -2,6 +2,8 @@ import React from "react";
 import { withRouter } from "react-router";
 import "./css/VideoPage.css";
 import VideoMemoModal from "../components/VideoMemoModal";
+// import { Player } from "video-react";
+// import "~video-react/dist/video-react.css";
 
 class VideoPage extends React.Component {
   constructor(props) {
@@ -23,22 +25,29 @@ class VideoPage extends React.Component {
 
   handelMemoBtnClick = () => {
     this.setState({
-      display: true
-    })
-  }
+      display: true,
+    });
+  };
 
   handelQuitBtnClick = () => {
     this.setState({
-      display: false
-    })
-  }
+      display: false,
+    });
+  };
 
   render() {
     return (
       <div className="VideomainContainer">
-        <VideoMemoModal display={this.state.display} handelQuitBtnClick={this.handelQuitBtnClick} />
+        <VideoMemoModal
+          display={this.state.display}
+          handelQuitBtnClick={this.handelQuitBtnClick}
+        />
         <nav className="VideoNavBar">
-          <div className="videoNavLogo" alt="logo" onClick={() => this.handleHomeClick()} />
+          <div
+            className="videoNavLogo"
+            alt="logo"
+            onClick={() => this.handleHomeClick()}
+          />
           <div className="videoNavUserContainer">
             <img
               className="videoNavProfilePic"
@@ -52,16 +61,12 @@ class VideoPage extends React.Component {
           </div>
         </nav>
         <div id="videoVideoPlayerContainer">
-          <video
-            src="" width="1280px" height="720px" poster=""
-            controls
-            autoplay
-            loop
-          >
-          </video>
+          <video src="./videos/video1.mp4" type="video/mp4"></video>
           <div id="videoDescriptionContainer">
             <div id="videoDescription">{this.state.discription}</div>
-            <button id="videoMemoBtn" onClick={this.handelMemoBtnClick}>memo</button>
+            <button id="videoMemoBtn" onClick={this.handelMemoBtnClick}>
+              memo
+            </button>
           </div>
         </div>
       </div>
