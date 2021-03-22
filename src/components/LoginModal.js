@@ -83,20 +83,9 @@ export default class LoginModal extends Component {
               }
             >
               <div className="form-container sign-up-container">
-                <form action="#">
-                  <h1>Create Account</h1>
-                  <div className="social-container">
-                    <a href="#" className="social">
-                      <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" className="social">
-                      <i className="fab fa-google-plus-g"></i>
-                    </a>
-                    <a href="#" className="social">
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
-                  </div>
-                  <span>or use your email for registration</span>
+                <div className="form">
+                  <h1>회 원 가 입</h1>
+                  <span>닉네임과 이메일, 비밀번호를 입력해주세요</span>
                   <input
                     type="text"
                     placeholder="Name"
@@ -113,19 +102,19 @@ export default class LoginModal extends Component {
                     onChange={this.handleInputValue("password")}
                   />
                   <button onClick={this.handleSignUpBtn}>Sign Up</button>
-                </form>
+                </div>
               </div>
               <div className="form-container sign-in-container">
-                <form action="#">
+                <div className="form">
                   <h1>Sign in</h1>
                   <div className="social-container">
-                    <a href="#" className="social">
+                    <a className="social">
                       <i className="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#" className="social">
+                    <a className="social">
                       <i className="fab fa-google-plus-g"></i>
                     </a>
-                    <a href="#" className="social">
+                    <a className="social">
                       <i className="fab fa-linkedin-in"></i>
                     </a>
                   </div>
@@ -140,9 +129,9 @@ export default class LoginModal extends Component {
                     placeholder="Password"
                     onChange={this.handleInputValue("password")}
                   />
-                  <a href="#">Forgot your password?</a>
+                  <a>비밀번호를 잊으셨나요?</a>
                   <button onClick={() => this.handleLoginBtn()}>Sign In</button>
-                </form>
+                </div>
               </div>
               <div className="overlay-container">
                 <div className="overlay">
@@ -177,6 +166,9 @@ export default class LoginModal extends Component {
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="LoginModalCloseBtn">
+              <i className="fas fa-times" onClick={close} />
             </div>
           </div>
         ) : null}

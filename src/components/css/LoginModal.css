@@ -71,7 +71,7 @@
   border-color: #ffffff;
 }
 
-.ModalWholeContainer form {
+.ModalWholeContainer .form {
   background-color: #ffffff;
   display: flex;
   align-items: center;
@@ -237,4 +237,12 @@
   margin: 0 5px;
   height: 40px;
   width: 40px;
+}
+
+.LoginModalCloseBtn > i {
+  font-size: 2rem;
+  color: var(--main-color-gray);
+  padding-top: 1.5rem;
+  text-shadow: -1px 0 var(--main-color-yellow), 0 1px var(--main-color-yellow),
+    1px 0 var(--main-color-yellow), 0 -1px var(--main-color-yellow);
 }

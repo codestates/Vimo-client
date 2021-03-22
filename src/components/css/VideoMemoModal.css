@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .videoMemoModalWholeContainer {
@@ -54,10 +54,12 @@
 }
 
 .videoMemoModalMemoTime {
+  display: flex;
+  align-items: center;
   font-size: 2rem;
   padding: 0.5rem;
-  border: 0.1rem solid var(--main-color-yellow);
-  border-radius: 1.5rem;
+  /* border: 0.1rem solid var(--main-color-yellow);
+  border-radius: 1.5rem; */
   color: var(--main-color-black);
   text-shadow: -1px 0 var(--main-color-yellow), 0 1px var(--main-color-yellow),
     1px 0 var(--main-color-yellow), 0 -1px var(--main-color-yellow);
@@ -77,6 +79,10 @@
   font-size: 2rem;
   width: 90%;
   padding: 1rem;
+  border-radius: 1rem;
+  background-color: var(--main-color-white);
+  box-shadow: 4px 4px 8px rgb(85, 85, 85), 0 0 8px var(--main-color-mustard),
+    0 0 14px var(--main-color-dark-yellow);
 }
 
 .videoMemoModalVideoPart {
@@ -94,9 +100,45 @@
   border-radius: 2rem;
   color: var(--main-color-yellow);
   margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .videoMemoModalVideoBtn:hover {
   background-color: var(--main-color-yellow);
   color: var(--main-color-gray);
+}
+
+.videoMemoModalCloseBtn > i {
+  font-size: 2rem;
+  color: var(--main-color-gray);
+  padding-top: 1.5rem;
+  text-shadow: -1px 0 var(--main-color-yellow), 0 1px var(--main-color-yellow),
+    1px 0 var(--main-color-yellow), 0 -1px var(--main-color-yellow);
+}
+
+.timer {
+  width: 5rem;
+  height: 3.5rem;
+  font-size: 3rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  margin: 0.5rem;
+  border: 0.1rem solid var(--main-color-yellow);
+  background-color: var(--main-color-white);
+  color: var(--main-color-black);
+}
+
+.timer::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.timer::-webkit-outer-spin-button {
+  -webkit-appearance: block;
+  margin: 0;
+}
+
+.videoMemoModalMemoTime > span {
+  font-size: 3.5rem;
+  margin-top: 0.4rem;
 }

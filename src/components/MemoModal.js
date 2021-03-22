@@ -32,11 +32,10 @@ export default class LoginModal extends Component {
               <div className="MemoModalVideoPart">
                 <div className="MemoModalVideoBanner">Video</div>
                 <div className="MemoModalVideoThumbnail" />
-                <div>
-                  <p>Video Title</p>
-                  <p>Director</p>
-                  <p>1900</p>
-                  <p>actor</p>
+                <div className="MemoModalTagContainer">
+                  <span>VideoTitle</span>
+                  <span>Director</span>
+                  <span>1900</span>
                 </div>
                 <button
                   className="MemoModalVideoBtn"
@@ -46,7 +45,9 @@ export default class LoginModal extends Component {
                 </button>
               </div>
             </div>
-            <i className="fas fa-times-circle"></i>
+            <div className="memoModalCloseBtn">
+              <i className="fas fa-times" onClick={close}></i>
+            </div>
           </div>
         ) : null}
       </>
