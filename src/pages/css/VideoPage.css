@@ -1,139 +1,122 @@
+:root {
+  --main-color-white: #e1e1e0;
+  --main-color-yellow: #e0ad24;
+  --main-color-mustard: #8c7337;
+  --main-color-dark-yellow: #51431f;
+  --main-color-light-gray: #a2a3a4;
+  --main-color-gray: #747576;
+  --main-color-dark-gray: #333436;
+  --main-color-black: #1e2021;
+}
+
 * {
-  box-sizing: border-box;
-  font-weight: bold;
-}
-div {
   /* border: 1px solid black; */
+  padding: 0rem;
+  margin: 0rem;
 }
 
-.Nav {
-  border: 1px solid tomato;
+.VideomainContainer {
   display: flex;
-  background-color: #917e40;
+  flex-direction: column;
 }
 
-.modal {
-  display: none;
+.VideoNavBar {
   position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
+  background-color: var(--main-color-black);
   width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
+  height: 4rem;
   display: flex;
-  flex-direction: column;
-  background-color: #fefefe;
-  margin: 5% auto;
-  padding: 1rem;
-  border: 1px solid #888;
-  width: 50%;
-  opacity: 0.5;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 0rem;
 }
 
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  text-align: right;
+.videoNavLogo {
+  width: 12rem;
+  background-image: url("https://i.imgur.com/aS8kJC1.png");
+  background-size: cover;
+  margin: 0.1rem;
 }
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
+
+.videoNavLogo:hover,
+.videoNavLogo:focus {
   cursor: pointer;
 }
 
-#timeBox {
-  flex: 1 0 auto;
-  height: 10rem;
-}
-
-#textMemoBox {
-  flex: 1 0 auto;
-  height: 10rem;
+.videoNavUserContainer {
   display: flex;
+  padding: 0.2rem;
 }
 
-#textBox {
-  flex: 3 1 auto;
-  font-size: 3rem;
-  background-color: gray;
+.videoNavProfilePic {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 2rem;
+  /* background-image: url("https://i.imgur.com/FP3hraO.png");
+  background-size: cover;
+  background-position: center; */
+  border: 0.1rem solid var(--main-color-yellow);
 }
 
-.myImg {
-  flex: none;
-  color: snow;
-  margin-left: auto;
-  padding: 20px 30px;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 1.5rem;
-}
-
-.myImg:hover {
-  background-color: #3d3434;
-}
-
-.myImg:active {
-  position: relative;
-  transform: translateY(4px);
-}
-
-.home {
-  flex: none;
-  color: snow;
-  padding: 1rem 0.5rem;
-  background-color: rgba(114, 100, 100, 0.4);
+.videoNavProfilePic:hover,
+.videoNavProfilePic:focus {
   cursor: pointer;
-  outline: none;
-  border: none;
-  box-shadow: 0 9px rgb(49, 44, 44);
 }
 
-.home:hover {
-  background-color: #242020;
-}
-
-.home:active {
-  position: relative;
-  transform: translateY(4px);
-}
-
-.logo {
-  flex: none;
-  padding: 20px 30px;
-  background-color: tomato;
-}
-
-#videoPlayer {
+.videoNavUsernameBox {
+  margin: 0.2rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#descriptionBox {
-  flex: 1 0 auto;
+.videoNavUsername {
+  margin: 0.5rem;
+  color: var(--main-color-light-gray);
+  font-size: 1.125rem;
+}
+
+#videoVideoPlayerContainer {
+  display: flex;
+  border-bottom: 0.2rem solid var(--main-color-mustard);
+  margin-top: 4rem;
+  background-position: center;
+}
+
+#videoDescriptionContainer {
   display: flex;
   flex-direction: column;
+  background-color: var(--main-color-dark-gray);
+  padding: 2rem;
+  border-bottom: 0.2rem solid var(--main-color-mustard);
 }
 
-#videoInfo {
+#videoDescription {
   flex: 10 0 auto;
+  color: var(--main-color-black);
+  font-size: 2.3rem;
+  margin: 1rem;
+  text-shadow: -1px 0 var(--main-color-yellow), 0 1px var(--main-color-yellow),
+    1px 0 var(--main-color-yellow), 0 -1px var(--main-color-yellow);
 }
 
-#memoBtn {
+#videoMemoBtn {
   flex: 1 0 auto;
+  font-size: 2rem;
+  border-radius: 2rem;
+  border: 0.1rem solid var(--main-color-yellow);
+  background-color: var(--main-color-gray);
+  color: var(--main-color-yellow);
 }
 
-#memoBtn:hover {
-  background-color: #96a86b;
+#videoMemoBtn:hover {
+  color: var(--main-color-gray);
+  background-color: var(--main-color-yellow);
 }
 
-.memoBtn:active {
-  position: relative;
-  transform: translateY(4px);
+.videoMemoBtn:focus {
+  outline: none;
 }
+
