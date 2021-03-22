@@ -18,36 +18,47 @@ class VideoPage extends React.Component {
   };
 
   handelMemoBtnClick = () => {
-    document.getElementById('myModal').style.display = "block";
-  }
+    document.getElementById("myModal").style.display = "block";
+  };
 
   handelQuitBtnClick = () => {
-    document.getElementById('myModal').style.display = "none";
-  }
+    document.getElementById("myModal").style.display = "none";
+  };
 
   render() {
     return (
       <div>
         <nav className="Nav">
-          <div className="home" onClick={() => this.handleHomeClick()}>Home</div>
+          <div className="home" onClick={() => this.handleHomeClick()}>
+            Home
+          </div>
           <span className="logo">VIMO</span>
-          <div className="myImg" onClick={() => this.handleMyPageClick()}>img</div>
+          <div className="myImg" onClick={() => this.handleMyPageClick()}>
+            img
+          </div>
         </nav>
         <div id="videoPlayer">
           <video
-          src="" width="1280px" height="720px" poster="" 
-          controls
-          autoplay
-          loop
+            src=""
+            width="1280px"
+            height="720px"
+            poster=""
+            controls
+            autoplay
+            loop
           ></video>
           <div id="descriptionBox">
             <div id="videoInfo">description</div>
-            <button id="memoBtn" onClick={this.handelMemoBtnClick}>memo</button>
+            <button id="memoBtn" onClick={this.handelMemoBtnClick}>
+              memo
+            </button>
           </div>
         </div>
         <div id="myModal" class="modal">
           <div class="modal-content">
-            <div class="close" onClick={this.handelQuitBtnClick}>&times;</div>                                                            
+            <div class="close" onClick={this.handelQuitBtnClick}>
+              &times;
+            </div>
             <div id="timeBox">Time</div>
             <div id="textMemoBox">
               <input id="textBox" type="text"></input>

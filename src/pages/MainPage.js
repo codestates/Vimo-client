@@ -16,9 +16,12 @@ class MainPage extends React.Component {
       isLoginModalOn: false,
       isMemoModalOn: false,
       bgNum: 1,
+      isSearching: false,
+      queryString: "",
     };
     this.handleVideoClick = this.handleVideoClick.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.handleSearchBox = this.handleSearchBox.bind(this);
   }
   openModal = () => {
     this.setState({ isLoginModalOn: true });
@@ -35,6 +38,7 @@ class MainPage extends React.Component {
   handleVideoClick = () => {
     this.props.history.push("/video");
   };
+
   handleLoginChange = () => {
     axios
       .get("https://server.vimo.link/link/mainpage", {
@@ -47,6 +51,20 @@ class MainPage extends React.Component {
       })
       .catch((err) => console.log(err));
   };
+
+  handleSearchBox = (event) => {
+    this.setState({ queryString: event.target.value });
+    this.setState({ isSearching: true });
+    axios
+      .get(
+        `https://server.vimo.link/link/searchvideos?keyword={${this.state.queryString}}`
+      )
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
   componentDidMount() {
     axios.get("https://server.vimo.link/link/mainpage").then((res) => {
       console.log(res.data);
@@ -54,6 +72,26 @@ class MainPage extends React.Component {
   }
 
   render() {
+    const videoListArr =
+      this.state.isSearching && this.state.isLogin
+        ? [
+            `검색결과: ${this.state.queryString}`,
+            "감상중인 콘텐츠",
+            "메모가 가장 많은 콘텐츠",
+            "새로운 콘텐츠",
+          ]
+        : !this.state.isSearching && this.state.isLogin
+        ? ["감상중인 콘텐츠", "메모가 가장 많은 콘텐츠", "새로운 콘텐츠"]
+        : this.state.isSearching && !this.state.isLogin
+        ? [
+            `검색결과: ${this.state.queryString}`,
+            "메모가 가장 많은 콘텐츠",
+            "새로운 콘텐츠",
+          ]
+        : ["메모가 가장 많은 콘텐츠", "새로운 콘텐츠"];
+    const memoListArr = this.state.isLogin
+      ? ["내가 감상한 콘텐츠의 메모", "인기 콘텐츠의 메모", "새로운 메모"]
+      : ["베스트 유저의 메모", "인기 콘텐츠의 메모", "새로운 메모"];
     return (
       <>
         <LoginModal
@@ -74,6 +112,8 @@ class MainPage extends React.Component {
                 className="searchBoxInput"
                 type="text"
                 placeholder="검색어를 입력하세요"
+                value={this.state.queryString}
+                onChange={this.handleSearchBox}
               />
             </div>
             <div className="mainNavUserContainer" onClick={this.openModal}>
@@ -127,32 +167,17 @@ class MainPage extends React.Component {
             </div>
           </div>
           <div className="mainVideoContainer">
-            <VideoList
-              title={"감상중인 콘텐츠"}
-              handleVideoClick={this.handleVideoClick}
-            />
-            <VideoList
-              title={"메모가 가장 많은 콘텐츠"}
-              handleVideoClick={this.handleVideoClick}
-            />
-            <VideoList
-              title={"새로운 콘텐츠"}
-              handleVideoClick={this.handleVideoClick}
-            />
+            {videoListArr.map((category) => (
+              <VideoList
+                title={category}
+                handleVideoClick={this.handleVideoClick}
+              />
+            ))}
           </div>
           <div className="mainMemoContainer">
-            <MemoList
-              title={"새로운 메모"}
-              openMemoModal={this.openMemoModal}
-            />
-            <MemoList
-              title={"감상한 콘텐츠의 메모"}
-              openMemoModal={this.openMemoModal}
-            />
-            <MemoList
-              title={"인기 콘텐츠의 메모"}
-              openMemoModal={this.openMemoModal}
-            />
+            {memoListArr.map((category) => (
+              <MemoList title={category} openMemoModal={this.openMemoModal} />
+            ))}
           </div>
           <footer className="mainFooter">
             <div className="mainFooterCodeStatesLogo"></div>
