@@ -71,7 +71,7 @@
   border-color: #ffffff;
 }
 
-.ModalWholeContainer form {
+.ModalWholeContainer .form {
   background-color: #ffffff;
   display: flex;
   align-items: center;

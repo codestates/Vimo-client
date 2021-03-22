@@ -12,12 +12,13 @@ class MainPage extends React.Component {
     super(props);
     this.state = {
       username: "Anonymous",
-      isLogin: false,
+      // isLogin: false,
       isLoginModalOn: false,
       isMemoModalOn: false,
       bgNum: 1,
       isSearching: false,
       queryString: "",
+      data: {},
     };
     this.handleVideoClick = this.handleVideoClick.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -45,11 +46,9 @@ class MainPage extends React.Component {
         withCredentials: true,
       })
       .then((res) => {
-        this.setState({ isLogin: true });
-        this.setState({ username: res.data.data });
-        console.log(res.data);
+        this.props.handleLogin();
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log("바보"));
   };
 
   handleSearchBox = (event) => {
@@ -66,8 +65,10 @@ class MainPage extends React.Component {
   };
 
   componentDidMount() {
+    this.props.handleLogin();
     axios.get("https://server.vimo.link/link/mainpage").then((res) => {
-      console.log(res.data);
+      this.setState({ data: res.data.data });
+      console.log(this.state.data);
     });
   }
 
@@ -98,6 +99,7 @@ class MainPage extends React.Component {
           isLoginModalOn={this.state.isLoginModalOn}
           close={this.closeModal}
           handleLoginChange={this.handleLoginChange}
+          handleLogin={this.props.handleLogin}
         />
         <MemoModal
           isMemoModalOn={this.state.isMemoModalOn}
@@ -171,6 +173,7 @@ class MainPage extends React.Component {
               <VideoList
                 title={category}
                 handleVideoClick={this.handleVideoClick}
+                data={this.state.data}
               />
             ))}
           </div>
