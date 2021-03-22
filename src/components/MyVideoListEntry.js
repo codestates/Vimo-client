@@ -1,7 +1,7 @@
 import React from "react";
 
-class MyVideoListEntry extends React.Component{
-    constructor(props){
+class MyVideoListEntry extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
         }
@@ -11,14 +11,13 @@ class MyVideoListEntry extends React.Component{
     }
 
     render() {
-        return(
-            <div className="videoContainer">
-                <div className="video" onClick={()=>this.handleVideoMemo()}></div>
-                <div className="video" onClick={this.handleVideoMemo}></div>
-                <div className="video" onClick={this.handleVideoMemo}></div>
-                <div className="video" onClick={this.handleVideoMemo}></div>
+        return (
+            <div className="MyPageVideoContainer">
+                <div className="MyPageVideo" onClick={() => this.handleVideoMemo()}></div>
+                <div className="MyPageVideo" onClick={this.handleVideoMemo}></div>
+                <div className="MyPageVideo" onClick={this.handleVideoMemo}></div>
+                <div className="MyPageVideo" onClick={this.handleVideoMemo}></div>
             </div>
-            
         )
     }
 }

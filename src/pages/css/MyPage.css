@@ -1,68 +1,135 @@
+:root {
+  --main-color-white: #e1e1e0;
+  --main-color-yellow: #e0ad24;
+  --main-color-mustard: #8c7337;
+  --main-color-dark-yellow: #51431f;
+  --main-color-light-gray: #a2a3a4;
+  --main-color-gray: #747576;
+  --main-color-dark-gray: #333436;
+  --main-color-black: #1e2021;
+}
+
 * {
-  box-sizing: border-box;
-  font-weight: bold;
-}
-div {
   /* border: 1px solid black; */
+  padding: 0rem;
+  margin: 0rem;
 }
 
-.Nav {
-  border: 1px solid tomato;
-  display: flex;
-  background-color: #917e40;
-}
-
-#extend {
-  height: 3rem;
-  margin: auto;
-}
-
-.logout {
-  flex: none;
-  margin-left: auto;
-  padding: 20px 30px;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.logout:hover {
-  background-color: #917171;
-}
-
-.logout:active {
-  position: relative;
-  transform: translateY(4px);
-}
-
-#userInfoBox {
-  display: flex;
-  height: 20rem;
-  width: 100rem;
-}
-
-#imgBox {
-  flex: 1 0 auto;
-}
-
-#userInfo {
-  flex: 3 0 auto;
+.MyPagemainContainer {
   display: flex;
   flex-direction: column;
 }
 
-#nameBox {
+.MyPageNavBar {
+  position: fixed;
+  background-color: var(--main-color-black);
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 0rem;
+}
+
+.MyPageNavLogo {
+  width: 12rem;
+  background-image: url("https://i.imgur.com/aS8kJC1.png");
+  background-size: cover;
+  margin: 0.1rem;
+}
+
+.MyPageNavLogo:hover,
+.MyPageNavLogo:focus {
+  cursor: pointer;
+}
+
+.MyPageNavUserContainer {
+  display: flex;
+  padding: 0.2rem;
+}
+
+.MyPageNavLogoutContainer {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 2rem;
+  border: 0.1rem solid var(--main-color-yellow);
+  color: var(--main-color-white);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.MyPageNavLogout {
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+  width: 100%;
+}
+
+.MyPageUserInfoContainer {
+  display: flex;
+  margin-top: 4rem;
+  background-color: var(--main-color-dark-gray)
+}
+
+.MyPageProfilePic {
+  flex: 1 0 auto;
+  border-radius: 30rem;
+  border: 0.1rem solid var(--main-color-yellow);
+  height: 20rem;
+  margin-right: 3rem;
+  margin-left: 1rem;
+}
+
+#MyPageUserInfoBox {
+  flex: 30 0 auto;
+  display: flex;
+  flex-direction: column;
+  color: var(--main-color-white);
+}
+
+#MyPageUsernameBox {
   flex: 2 0 auto;
   display: flex;
   align-items: baseline;
   align-content: center;
 }
 
-#emailBox {
+#MyPageUsername {
+  font-size: 4rem;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#MyPageUserEditBtn {
+  font-size: 2rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 1rem;
+  cursor: pointer;
+  border-radius: 2rem;
+  border: 0.1rem solid var(--main-color-yellow);
+  background-color: var(--main-color-gray);
+  color: var(--main-color-yellow);
+}
+
+#MyPageUserEditBtn:hover {
+  background-color: var(--main-color-yellow);
+  color: var(--main-color-gray);
+}
+
+#MyPageUseremailBox {
   flex: 1 0 auto;
   font-size: 2rem;
 }
 
-#countBox {
+#MyPageUseremail {
+
+}
+
+#MyPageUsercountBox {
   flex: 4 0 auto;
   display: flex;
   justify-content: space-between;
@@ -70,31 +137,86 @@ div {
   text-align: center;
 }
 
-.count {
+.MyPageUsercount {
   flex: 1 0 auto;
   font-size: 1.5rem;
   margin-top: auto;
   margin-bottom: auto;
 }
 
-#username {
-  font-size: 4rem;
-  margin-top: auto;
-  margin-bottom: auto;
+.MyPageVideoContainer {
+  background-color: var(--main-color-dark-gray);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2rem;
+  border-bottom: 0.2rem solid var(--main-color-mustard);
+  overflow: auto;
 }
 
-#editBtn {
-  font-size: 2rem;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: 1rem;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.4);
+.MyPageVideoContainer::-webkit-scrollbar {
+  height: 10px;
+  transition: 0.2s;
 }
 
-#editBtn:hover {
-  background-color: #917171;
+.MyPageVideoContainer:hover::-webkit-scrollbar {
+  height: 10px;
+  transition: 0.2s;
 }
+
+.MyPageVideoContainer::-webkit-scrollbar-thumb {
+  background-color: var(--main-color-dark-gray);
+  border-radius: 5px;
+  transition: background-color 0.5s;
+}
+
+.MyPageVideoContainer:hover::-webkit-scrollbar-thumb {
+  background-color: var(--main-color-gray);
+  border: 0.1rem solid var(--main-color-yellow);
+  border-radius: 5px;
+}
+
+.MyPageVideoContainer::-webkit-scrollbar-track {
+  background-color: none;
+}
+
+.MyPageVideo {
+  height: 14rem;
+  width: 11rem;
+  background-image: url("https://i.imgur.com/GWWl6sO.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.MyPageVideo:hover {
+  box-shadow: 4px 4px 8px black, 0 0 8px var(--main-color-mustard),
+    0 0 14px var(--main-color-dark-yellow);
+}
+
+#MyPageVideoMemoExtendContainer {
+  display: flex;
+  justify-content: center;
+}
+
+#MyPageVideoMemoExtend {
+  background-color: var(--main-color-gray);
+  border: 0.1rem solid var(--main-color-yellow);
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 2rem;
+  color: var(--main-color-yellow);
+  margin-top: 2rem;
+}
+
+#MyPageVideoMemoExtend:hover {
+  background-color: var(--main-color-yellow);
+  color: var(--main-color-gray);
+}
+
+
+
+
+
 
 #myContents {
   display: flex;
@@ -102,50 +224,8 @@ div {
   padding-top: 4rem;
 }
 
-.videoContainer {
-  display: flex;
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
-.video {
-  flex: 1 0 auto;
-  height: 15rem;
-  width: 10rem;
-  margin: 1rem;
-}
-
-.video:hover {
-  background-color: tomato;
-}
-
 #btnContainer {
   display: flex;
-}
-
-.myhome {
-  flex: none;
-  color: snow;
-  padding: 1rem 0.5rem;
-  background-color: rgba(114, 100, 100, 0.4);
-  cursor: pointer;
-  outline: none;
-  border: none;
-}
-
-.myhome:hover {
-  background-color: #917171;
-}
-
-.myhome:active {
-  position: relative;
-  transform: translateY(4px);
-}
-
-.logo {
-  flex: none;
-  padding: 20px 30px;
-  background-color: tomato;
 }
 
 .modal {
