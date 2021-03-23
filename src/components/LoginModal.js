@@ -16,8 +16,11 @@ export default class LoginModal extends Component {
   }
 
   handleLoginBtn = () => {
+    let loginModalLoginAlertBanner = document.querySelector(
+      ".loginModalLoginAlertBanner"
+    );
     if (this.state.email === "" || this.state.password === "") {
-      alert("이메일과 비밀번호를 입력해주세요!");
+      loginModalLoginAlertBanner.classList.add("active");
     } else {
       axios
         .post(
@@ -114,11 +117,7 @@ export default class LoginModal extends Component {
                     <a className="social">
                       <i className="fab fa-google-plus-g"></i>
                     </a>
-                    <a className="social">
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
                   </div>
-                  <span>or use your account</span>
                   <input
                     type="email"
                     placeholder="Email"
@@ -129,7 +128,9 @@ export default class LoginModal extends Component {
                     placeholder="Password"
                     onChange={this.handleInputValue("password")}
                   />
-                  <a>비밀번호를 잊으셨나요?</a>
+                  <div className="loginModalLoginAlertBanner active">
+                    이메일과 비밀번호를 입력해주세요
+                  </div>
                   <button onClick={() => this.handleLoginBtn()}>Sign In</button>
                 </div>
               </div>

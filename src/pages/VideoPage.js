@@ -2,15 +2,13 @@ import React from "react";
 import { withRouter } from "react-router";
 import "./css/VideoPage.css";
 import VideoMemoModal from "../components/VideoMemoModal";
-// import { Player } from "video-react";
-// import "~video-react/dist/video-react.css";
 
 class VideoPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: "annoymous",
-      discription: "영화 줄거리, 내용, 랜더링됩니다",
+      discription: "하하하",
       display: false,
     };
     this.handelQuitBtnClick = this.handelQuitBtnClick.bind(this);
@@ -24,6 +22,8 @@ class VideoPage extends React.Component {
   };
 
   handelMemoBtnClick = () => {
+    let videoPageVideo = document.querySelector(".videoPageVideo");
+    videoPageVideo.pause();
     this.setState({
       display: true,
     });
@@ -33,6 +33,14 @@ class VideoPage extends React.Component {
     this.setState({
       display: false,
     });
+    let videoPageVideo = document.querySelector(".videoPageVideo");
+    videoPageVideo.play();
+  };
+
+  handleSaveBtnClick = () => {
+    this.setState({ display: false });
+    let videoPageVideo = document.querySelector(".videoPageVideo");
+    videoPageVideo.play();
   };
 
   render() {
@@ -61,13 +69,18 @@ class VideoPage extends React.Component {
           </div>
         </nav>
         <div id="videoVideoPlayerContainer">
-          <video src="./videos/video1.mp4" type="video/mp4"></video>
-          <div id="videoDescriptionContainer">
-            <div id="videoDescription">{this.state.discription}</div>
-            <button id="videoMemoBtn" onClick={this.handelMemoBtnClick}>
-              memo
-            </button>
+          <div className="videoIconContainer" onClick={this.handelMemoBtnClick}>
+            <div id="videoMemoBtn">Memo</div>
           </div>
+          <video
+            className="videoPageVideo"
+            src={this.props.videoUrl}
+            type="video/mp4"
+            controls
+            autoPlay
+            width="1080"
+            height="720"
+          ></video>
         </div>
       </div>
     );

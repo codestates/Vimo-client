@@ -8,13 +8,15 @@ class VideoList extends React.Component {
     this.state = {};
   }
   render() {
-    let category = "";
+    let category;
     if (this.props.title === "메모가 가장 많은 콘텐츠") {
       category = "popularVideos";
     } else if (this.props.title === "새로운 콘텐츠") {
       category = "newVideos";
+    } else if (this.props.title === "감상중인 콘텐츠") {
+      category = "myVideos";
     }
-    return (
+    return category ? (
       <div className="VideoListContainer">
         <div className="VideoListTitle">{this.props.title}</div>
         <div className="mainVideoListEntryContainer">
@@ -24,9 +26,25 @@ class VideoList extends React.Component {
                   handleVideoClick={this.props.handleVideoClick}
                   title={item.title}
                   thumbnail={item.thumbnail}
+                  url={item.url}
+                  changeVideoUrl={this.props.changeVideoUrl}
                 ></VideoListEntry>
               ))
             : null}
+        </div>
+      </div>
+    ) : (
+      <div className="VideoListContainer">
+        <div className="VideoListTitle">{this.props.title}</div>
+        <div className="mainVideoListEntryContainer">
+          {this.props.searchData.map((item) => (
+            <VideoListEntry
+              handleVideoClick={this.props.handleVideoClick}
+              title={item.title}
+              thumbnail={item.thumbnail}
+              changeVideoUrl={this.props.changeVideoUrl}
+            ></VideoListEntry>
+          ))}
         </div>
       </div>
     );
