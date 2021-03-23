@@ -47,6 +47,7 @@ class MainPage extends React.Component {
       })
       .then((res) => {
         this.props.handleLogin();
+        console.log(res.data);
       })
       .catch((err) => console.log("바보"));
   };
