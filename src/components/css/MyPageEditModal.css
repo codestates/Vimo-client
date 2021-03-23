@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+}
+
+#EditModalWholeContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+  z-index: 1;
+}
+
+.EditModalContainer {
+  background: var(--main-color-mustard);
+  background: -webkit-linear-gradient(
+    to right,
+    var(--main-color-mustard),
+    var(--main-color-gray)
+  );
+  background: linear-gradient(
+    to right,
+    var(--main-color-mustard),
+    var(--main-color-gray)
+  );
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+}
+
+.EditModalUserProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#EditModalUserProfilePic {
+  width: 6rem;
+  height: 6rem;
+  background-image: url("https://i.imgur.com/FP3hraO.png");
+  background-position: center;
+  background-size: cover;
+  border: 0.1rem solid var(--main-color-yellow);
+  border-radius: 3rem;
+  margin: 1rem;
+}
+
+.EditModalContentPart {
+  padding: 3rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--main-color-light-gray);
+  border-radius: 0.75rem;
+  box-shadow: 4px 4px 8px rgb(85, 85, 85), 0 0 8px var(--main-color-mustard),
+    0 0 14px var(--main-color-dark-yellow);
+}
+
+.EditModalContentPart > span {
+  font-size: 1.5rem;
+  display: flex;
+}
+
+.EditModalContent {
+  margin-left: auto;
+  width: 100%;
+  font-size: 1rem;
+}
+
+#EditModalComfirmBtnContainer {
+  margin-top: 1rem;
+  display: flex;
+}
+
+#EditModalComfirmBtn {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--main-color-gray);
+  border: 0.1rem solid var(--main-color-yellow);
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 2rem;
+  color: var(--main-color-yellow);
+  margin-top: 2rem;
+}
+
+.EditModalComfirmBtn:hover {
+  background-color: var(--main-color-yellow);
+  color: var(--main-color-gray);
+}
+
+.EditModalComfirmBtn > i {
+  font-size: 2rem;
+  color: var(--main-color-gray);
+  padding-top: 1.5rem;
+  text-shadow: -1px 0 var(--main-color-yellow), 0 1px var(--main-color-yellow),
+    1px 0 var(--main-color-yellow), 0 -1px var(--main-color-yellow);
+}
+
+#confirmBtnBox {
+  font-size: 1rem;
+  display: flex;
+  height: 3rem;
+  width: 4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#confirm {
+  width: 100%;
+}
+
+#alert {
+  font-size: 2rem;
+  text-align: center;
+  color: red;
+}
