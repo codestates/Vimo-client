@@ -12,7 +12,10 @@ class VideoListEntry extends React.Component {
         <img
           src={this.props.thumbnail}
           className="VideoListEntryThumbnail"
-          onClick={() => this.props.handleVideoClick()}
+          onClick={() => {
+            this.props.changeVideoUrl(this.props.url);
+            this.props.handleVideoClick();
+          }}
           alt={this.props.title}
         />
         <div className="VideoListEntryTitle">{this.props.title}</div>

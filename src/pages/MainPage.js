@@ -19,6 +19,7 @@ class MainPage extends React.Component {
       isSearching: false,
       queryString: "",
       data: {},
+      searchData: [],
     };
     this.handleVideoClick = this.handleVideoClick.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -36,6 +37,7 @@ class MainPage extends React.Component {
   closeMemoModal = () => {
     this.setState({ isMemoModalOn: false });
   };
+
   handleVideoClick = () => {
     this.props.history.push("/video");
   };
@@ -47,6 +49,7 @@ class MainPage extends React.Component {
       })
       .then((res) => {
         this.props.handleLogin();
+        console.log(res.data);
       })
       .catch((err) => console.log("바보"));
   };
@@ -60,6 +63,7 @@ class MainPage extends React.Component {
       )
       .then((res) => {
         console.log(res.data);
+        this.setState({ searchData: res.data.videos });
       })
       .catch((err) => console.log(err));
   };
@@ -105,6 +109,9 @@ class MainPage extends React.Component {
           isMemoModalOn={this.state.isMemoModalOn}
           close={this.closeMemoModal}
           handleVideoClick={this.handleVideoClick}
+          memoProfilePic={this.props.memoProfilePic}
+          memoUsername={this.props.memoUsername}
+          memoContent={this.props.memoContent}
         />
         <div className="mainContainer">
           <nav className="mainNavBar">
@@ -174,12 +181,20 @@ class MainPage extends React.Component {
                 title={category}
                 handleVideoClick={this.handleVideoClick}
                 data={this.state.data}
+                searchData={this.state.searchData}
+                key={category}
+                changeVideoUrl={this.props.changeVideoUrl}
               />
             ))}
           </div>
           <div className="mainMemoContainer">
             {memoListArr.map((category) => (
-              <MemoList title={category} openMemoModal={this.openMemoModal} />
+              <MemoList
+                title={category}
+                openMemoModal={this.openMemoModal}
+                data={this.state.data}
+                key={category}
+              />
             ))}
           </div>
           <footer className="mainFooter">

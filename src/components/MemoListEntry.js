@@ -7,11 +7,17 @@ class MemoListEntry extends React.Component {
     this.state = {};
   }
   render() {
-    const { openMemoModal } = this.props;
+    const { openMemoModal, content, thumbnail } = this.props;
     return (
-      <div className="videoListEntryThumbnail" onClick={() => openMemoModal()}>
-        <div className="videoListEntryMemo">비디오에 대한 메모입니다</div>
-      </div>
+      <>
+        <img
+          className="videoListEntryThumbnail"
+          alt="MemoThumbnail"
+          onClick={() => openMemoModal()}
+          src={thumbnail}
+        />
+        <div className="videoListEntryMemo">{content}</div>
+      </>
     );
   }
 }

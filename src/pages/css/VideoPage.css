@@ -83,6 +83,9 @@
   border-bottom: 0.2rem solid var(--main-color-mustard);
   margin-top: 4rem;
   background-position: center;
+  background-color: var(--main-color-dark-gray);
+  justify-content: center;
+  align-items: flex-end;
 }
 
 #videoDescriptionContainer {
@@ -104,19 +107,16 @@
 
 #videoMemoBtn {
   flex: 1 0 auto;
-  font-size: 2rem;
+  font-size: 1.5rem;
   border-radius: 2rem;
   border: 0.1rem solid var(--main-color-yellow);
   background-color: var(--main-color-gray);
   color: var(--main-color-yellow);
+  padding: 0.5rem;
+  margin: 1rem;
 }
 
 #videoMemoBtn:hover {
   color: var(--main-color-gray);
   background-color: var(--main-color-yellow);
 }
-
-.videoMemoBtn:focus {
-  outline: none;
-}
-

@@ -45,6 +45,20 @@
   margin: 15px 0;
 }
 
+.ModalWholeContainer .loginModalLoginAlertBanner {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+}
+
+.active {
+  color: red;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+}
+
 .ModalWholeContainer button {
   border-radius: 20px;
   border: 1px solid var(--main-color-yellow);
