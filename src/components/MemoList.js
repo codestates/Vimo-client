@@ -7,7 +7,9 @@ class MemoList extends React.Component {
     super(props);
     this.state = {};
   }
+
   render() {
+    const { openMemoModal, title } = this.props;
     let category;
     if (this.props.title === "베스트 유저의 메모") {
       category = "collectionMemos";
@@ -18,7 +20,7 @@ class MemoList extends React.Component {
     } else if (this.props.title === "새로운 메모") {
       category = "newMemos";
     }
-    const { openMemoModal, title } = this.props;
+    const categoryVideo = category.concat("Vidoes");
     return (
       <div className="MemoListContainer">
         <div className="MemoListTitle">{title}</div>
@@ -29,6 +31,10 @@ class MemoList extends React.Component {
                   openMemoModal={openMemoModal}
                   content={item.content}
                   thumbnail={item.thumbnail}
+                  changeMemoInfo={this.props.changeMemoInfo}
+                  videoId={item.videoId}
+                  videoData={this.props.data[categoryVideo]}
+                  changeVideoInfo={this.props.changeVideoInfo}
                 ></MemoListEntry>
               ))
             : null}

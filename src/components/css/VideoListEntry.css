@@ -5,9 +5,6 @@
 .VideoListEntryThumbnail {
   height: 14rem;
   width: 11rem;
-  background-image: url("https://i.imgur.com/GWWl6sO.png");
-  background-size: cover;
-  background-position: center;
 }
 
 .VideoListEntryThumbnail:hover {

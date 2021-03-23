@@ -42,17 +42,17 @@ class MainPage extends React.Component {
     this.props.history.push("/video");
   };
 
-  handleLoginChange = () => {
-    axios
-      .get("https://server.vimo.link/link/mainpage", {
-        withCredentials: true,
-      })
-      .then((res) => {
-        this.props.handleLogin();
-        console.log(res.data);
-      })
-      .catch((err) => console.log("바보"));
-  };
+  // handleLoginChange = () => {
+  //   axios
+  //     .get("https://server.vimo.link/link/mainpage", {
+  //       withCredentials: true,
+  //     })
+  //     .then((res) => {
+  //       this.props.handleLogin();
+  //       console.log(res.data);
+  //     })
+  //     .catch((err) => console.log("바보"));
+  // };
 
   handleSearchBox = (event) => {
     this.setState({ queryString: event.target.value });
@@ -68,12 +68,18 @@ class MainPage extends React.Component {
       .catch((err) => console.log(err));
   };
 
-  componentDidMount() {
-    this.props.handleLogin();
-    axios.get("https://server.vimo.link/link/mainpage").then((res) => {
-      this.setState({ data: res.data.data });
-      console.log(this.state.data);
-    });
+  async componentDidMount() {
+    // this.props.handleLogin();
+    await axios
+      .get("https://server.vimo.link/link/mainpage", {
+        "Content-Type": "application/json",
+        withCredentials: true,
+      })
+      .then((res) => {
+        this.setState({ data: res.data.data });
+        console.log(this.state.data);
+      })
+      .catch((err) => console.log(err));
   }
 
   render() {
@@ -112,6 +118,10 @@ class MainPage extends React.Component {
           memoProfilePic={this.props.memoProfilePic}
           memoUsername={this.props.memoUsername}
           memoContent={this.props.memoContent}
+          videoThumbnail={this.props.videoThumbnail}
+          videoTitle={this.props.videoTitle}
+          videoDirector={this.props.videoDirector}
+          videoPubDate={this.props.videoPubDate}
         />
         <div className="mainContainer">
           <nav className="mainNavBar">
@@ -194,6 +204,8 @@ class MainPage extends React.Component {
                 openMemoModal={this.openMemoModal}
                 data={this.state.data}
                 key={category}
+                changeMemoInfo={this.props.changeMemoInfo}
+                changeVideoInfo={this.props.changeVideoInfo}
               />
             ))}
           </div>

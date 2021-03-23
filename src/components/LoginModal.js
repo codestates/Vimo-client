@@ -15,14 +15,14 @@ export default class LoginModal extends Component {
     this.handleInputValue = this.handleInputValue.bind(this);
   }
 
-  handleLoginBtn = () => {
+  handleLoginBtn = async () => {
     let loginModalLoginAlertBanner = document.querySelector(
       ".loginModalLoginAlertBanner"
     );
     if (this.state.email === "" || this.state.password === "") {
       loginModalLoginAlertBanner.classList.add("active");
     } else {
-      axios
+      await axios
         .post(
           "https://server.vimo.link/user/login",
           {
@@ -32,9 +32,10 @@ export default class LoginModal extends Component {
           { "Content-Type": "application/json", withCredentials: true }
         )
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           this.props.close();
-          this.props.handleLoginChange();
+          // this.props.handleLoginChange();
+          window.location.replace("/");
         })
         .catch((err) => console.log(err));
     }

@@ -15,6 +15,10 @@ export default class LoginModal extends Component {
       memoProfilePic,
       memoUsername,
       memoContent,
+      videoThumbnail,
+      videoTitle,
+      videoDirector,
+      videoPubDate,
     } = this.props;
     return (
       <>
@@ -35,11 +39,15 @@ export default class LoginModal extends Component {
               </div>
               <div className="MemoModalVideoPart">
                 <div className="MemoModalVideoBanner">Video</div>
-                <div className="MemoModalVideoThumbnail" />
+                <img
+                  src={videoThumbnail}
+                  alt="Thumbnail"
+                  className="MemoModalVideoThumbnail"
+                />
                 <div className="MemoModalTagContainer">
-                  <span>VideoTitle</span>
-                  <span>Director</span>
-                  <span>1900</span>
+                  <span>{videoTitle}</span>
+                  <span>{videoDirector}</span>
+                  <span>{videoPubDate}</span>
                 </div>
                 <button
                   className="MemoModalVideoBtn"
