@@ -140,53 +140,14 @@
   margin-bottom: auto;
 }
 
-.MyPageVideoContainer {
+#MyPageVideoMemoContainer {
   background-color: var(--main-color-dark-gray);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 2rem;
   border-bottom: 0.2rem solid var(--main-color-mustard);
-  overflow: auto;
-}
-
-.MyPageVideoContainer::-webkit-scrollbar {
-  height: 10px;
-  transition: 0.2s;
-}
-
-.MyPageVideoContainer:hover::-webkit-scrollbar {
-  height: 10px;
-  transition: 0.2s;
-}
-
-.MyPageVideoContainer::-webkit-scrollbar-thumb {
-  background-color: var(--main-color-dark-gray);
-  border-radius: 5px;
-  transition: background-color 0.5s;
-}
-
-.MyPageVideoContainer:hover::-webkit-scrollbar-thumb {
-  background-color: var(--main-color-gray);
-  border: 0.1rem solid var(--main-color-yellow);
-  border-radius: 5px;
-}
-
-.MyPageVideoContainer::-webkit-scrollbar-track {
-  background-color: none;
-}
-
-.MyPageVideo {
-  height: 14rem;
-  width: 11rem;
-  background-image: url("https://i.imgur.com/GWWl6sO.png");
-  background-size: cover;
-  background-position: center;
-}
-
-.MyPageVideo:hover {
-  box-shadow: 4px 4px 8px black, 0 0 8px var(--main-color-mustard),
-    0 0 14px var(--main-color-dark-yellow);
+  overflow-x: auto;
 }
 
 #MyPageVideoMemoExtendContainer {
