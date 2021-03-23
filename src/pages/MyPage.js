@@ -50,66 +50,68 @@ class MyPage extends React.Component {
 
   render() {
     return (
-      <div className="MyPagemainContainer">
-        <nav className="MyPageNavBar">
-          <div
-            className="MyPageNavLogo"
-            alt="logo"
-            onClick={() => this.handleHomeClick()}
-          />
-          <div className="MyPageNavUserContainer">
+      <>
+        <MyPageEditModal display={this.state.displayEdit} handleEditModalOnOff={this.handleEditModalOnOff} />
+        <div className="MyPagemainContainer">
+          <nav className="MyPageNavBar">
             <div
-              className="MyPageNavLogoutContainer"
+              className="MyPageNavLogo"
+              alt="logo"
               onClick={() => this.handleHomeClick()}
-            >
-              <div className="MyPageNavLogout" onClick={this.handleLogoutBtn}>
-                logout
+            />
+            <div className="MyPageNavUserContainer">
+              <div
+                className="MyPageNavLogoutContainer"
+                onClick={() => this.handleHomeClick()}
+              >
+                <div className="MyPageNavLogout" onClick={this.handleLogoutBtn}>
+                  logout
+              </div>
+              </div>
+            </div>
+          </nav>
+          <div className="MyPageUserInfoContainer">
+            <img
+              className="MyPageProfilePic"
+              alt="profilePic"
+              src="https://i.imgur.com/FP3hraO.png"
+            />
+            <div id="MyPageUserInfoBox">
+              <div id="MyPageUsernameBox">
+                <span id="MyPageUsername">{this.state.username}</span>
+                <button id="MyPageUserEditBtn" onClick={this.handleEditModalOnOff}>
+                  edit
+              </button>
+              </div>
+              <div id="MyPageUseremailBox">
+                <span id="MyPageUseremail">{this.state.email}</span>
+              </div>
+              <div id="MyPageUsercountBox">
+                <span className="MyPageUsercount">
+                  영화본횟수: {this.state.movieCount}
+                </span>
+                <span className="MyPageUsercount">
+                  메모횟수: {this.state.memoCount}
+                </span>
+                <span className="MyPageUsercount">
+                  총회원수: {this.state.friendsCount}
+                </span>
               </div>
             </div>
           </div>
-        </nav>
-        <div className="MyPageUserInfoContainer">
-          <img
-            className="MyPageProfilePic"
-            alt="profilePic"
-            src="https://i.imgur.com/FP3hraO.png"
-          />
-          <div id="MyPageUserInfoBox">
-            <div id="MyPageUsernameBox">
-              <span id="MyPageUsername">{this.state.username}</span>
-              <button id="MyPageUserEditBtn" onClick={this.handleEditModalOnOff}>
-                edit
-              </button>
-            </div>
-            <div id="MyPageUseremailBox">
-              <span id="MyPageUseremail">{this.state.email}</span>
-            </div>
-            <div id="MyPageUsercountBox">
-              <span className="MyPageUsercount">
-                영화본횟수: {this.state.movieCount}
-              </span>
-              <span className="MyPageUsercount">
-                메모횟수: {this.state.memoCount}
-              </span>
-              <span className="MyPageUsercount">
-                총회원수: {this.state.friendsCount}
-              </span>
-            </div>
+          <div id="MyPageVideoMemoContainer">
+            <MyVideoListEntry
+              handleVideoMemo={this.handleVideoMemo}
+            ></MyVideoListEntry>
+            <MyVideoListEntry
+              handleVideoMemo={this.handleVideoMemo}
+            ></MyVideoListEntry>
+          </div>
+          <div id="MyPageVideoMemoExtendContainer">
+            <button id="MyPageVideoMemoExtend">extend</button>
           </div>
         </div>
-        <div id="MyPageVideoMemoContainer">
-          <MyVideoListEntry
-            handleVideoMemo={this.handleVideoMemo}
-          ></MyVideoListEntry>
-          <MyVideoListEntry
-            handleVideoMemo={this.handleVideoMemo}
-          ></MyVideoListEntry>
-        </div>
-        <div id="MyPageVideoMemoExtendContainer">
-          <button id="MyPageVideoMemoExtend">extend</button>
-        </div>
-        <MyPageEditModal display={this.state.displayEdit} handleEditModalOnOff={this.handleEditModalOnOff} />
-      </div>
+      </>
     );
   }
 }
