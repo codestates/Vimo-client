@@ -192,6 +192,8 @@
 #MyPageVideoMemoExtendContainer {
   display: flex;
   justify-content: center;
+  background-color: var(--main-color-dark-gray);
+  padding: 1rem;
 }
 
 #MyPageVideoMemoExtend {
@@ -207,24 +209,4 @@
 #MyPageVideoMemoExtend:hover {
   background-color: var(--main-color-yellow);
   color: var(--main-color-gray);
-}
-
-
-
-
-
-
-#myContents {
-  display: flex;
-  flex-direction: column;
-  padding-top: 4rem;
-}
-
-#btnContainer {
-  display: flex;
-}
-
-#memoBox {
-  height: 30rem;
-  width: 30rem;
 }

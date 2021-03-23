@@ -71,15 +71,29 @@
     0 0 14px var(--main-color-dark-yellow);
 }
 
+.EditModalContentBox {
+  display: flex;
+  flex-direction: column;
+  color: var(--main-color-black);
+}
+
+.EditModalContentBox > span {
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: var(--main-color-black);
+}
+
 .EditModalContentPart > span {
   font-size: 1.5rem;
   display: flex;
+  color: var(--main-color-black);
+  text-shadow: -1px 0 var(--main-color-yellow), 0 1px var(--main-color-yellow), 1px 0 var(--main-color-yellow), 0 -1px var(--main-color-yellow);
 }
 
 .EditModalContent {
   margin-left: auto;
   width: 100%;
-  font-size: 1rem;
+  font-size: 2rem;
 }
 
 #EditModalComfirmBtnContainer {
@@ -99,12 +113,14 @@
   margin-top: 2rem;
 }
 
-.EditModalComfirmBtn:hover {
+#EditModalComfirmBtn:hover {
   background-color: var(--main-color-yellow);
   color: var(--main-color-gray);
 }
 
-.EditModalComfirmBtn > i {
+.EditModalCloseBtn {
+  margin-left: auto;
+  margin-right: auto;
   font-size: 2rem;
   color: var(--main-color-gray);
   padding-top: 1.5rem;
@@ -112,21 +128,9 @@
     1px 0 var(--main-color-yellow), 0 -1px var(--main-color-yellow);
 }
 
-#confirmBtnBox {
-  font-size: 1rem;
-  display: flex;
-  height: 3rem;
-  width: 4rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#confirm {
-  width: 100%;
-}
-
 #alert {
+  margin-top: 1rem;
   font-size: 2rem;
   text-align: center;
-  color: red;
+  color: var(--main-color-mustard);
 }
