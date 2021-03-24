@@ -52,14 +52,12 @@ class VideoPage extends React.Component {
     let videoPageVideo = document.querySelector(".videoPageVideo");
     videoPageVideo.pause();
     let currentTime = Math.floor(videoPageVideo.currentTime);
-    currentTime = makeProperTime(currentTime);
-    this.setState({
-      currentTime: currentTime,
-    });
+    let newCurrentTime = makeProperTime(currentTime);
+    console.log(newCurrentTime);
     axios.post("https://server.vimo.link/insert/uservideos", {
       userId: this.props.userId,
       videoId: this.props.videoId,
-      currentTime: this.state.currentTime,
+      currentTime: newCurrentTime,
     }, { withCredentials: true })
       .then((res) => {
         this.props.history.push("/");
@@ -72,23 +70,17 @@ class VideoPage extends React.Component {
     let videoPageVideo = document.querySelector(".videoPageVideo");
     videoPageVideo.pause();
     let currentTime = Math.floor(videoPageVideo.currentTime);
-    currentTime = makeProperTime(currentTime);
-    this.setState({
-      currentTime: currentTime,
-    });
+    let newCurrentTime = makeProperTime(currentTime);
+    console.log(newCurrentTime);
     axios.post("https://server.vimo.link/insert/uservideos", {
       userId: this.props.userId,
       videoId: this.props.videoId,
-      currentTime: this.state.currentTime,
+      currentTime: newCurrentTime,
     })
       .then((res) => {
         this.props.history.push("/mypage");
       })
-      .catch(axios.patch("https://server.vimo.link/update/uservideos"), {
-        userId: this.props.userId,
-        videoId: this.props.videoId,
-        currentTime: this.state.currentTime,
-      })
+      .catch(err => console.log(err))
   };
 
   handelMemoBtnClick = () => {
