@@ -26,12 +26,15 @@ class MyPageMemoModal extends React.Component {
             <p className="MemoModalMemoContent">{data.content}</p>
           </div>
           <div className="MemoModalVideoPart">
-            <div className="MemoModalVideoBanner">Video</div>
-            <div className="MemoModalVideoThumbnail" />
+            <div className="MemoModalVideoBanner">{data.video.title}</div>
+            <img
+              src={data.video.thumbnail}
+              alt="Thumbnail"
+              className="MemoModalVideoThumbnail"
+            />
             <div className="MemoModalTagContainer">
               <span>{data.createdAt.slice(0, 10)}</span>
-              <span>{String(data.videoTime / 60) + "분"}</span>
-              <span>1900</span>
+              <span>{data.videoTime}</span>
             </div>
           </div>
         </div>

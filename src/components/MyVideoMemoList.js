@@ -4,8 +4,6 @@ import "./css/MyVideoMemoList.css";
 class MyVideoMemoList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-        }
     }
     handleVideoMemo = (data) => {
         this.props.handleVideoMemo(data);
@@ -19,7 +17,7 @@ class MyVideoMemoList extends React.Component {
                     className="MyVideoMemoThumbnail"
                     alt="MemoThumbnail"
                     onClick={() => this.handleVideoMemo(data)}
-                    src="https://i.imgur.com/GWWl6sO.png" />
+                    src={data.video.thumbnail} />
                 <div className="MyVideoMemo"></div>
             </div>
         )
