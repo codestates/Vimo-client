@@ -56,6 +56,7 @@ class MyPage extends React.Component {
       })
       .then((res) => {
         this.props.handleLogout();
+        console.log(res);
       })
       .catch((err) => console.log("로그아웃실패"));
   };

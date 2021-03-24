@@ -103,35 +103,39 @@ class MainPage extends React.Component {
   }
 
   componentDidUpdate() {
-    axios
-      .get(
-        `https://server.vimo.link/link/searchvideos?keyword=${this.state.queryString}`
-      )
-      .then((res) => {
-        // console.log(res.data);
-        this.setState({ searchData: res.data.videos });
-      })
-      .catch((err) => console.log(err));
+    if (this.state.searchData.length === 0) {
+      return;
+    } else {
+      axios
+        .get(
+          `https://server.vimo.link/link/searchvideos?keyword=${this.state.queryString}`
+        )
+        .then((res) => {
+          // console.log(res.data);
+          this.setState({ searchData: res.data.videos });
+        })
+        .catch((err) => console.log(err));
+    }
   }
 
   render() {
     const videoListArr =
       this.state.isSearching && this.state.isLogin
         ? [
-            `검색결과: ${this.state.queryString}`,
-            "감상중인 콘텐츠",
-            "메모가 가장 많은 콘텐츠",
-            "새로운 콘텐츠",
-          ]
+          `검색결과: ${this.state.queryString}`,
+          "감상중인 콘텐츠",
+          "메모가 가장 많은 콘텐츠",
+          "새로운 콘텐츠",
+        ]
         : !this.state.isSearching && this.state.isLogin
-        ? ["감상중인 콘텐츠", "메모가 가장 많은 콘텐츠", "새로운 콘텐츠"]
-        : this.state.isSearching && !this.state.isLogin
-        ? [
-            `검색결과: ${this.state.queryString}`,
-            "메모가 가장 많은 콘텐츠",
-            "새로운 콘텐츠",
-          ]
-        : ["메모가 가장 많은 콘텐츠", "새로운 콘텐츠"];
+          ? ["감상중인 콘텐츠", "메모가 가장 많은 콘텐츠", "새로운 콘텐츠"]
+          : this.state.isSearching && !this.state.isLogin
+            ? [
+              `검색결과: ${this.state.queryString}`,
+              "메모가 가장 많은 콘텐츠",
+              "새로운 콘텐츠",
+            ]
+            : ["메모가 가장 많은 콘텐츠", "새로운 콘텐츠"];
     const memoListArr = this.state.isLogin
       ? ["내가 감상한 콘텐츠의 메모", "인기 콘텐츠의 메모", "새로운 메모"]
       : ["베스트 유저의 메모", "인기 콘텐츠의 메모", "새로운 메모"];
@@ -183,10 +187,10 @@ class MainPage extends React.Component {
               this.state.bgNum === 1
                 ? "mainMainBanner1"
                 : this.state.bgNum === 2
-                ? "mainMainBanner2"
-                : this.state.bgNum === 3
-                ? "mainMainBanner3"
-                : "mainMainBanner4"
+                  ? "mainMainBanner2"
+                  : this.state.bgNum === 3
+                    ? "mainMainBanner3"
+                    : "mainMainBanner4"
             }
           >
             <div className="mainTextContainer">

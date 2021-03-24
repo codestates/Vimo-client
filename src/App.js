@@ -31,7 +31,7 @@ class App extends React.Component {
     this.setState({ isLogin: true, accessToken: data });
   }
   handleLogout() {
-    this.setState({ isLogin: false });
+    this.setState({ isLogin: false, accessToken: "" });
   }
   componentDidUpdate() {
     console.log(this.state.isLogin);
