@@ -22,6 +22,7 @@ class App extends React.Component {
       videoPubDate: "",
       videoId: "",
       userId: "",
+      currentTime: "",
     };
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
@@ -29,6 +30,8 @@ class App extends React.Component {
     this.changeMemoInfo = this.changeMemoInfo.bind(this);
     this.changeVideoInfo = this.changeVideoInfo.bind(this);
     this.appUserIdChange = this.appUserIdChange.bind(this);
+    this.changeOnlyVideoUrl = this.changeOnlyVideoUrl.bind(this);
+    this.updateCurrentTime = this.updateCurrentTime.bind(this);
   }
   appUserIdChange(data) {
     this.setState({ userId: data });
@@ -47,6 +50,9 @@ class App extends React.Component {
   changeVideoUrl(newUrl, videoId) {
     this.setState({ videoUrl: newUrl, videoId: videoId });
   }
+  changeOnlyVideoUrl(newUrl) {
+    this.setState({ videoUrl: newUrl });
+  }
   changeMemoInfo(memoProfilePic, memoUsername, memoContent) {
     this.setState({
       memoProfilePic: memoProfilePic,
@@ -61,6 +67,9 @@ class App extends React.Component {
       videoDirector: videoDirector,
       videoPubDate: videoPubDate,
     });
+  }
+  updateCurrentTime(input) {
+    this.state({ currentTime: input });
   }
 
   render() {
@@ -83,6 +92,8 @@ class App extends React.Component {
               accessToken={this.state.accessToken}
               isLogin={this.state.isLogin}
               appUserIdChange={this.appUserIdChange}
+              changeOnlyVideoUrl={this.changeOnlyVideoUrl}
+              updateCurrentTime={this.updateCurrentTime}
             />
           </Route>
           <Route path="/video">
@@ -91,10 +102,14 @@ class App extends React.Component {
               userId={this.state.userId}
               videoId={this.state.videoId}
               isLogin={this.state.isLogin}
+              currentTime={this.state.currentTime}
             />
           </Route>
           <Route path="/mypage">
-            <MyPage handleLogout={this.handleLogout} accessToken={this.state.accessToken} />
+            <MyPage
+              handleLogout={this.handleLogout}
+              accessToken={this.state.accessToken}
+            />
           </Route>
         </Switch>
       </div>

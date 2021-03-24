@@ -1,5 +1,6 @@
 import React from "react";
 import "./css/VideoListEntry.css";
+import axios from "axios";
 
 class VideoListEntry extends React.Component {
   constructor(props) {
@@ -18,6 +19,13 @@ class VideoListEntry extends React.Component {
           className="VideoListEntryThumbnail"
           onClick={() => {
             this.props.changeVideoUrl(this.props.url, this.props.id);
+            axios
+              .get(
+                `https://server.vimo.link/link/usersvideos?videoid=${this.props.id}`
+              )
+              .then((res) =>
+                this.props.changeCurrentTime(res.data.data.currentTime)
+              );
             this.props.handleVideoClick();
           }}
           alt={this.props.title}

@@ -3,6 +3,11 @@ import { withRouter } from "react-router";
 import "./css/VideoPage.css";
 import VideoMemoModal from "../components/VideoMemoModal";
 
+const reverseMakeProperTime = (input) => {
+  let arr = input.split(":");
+  return Number(arr[0]) * 3600 + Number(arr[1]) * 60 + Number(arr[2]);
+};
+
 const plusZero = function (input) {
   input = String(input);
   if (input.length === 1) {
@@ -81,6 +86,8 @@ class VideoPage extends React.Component {
   };
 
   render() {
+    let newCurrentTime = reverseMakeProperTime(this.props.currentTime);
+    let startPointUrl = `${this.props.videoUrl}#t=${newCurrentTime}`;
     return (
       <div className="VideomainContainer">
         <VideoMemoModal
@@ -101,7 +108,9 @@ class VideoPage extends React.Component {
               className="videoNavProfilePic"
               alt="profilePic"
               src="https://i.imgur.com/FP3hraO.png"
-              onClick={() => this.props.isLogin ? this.handleMyPageClick() : null}
+              onClick={() =>
+                this.props.isLogin ? this.handleMyPageClick() : null
+              }
             />
             <div className="videoNavUsernameBox">
               <div className="videoNavUsername">{this.state.username}</div>
@@ -114,7 +123,7 @@ class VideoPage extends React.Component {
           </div>
           <video
             className="videoPageVideo"
-            src={this.props.videoUrl}
+            src={startPointUrl}
             type="video/mp4"
             controls
             autoPlay
