@@ -100,7 +100,7 @@ class MyPage extends React.Component {
             />
             <div id="MyPageUserInfoBox">
               <div id="MyPageUsernameBox">
-                <span id="MyPageUsername">{this.state.username}</span>
+                <div id="MyPageUsername"><div>{this.state.username}</div></div>
                 <button id="MyPageUserEditBtn" onClick={this.handleEditModalOnOff}>
                   edit
               </button>
