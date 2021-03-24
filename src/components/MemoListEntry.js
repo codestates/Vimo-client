@@ -16,28 +16,41 @@ class MemoListEntry extends React.Component {
       videoId,
       videoData,
       data,
+      category,
       categoryVideo,
+      changeOnlyVideoUrl,
     } = this.props;
     let filteredArr = videoData.filter((item) => item.id === videoId);
     let videoInfo = filteredArr[0];
+
     let fileteredData = data[categoryVideo].filter(
       (item) => item.id === videoId
     );
     let videoObj = fileteredData[0];
 
+    let newFilteredArr = data[category].filter(
+      (item) => item.videoId === videoId
+    );
+
     return (
       <div
         className="memoListEntryContainer"
         onClick={() => {
-          changeMemoInfo(null, null, content);
+          console.log(videoInfo);
+          changeMemoInfo(
+            newFilteredArr[0].user.propfilePic,
+            newFilteredArr[0].user.username,
+            content
+          );
           changeVideoInfo(
             videoInfo.thumbnail,
             videoInfo.title,
             videoInfo.director,
             videoInfo.pubDate
           );
+          changeOnlyVideoUrl(videoInfo.url);
           openMemoModal();
-          console.log(fileteredData);
+          console.log(videoInfo.url);
         }}
       >
         <img

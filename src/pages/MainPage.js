@@ -251,6 +251,8 @@ class MainPage extends React.Component {
                 searchData={this.state.searchData}
                 key={category}
                 changeVideoUrl={this.props.changeVideoUrl}
+                updateCurrentTime={this.props.updateCurrentTime}
+                accessToken={this.props.accessToken}
               />
             ))}
           </div>
@@ -264,6 +266,7 @@ class MainPage extends React.Component {
                 changeMemoInfo={this.props.changeMemoInfo}
                 changeVideoInfo={this.props.changeVideoInfo}
                 videoThumbnail={this.props.videoThumbnail}
+                changeOnlyVideoUrl={this.props.changeOnlyVideoUrl}
               />
             ))}
           </div>
