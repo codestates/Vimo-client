@@ -4,6 +4,11 @@ import "./css/VideoPage.css";
 import VideoMemoModal from "../components/VideoMemoModal";
 import axios from "axios";
 
+const reverseMakeProperTime = (input) => {
+  let arr = input.split(":");
+  return Number(arr[0]) * 3600 + Number(arr[1]) * 60 + Number(arr[2]);
+};
+
 const plusZero = function (input) {
   input = String(input);
   if (input.length === 1) {
@@ -63,7 +68,7 @@ class VideoPage extends React.Component {
         this.props.history.push("/");
         console.log(res);
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   handleMyPageClick = () => {
@@ -108,6 +113,14 @@ class VideoPage extends React.Component {
     videoPageVideo.play();
   };
 
+  componentDidMount() {
+    console.log(
+      `${this.props.videoUrl}#t=${reverseMakeProperTime(
+        this.props.currentTime
+      )}`
+    );
+  }
+
   render() {
     return (
       <div className="VideomainContainer">
@@ -129,7 +142,9 @@ class VideoPage extends React.Component {
               className="videoNavProfilePic"
               alt="profilePic"
               src="https://i.imgur.com/FP3hraO.png"
-              onClick={() => this.props.isLogin ? this.handleMyPageClick() : null}
+              onClick={() =>
+                this.props.isLogin ? this.handleMyPageClick() : null
+              }
             />
             <div className="videoNavUsernameBox">
               <div className="videoNavUsername">{this.state.username}</div>
@@ -142,7 +157,7 @@ class VideoPage extends React.Component {
           </div>
           <video
             className="videoPageVideo"
-            src={this.props.videoUrl}
+            src={`${this.props.videoUrl}#t=${this.props.currentTime}`}
             type="video/mp4"
             controls
             autoPlay

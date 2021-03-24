@@ -29,6 +29,8 @@ class VideoList extends React.Component {
                   url={item.url}
                   id={item.id}
                   changeVideoUrl={this.props.changeVideoUrl}
+                  updateCurrentTime={this.props.updateCurrentTime}
+                  accessToken={this.props.accessToken}
                 ></VideoListEntry>
               ))
             : null}
