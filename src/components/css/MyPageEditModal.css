@@ -94,6 +94,9 @@
   margin-left: auto;
   width: 100%;
   font-size: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 4px 4px 8px rgb(85, 85, 85), 0 0 8px var(--main-color-mustard),
+    0 0 14px var(--main-color-dark-yellow);
 }
 
 #EditModalComfirmBtnContainer {

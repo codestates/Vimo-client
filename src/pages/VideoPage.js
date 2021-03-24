@@ -49,6 +49,13 @@ class VideoPage extends React.Component {
     this.handelQuitBtnClick = this.handelQuitBtnClick.bind(this);
   }
   handleHomeClick = () => {
+    let videoPageVideo = document.querySelector(".videoPageVideo");
+    videoPageVideo.pause();
+    let currentTime = Math.floor(videoPageVideo.currentTime);
+    currentTime = makeProperTime(currentTime);
+    this.setState({
+      currentTime: currentTime,
+    });
     axios.post("https://server.vimo.link/insert/uservideos", {
       userId: this.props.userId,
       videoId: this.props.videoId,
@@ -62,6 +69,13 @@ class VideoPage extends React.Component {
   };
 
   handleMyPageClick = () => {
+    let videoPageVideo = document.querySelector(".videoPageVideo");
+    videoPageVideo.pause();
+    let currentTime = Math.floor(videoPageVideo.currentTime);
+    currentTime = makeProperTime(currentTime);
+    this.setState({
+      currentTime: currentTime,
+    });
     axios.post("https://server.vimo.link/insert/uservideos", {
       userId: this.props.userId,
       videoId: this.props.videoId,
