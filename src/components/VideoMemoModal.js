@@ -24,6 +24,12 @@ export default class VideoMemoModal extends Component {
   };
 
   handleMemoSaveBtnClick = () => {
+    console.log(
+      this.props.userId +
+        this.props.videoId +
+        this.state.content +
+        this.props.currentTime
+    );
     if (this.state.content === "") {
       alert("메모를 적어주세요");
     } else {
@@ -31,10 +37,10 @@ export default class VideoMemoModal extends Component {
         .post(
           "https://server.vimo.link/insert/memo",
           {
-            userId: this.state.userId,
-            videoId: this.state.videoId,
+            userId: this.props.userId,
+            videoId: this.props.videoId,
             content: this.state.content,
-            videoTime: this.state.videoTime,
+            videoTime: this.props.currentTime,
           },
           { "Content-Type": "application/json", withCredentials: true }
         )

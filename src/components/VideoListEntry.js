@@ -17,7 +17,7 @@ class VideoListEntry extends React.Component {
           }
           className="VideoListEntryThumbnail"
           onClick={() => {
-            this.props.changeVideoUrl(this.props.url);
+            this.props.changeVideoUrl(this.props.url, this.props.id);
             this.props.handleVideoClick();
           }}
           alt={this.props.title}
