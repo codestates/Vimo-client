@@ -30,11 +30,12 @@ class MemoList extends React.Component {
                 <MemoListEntry
                   openMemoModal={openMemoModal}
                   content={item.content}
-                  thumbnail={item.thumbnail}
+                  // thumbnail={item.thumbnail}
                   changeMemoInfo={this.props.changeMemoInfo}
                   videoId={item.videoId}
                   videoData={this.props.data[categoryVideo]}
                   changeVideoInfo={this.props.changeVideoInfo}
+                  videoThumbnail={this.props.videoThumbnail}
                 ></MemoListEntry>
               ))
             : null}

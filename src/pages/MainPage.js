@@ -12,6 +12,7 @@ class MainPage extends React.Component {
     super(props);
     this.state = {
       username: "Anonymous",
+      profilePic: "",
       // isLogin: false,
       isLoginModalOn: false,
       isMemoModalOn: false,
@@ -20,6 +21,7 @@ class MainPage extends React.Component {
       queryString: "",
       data: {},
       searchData: [],
+      userData: {},
     };
     this.handleVideoClick = this.handleVideoClick.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -42,7 +44,7 @@ class MainPage extends React.Component {
     this.props.history.push("/video");
   };
 
-  handleLoginChange = () => {
+  handleLoginChange = (input) => {
     // axios
     //   .get("https://server.vimo.link/link/mainpage", {
     //     withCredentials: true,
@@ -54,6 +56,7 @@ class MainPage extends React.Component {
     //   .catch((err) => console.log("바보"));
     console.log(this.props.accessToken);
     console.log(this.props.isLogin);
+    this.setState({ userData: input });
     axios
       .get("https://server.vimo.link/link/mainpage", {
         headers: {
@@ -116,14 +119,14 @@ class MainPage extends React.Component {
 
   render() {
     const videoListArr =
-      this.state.isSearching && this.state.isLogin
+      this.state.isSearching && this.props.isLogin
         ? [
             `검색결과: ${this.state.queryString}`,
             "감상중인 콘텐츠",
             "메모가 가장 많은 콘텐츠",
             "새로운 콘텐츠",
           ]
-        : !this.state.isSearching && this.state.isLogin
+        : !this.state.isSearching && this.props.isLogin
         ? ["감상중인 콘텐츠", "메모가 가장 많은 콘텐츠", "새로운 콘텐츠"]
         : this.state.isSearching && !this.state.isLogin
         ? [
@@ -132,7 +135,7 @@ class MainPage extends React.Component {
             "새로운 콘텐츠",
           ]
         : ["메모가 가장 많은 콘텐츠", "새로운 콘텐츠"];
-    const memoListArr = this.state.isLogin
+    const memoListArr = this.props.isLogin
       ? ["내가 감상한 콘텐츠의 메모", "인기 콘텐츠의 메모", "새로운 메모"]
       : ["베스트 유저의 메모", "인기 콘텐츠의 메모", "새로운 메모"];
     return (
@@ -167,14 +170,25 @@ class MainPage extends React.Component {
                 onChange={this.handleSearchBox}
               />
             </div>
-            <div className="mainNavUserContainer" onClick={this.openModal}>
+            <div
+              className="mainNavUserContainer"
+              onClick={() => {
+                this.props.isLogin
+                  ? window.location.replace("/mypage")
+                  : this.openModal();
+              }}
+            >
               <img
                 className="mainNavProfilePic"
                 alt="profilePic"
-                src="https://i.imgur.com/FP3hraO.png"
+                src={this.state.userData.profilePic}
               />
               <div className="mainNavUsernameBox">
-                <div className="mainNavUsername">{this.state.username}</div>
+                <div className="mainNavUsername">
+                  {this.state.userData.username
+                    ? this.state.userData.username
+                    : "Anonymous"}
+                </div>
               </div>
             </div>
           </nav>
@@ -238,6 +252,7 @@ class MainPage extends React.Component {
                 key={category}
                 changeMemoInfo={this.props.changeMemoInfo}
                 changeVideoInfo={this.props.changeVideoInfo}
+                videoThumbnail={this.props.videoThumbnail}
               />
             ))}
           </div>

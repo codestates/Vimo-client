@@ -54,7 +54,8 @@ export default class VideoMemoModal extends Component {
               <div className="videoMemoModalMemoPart">
                 <div id="videoMemoModalMemoBox">
                   <div className="videoMemoModalMemoTime">
-                    <input
+                    {this.props.currentTime}
+                    {/* <input
                       className="timer Hour"
                       type="number"
                       placeholder="00"
@@ -78,7 +79,7 @@ export default class VideoMemoModal extends Component {
                       min="0"
                       max="59"
                       maxlength="2"
-                    />
+                    /> */}
                   </div>
                 </div>
                 <textarea
