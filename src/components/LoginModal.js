@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "./css/LoginModal.css";
 import axios from "axios";
 
+const emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+const passwordRule = /^.*(?=^.{0,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+
 export default class LoginModal extends Component {
   constructor(props) {
     super(props);
@@ -10,19 +13,23 @@ export default class LoginModal extends Component {
       email: "",
       password: "",
       username: "",
+      alertLoginMessage: "이메일과 비밀번호를 입력해주세요",
+      alertSignupMessage: "이메일과 비밀번호, 유저네임을 입력해주세요",
     };
     this.handleLoginBtn = this.handleLoginBtn.bind(this);
     this.handleInputValue = this.handleInputValue.bind(this);
   }
 
-  handleLoginBtn = () => {
-    let loginModalLoginAlertBanner = document.querySelector(
-      ".loginModalLoginAlertBanner"
-    );
+  handleLoginBtn = async () => {
     if (this.state.email === "" || this.state.password === "") {
-      loginModalLoginAlertBanner.classList.add("active");
+      this.setState({ alertLoginMessage: "이메일과 비밀번호를 입력해주세요" });
+      // } else if (!emailRule.test(this.state.email)) {
+      //   this.setState({ alertLoginMessage: "유효한 이메일을 입력해주세요" });
+      // } else if (!passwordRule.test(this.state.password)) {
+      //   this.setState({ alertLoginMessage: "특수문자/문자/숫자를 포함해주세요" });
+      // } else {
     } else {
-      axios
+      await axios
         .post(
           "https://server.vimo.link/user/login",
           {
@@ -33,7 +40,10 @@ export default class LoginModal extends Component {
         )
         .then((res) => {
           console.log(res.data);
+          this.props.handleLogin(res.data.data.accessToken);
           this.props.close();
+
+          // window.location.replace("/");
           this.props.handleLoginChange();
         })
         .catch((err) => console.log(err));
@@ -46,7 +56,15 @@ export default class LoginModal extends Component {
       this.state.password === "" ||
       this.state.username === ""
     ) {
-      alert("이메일, 비밀번호, 유저네임을 입력해주세요!");
+      this.setState({
+        alertSignupMessage: "유저네임과 이메일, 비밀번호를 입력해주세요",
+      });
+    } else if (!emailRule.test(this.state.email)) {
+      this.setState({ alertSignupMessage: "유효한 이메일을 입력해주세요" });
+    } else if (!passwordRule.test(this.state.password)) {
+      this.setState({
+        alertSignupMessage: "특수문자/문자/숫자를 포함해주세요",
+      });
     } else {
       axios
         .post(
@@ -87,8 +105,7 @@ export default class LoginModal extends Component {
             >
               <div className="form-container sign-up-container">
                 <div className="form">
-                  <h1>회 원 가 입</h1>
-                  <span>닉네임과 이메일, 비밀번호를 입력해주세요</span>
+                  <h1 style={{ marginBottom: "0.75rem" }}>회 원 가 입</h1>
                   <input
                     type="text"
                     placeholder="Name"
@@ -104,12 +121,15 @@ export default class LoginModal extends Component {
                     placeholder="Password"
                     onChange={this.handleInputValue("password")}
                   />
-                  <button onClick={this.handleSignUpBtn}>Sign Up</button>
+                  <div className="loginModalLoginAlertBanner active">
+                    {this.state.alertSignupMessage}
+                  </div>
+                  <button onClick={this.handleSignUpBtn}>회 원 가 입</button>
                 </div>
               </div>
               <div className="form-container sign-in-container">
                 <div className="form">
-                  <h1>Sign in</h1>
+                  <h1>로 그 인</h1>
                   <div className="social-container">
                     <a className="social">
                       <i className="fab fa-facebook-f"></i>
@@ -127,21 +147,21 @@ export default class LoginModal extends Component {
                     type="password"
                     placeholder="Password"
                     onChange={this.handleInputValue("password")}
+                    maxLength="15"
                   />
                   <div className="loginModalLoginAlertBanner active">
-                    이메일과 비밀번호를 입력해주세요
+                    {this.state.alertLoginMessage}
                   </div>
-                  <button onClick={() => this.handleLoginBtn()}>Sign In</button>
+                  <button onClick={() => this.handleLoginBtn()}>
+                    로 그 인
+                  </button>
                 </div>
               </div>
               <div className="overlay-container">
                 <div className="overlay">
                   <div className="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>
-                      To keep connected with us please login with your personal
-                      info
-                    </p>
+                    <h1>어 서 오 세 요</h1>
+                    <p>로그인하시고 비모와의 여정을 함께 하세요!</p>
                     <button
                       className="ghost"
                       id="signIn"
@@ -149,12 +169,12 @@ export default class LoginModal extends Component {
                         this.setState({ isSignin: true });
                       }}
                     >
-                      Sign In
+                      로 그 인
                     </button>
                   </div>
                   <div className="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
+                    <h1>반 갑 습 니 다</h1>
+                    <p>비모에 가입하시고 동영상을 보며 메모를 남기세요</p>
                     <button
                       className="ghost"
                       id="signUp"
@@ -162,7 +182,7 @@ export default class LoginModal extends Component {
                         this.setState({ isSignin: false });
                       }}
                     >
-                      Sign Up
+                      회 원 가 입
                     </button>
                   </div>
                 </div>

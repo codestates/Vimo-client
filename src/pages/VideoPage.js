@@ -82,6 +82,18 @@ class VideoPage extends React.Component {
             height="720"
           ></video>
         </div>
+        <footer className="mainFooter">
+          <div className="mainFooterCodeStatesLogo"></div>
+          <div className="mainFooterVimoLogo"></div>
+          <div className="footerContents">
+            Team WodeCode <br />
+            <br />
+            SEONA BAK / seonabak0109@gmail.com <br />
+            JAEYOUNG SEONG / wodud2587@gmail.com <br />
+            MINJE SHIN / sinminji1004@gmail.com <br />
+            JUNGHO CHOI / 9rganizedchaos@gmail.com <br />
+          </div>
+        </footer>
       </div>
     );
   }

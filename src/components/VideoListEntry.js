@@ -10,7 +10,11 @@ class VideoListEntry extends React.Component {
     return (
       <div className="VideoListEntryContainer">
         <img
-          src={this.props.thumbnail}
+          src={
+            this.props.thumbnail === ""
+              ? "/images/defaultThumbnail.png"
+              : this.props.thumbnail
+          }
           className="VideoListEntryThumbnail"
           onClick={() => {
             this.props.changeVideoUrl(this.props.url);
