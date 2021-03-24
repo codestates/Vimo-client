@@ -7,18 +7,18 @@ class MyVideoMemoList extends React.Component {
         this.state = {
         }
     }
-    handleVideoMemo = () => {
-        this.props.handleVideoMemo();
+    handleVideoMemo = (data) => {
+        this.props.handleVideoMemo(data);
     }
 
     render() {
-        //const {content, thumbnail} = this.props;
+        const { data } = this.props;
         return (
             <div className="MyVideoMemoContainer">
                 <img
                     className="MyVideoMemoThumbnail"
                     alt="MemoThumbnail"
-                    onClick={() => this.handleVideoMemo()}
+                    onClick={() => this.handleVideoMemo(data)}
                     src="https://i.imgur.com/GWWl6sO.png" />
                 <div className="MyVideoMemo"></div>
             </div>

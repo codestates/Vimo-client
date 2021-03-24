@@ -186,7 +186,7 @@ class MainPage extends React.Component {
               className="mainNavUserContainer"
               onClick={() => {
                 this.props.isLogin
-                  ? window.location.replace("/mypage")
+                  ? this.props.history.push("/mypage")
                   : this.openModal();
               }}
             >
