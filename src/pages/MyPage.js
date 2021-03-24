@@ -17,10 +17,7 @@ class MyPage extends React.Component {
       memoCount: "8",
       displayEdit: false,
       displayMemo: false,
-      data: {
-        data: "",
-        memoInfo: [1, 2, 3, 4, 5],
-      },
+      data: { memoInfo: [] },
       memoData: "",
     };
     this.handleInputValue = this.handleInputValue.bind(this);
