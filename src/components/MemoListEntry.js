@@ -16,10 +16,15 @@ class MemoListEntry extends React.Component {
       videoId,
       videoData,
       data,
+      categoryVideo,
     } = this.props;
     let filteredArr = videoData.filter((item) => item.id === videoId);
     let videoInfo = filteredArr[0];
-    // console.log(videoData);
+    let fileteredData = data[categoryVideo].filter(
+      (item) => item.id === videoId
+    );
+    let videoObj = fileteredData[0];
+
     return (
       <div
         className="memoListEntryContainer"
@@ -32,12 +37,13 @@ class MemoListEntry extends React.Component {
             videoInfo.pubDate
           );
           openMemoModal();
+          console.log(fileteredData);
         }}
       >
         <img
           className="videoListEntryThumbnail"
           alt="MemoThumbnail"
-          src={thumbnail}
+          src={videoObj.thumbnail}
         />
         <div className="videoListEntryMemo">{content}</div>
       </div>
