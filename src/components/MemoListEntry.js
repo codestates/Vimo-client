@@ -18,7 +18,7 @@ class MemoListEntry extends React.Component {
     } = this.props;
     let filteredArr = videoData.filter((item) => item.id === videoId);
     let videoInfo = filteredArr[0];
-    console.log(videoData);
+    // console.log(videoData);
     return (
       <>
         <img

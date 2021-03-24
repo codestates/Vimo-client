@@ -42,42 +42,74 @@ class MainPage extends React.Component {
     this.props.history.push("/video");
   };
 
-  // handleLoginChange = () => {
-  //   axios
-  //     .get("https://server.vimo.link/link/mainpage", {
-  //       withCredentials: true,
-  //     })
-  //     .then((res) => {
-  //       this.props.handleLogin();
-  //       console.log(res.data);
-  //     })
-  //     .catch((err) => console.log("바보"));
-  // };
-
-  handleSearchBox = (event) => {
-    this.setState({ queryString: event.target.value });
-    this.setState({ isSearching: true });
+  handleLoginChange = () => {
+    // axios
+    //   .get("https://server.vimo.link/link/mainpage", {
+    //     withCredentials: true,
+    //   })
+    //   .then((res) => {
+    //     this.props.handleLogin();
+    //     console.log(res.data);
+    //   })
+    //   .catch((err) => console.log("바보"));
+    console.log(this.props.accessToken);
+    console.log(this.props.isLogin);
     axios
-      .get(
-        `https://server.vimo.link/link/searchvideos?keyword={${this.state.queryString}}`
-      )
-      .then((res) => {
-        console.log(res.data);
-        this.setState({ searchData: res.data.videos });
-      })
-      .catch((err) => console.log(err));
-  };
-
-  async componentDidMount() {
-    // this.props.handleLogin();
-    await axios
       .get("https://server.vimo.link/link/mainpage", {
-        "Content-Type": "application/json",
+        headers: {
+          Authorization: `Bearer ${this.props.accessToken}`,
+          // "Content-Type": "application/json",
+        },
         withCredentials: true,
       })
       .then((res) => {
         this.setState({ data: res.data.data });
         console.log(this.state.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  handleSearchBox = (event) => {
+    this.setState({ queryString: event.target.value });
+    this.setState({ isSearching: true });
+  };
+
+  async componentDidMount() {
+    // this.props.handleLogin();
+    // await axios
+    //   .get("https://server.vimo.link/link/mainpage", {
+    //     "Content-Type": "application/json",
+    //     withCredentials: true,
+    //   })
+    //   .then((res) => {
+    //     this.setState({ data: res.data.data });
+    //     console.log(this.state.data);
+    //   })
+    //   .catch((err) => console.log(err));
+    console.log(this.props.accessToken);
+    axios
+      .get("https://server.vimo.link/link/mainpage", {
+        headers: {
+          Authorization: `Bearer ${this.props.accessToken}`,
+          // "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      })
+      .then((res) => {
+        this.setState({ data: res.data.data });
+        console.log(this.state.data);
+      })
+      .catch((err) => console.log(err));
+  }
+
+  componentDidUpdate() {
+    axios
+      .get(
+        `https://server.vimo.link/link/searchvideos?keyword=${this.state.queryString}`
+      )
+      .then((res) => {
+        // console.log(res.data);
+        this.setState({ searchData: res.data.videos });
       })
       .catch((err) => console.log(err));
   }

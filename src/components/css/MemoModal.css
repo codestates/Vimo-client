@@ -49,6 +49,7 @@
   border-radius: 0.75rem;
   box-shadow: 4px 4px 8px rgb(85, 85, 85), 0 0 8px var(--main-color-mustard),
     0 0 14px var(--main-color-dark-yellow);
+  width: 100%;
 }
 
 .MemoModalMemoBanner {
@@ -117,6 +118,9 @@
 
 .MemoModalTagContainer {
   margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .MemoModalTagContainer > span {
@@ -125,7 +129,7 @@
   padding: 0.5rem;
   border: 0.1rem solid var(--main-color-yellow);
   border-radius: 1.5rem;
-  margin: 0.5rem;
+  margin: 0.25rem;
 }
 
 .MemoModalVideoBtn {

@@ -10,6 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       isLogin: false,
+      accessToken: "",
       videoUrl: "./videos/video1.mp4",
       memoProfilePic: "./images/vimo_logo.png",
       memoUsername: "Anonymous",
@@ -26,8 +27,8 @@ class App extends React.Component {
     this.changeMemoInfo = this.changeMemoInfo.bind(this);
     this.changeVideoInfo = this.changeVideoInfo.bind(this);
   }
-  handleLogin() {
-    this.setState({ isLogin: true });
+  handleLogin(data) {
+    this.setState({ isLogin: true, accessToken: data });
   }
   handleLogout() {
     this.setState({ isLogin: false });
@@ -72,6 +73,8 @@ class App extends React.Component {
               videoTitle={this.state.videoTitle}
               videoDirector={this.state.videoDirector}
               videoPubDate={this.state.videoPubDate}
+              accessToken={this.state.accessToken}
+              isLogin={this.state.isLogin}
             />
           </Route>
           <Route path="/video">

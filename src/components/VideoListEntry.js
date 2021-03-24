@@ -12,7 +12,7 @@ class VideoListEntry extends React.Component {
         <img
           src={
             this.props.thumbnail === ""
-              ? "/images/defaultTumbnail.png"
+              ? "/images/defaultThumbnail.png"
               : this.props.thumbnail
           }
           className="VideoListEntryThumbnail"
