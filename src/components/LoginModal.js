@@ -39,7 +39,8 @@ export default class LoginModal extends Component {
           { "Content-Type": "application/json", withCredentials: true }
         )
         .then((res) => {
-          console.log(res.data);
+          console.log(res.data.data.id);
+          this.props.appUserIdChange(res.data.data.id);
           this.props.handleLogin(res.data.data.accessToken);
           this.props.close();
 
@@ -73,14 +74,14 @@ export default class LoginModal extends Component {
             email: this.state.email,
             password: this.state.password,
             username: this.state.username,
-            isSocialLogin: true,
+            isSocialLogin: "false",
           },
           { "Content-Type": "application/json", withCredentials: true }
         )
         .then((res) => {
           console.log(res.data);
-          this.props.close();
-          this.props.handleLoginChange();
+          // this.props.close();
+          this.setState({ isSignin: true });
         })
         .catch((err) => alert(err));
     }

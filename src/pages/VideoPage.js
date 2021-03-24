@@ -87,6 +87,8 @@ class VideoPage extends React.Component {
           display={this.state.display}
           handelQuitBtnClick={this.handelQuitBtnClick}
           currentTime={this.state.currentTime}
+          userId={this.props.userId}
+          videoId={this.props.videoId}
         />
         <nav className="VideoNavBar">
           <div
