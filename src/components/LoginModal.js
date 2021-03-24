@@ -44,7 +44,7 @@ export default class LoginModal extends Component {
           this.props.close();
 
           // window.location.replace("/");
-          this.props.handleLoginChange();
+          this.props.handleLoginChange(res.data.data);
         })
         .catch((err) => console.log(err));
     }

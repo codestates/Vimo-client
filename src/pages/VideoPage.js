@@ -3,6 +3,39 @@ import { withRouter } from "react-router";
 import "./css/VideoPage.css";
 import VideoMemoModal from "../components/VideoMemoModal";
 
+const plusZero = function (input) {
+  input = String(input);
+  if (input.length === 1) {
+    return "0" + input;
+  } else {
+    return input;
+  }
+};
+
+const makeProperTime = function (input) {
+  let hour = 0;
+  let minute = 0;
+  let second = 0;
+  let recursion = function (input) {
+    if (input >= 3600) {
+      hour++;
+      input -= 3600;
+      return recursion(input);
+    } else if (input >= 60) {
+      minute++;
+      input -= 60;
+      return recursion(input);
+    } else {
+      second = input;
+    }
+  };
+  recursion(input);
+  hour = plusZero(hour);
+  minute = plusZero(minute);
+  second = plusZero(second);
+  return `${hour}:${minute}:${second}`;
+};
+
 class VideoPage extends React.Component {
   constructor(props) {
     super(props);
@@ -10,6 +43,7 @@ class VideoPage extends React.Component {
       username: "annoymous",
       discription: "하하하",
       display: false,
+      currentTime: 7896,
     };
     this.handelQuitBtnClick = this.handelQuitBtnClick.bind(this);
   }
@@ -24,8 +58,11 @@ class VideoPage extends React.Component {
   handelMemoBtnClick = () => {
     let videoPageVideo = document.querySelector(".videoPageVideo");
     videoPageVideo.pause();
+    let currentTime = Math.floor(videoPageVideo.currentTime);
+    currentTime = makeProperTime(currentTime);
     this.setState({
       display: true,
+      currentTime: currentTime,
     });
   };
 
@@ -49,6 +86,7 @@ class VideoPage extends React.Component {
         <VideoMemoModal
           display={this.state.display}
           handelQuitBtnClick={this.handelQuitBtnClick}
+          currentTime={this.state.currentTime}
         />
         <nav className="VideoNavBar">
           <div
