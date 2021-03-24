@@ -101,7 +101,7 @@ class VideoPage extends React.Component {
               className="videoNavProfilePic"
               alt="profilePic"
               src="https://i.imgur.com/FP3hraO.png"
-              onClick={() => this.handleMyPageClick()}
+              onClick={() => this.props.isLogin ? this.handleMyPageClick() : null}
             />
             <div className="videoNavUsernameBox">
               <div className="videoNavUsername">{this.state.username}</div>

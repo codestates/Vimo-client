@@ -56,18 +56,25 @@ class MyPage extends React.Component {
       })
       .then((res) => {
         this.props.handleLogout();
+        console.log(res);
       })
       .catch((err) => console.log("로그아웃실패"));
   };
 
-  // componentDidMount() {
-  //   axios.get("https://server.vimo.link/link/mypage",
-  //     { 'Content-Type': 'application/json', withCredentials: true })
-  //     .then((res) => {
-  //       this.setState({ data: res.data })
-  //     })
-  //     .catch(err => alert(err))
-  // }
+  componentDidMount() {
+    axios.get("https://server.vimo.link/link/mypage",
+      {
+        headers: {
+          Authorization: `Bearer ${this.props.accessToken}`
+        },
+        withCredentials: true,
+      })
+      .then((res) => {
+        this.setState({ data: res.data });
+        console.log(res.data);
+      })
+      .catch(err => alert(err))
+  }
 
   render() {
     return (
@@ -122,13 +129,13 @@ class MyPage extends React.Component {
             </div>
           </div>
           <div id="MyPageVideoMemoContainer">
-            {this.state.data.memoInfo.map((item, index) => (
+            {/* {this.state.data.memoInfo.map((item, index) => (
               <MyVideoMemoList
                 key={index}
                 data={item}
                 handleVideoMemo={this.handleVideoMemoModalOnOff}
               ></MyVideoMemoList>
-            ))}
+            ))} */}
           </div>
           <footer className="mainFooter">
             <div className="mainFooterCodeStatesLogo"></div>

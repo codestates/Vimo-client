@@ -117,16 +117,16 @@
 }
 
 #MyPageUserEditBtn {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-left: 1rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  padding-bottom: 0.2rem;
   cursor: pointer;
   border-radius: 2rem;
   border: 0.1rem solid var(--main-color-yellow);
   background-color: var(--main-color-gray);
   color: var(--main-color-yellow);
-  display: flex;
   justify-content: center;
   align-items: center;
 }
