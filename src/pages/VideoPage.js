@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router";
 import "./css/VideoPage.css";
 import VideoMemoModal from "../components/VideoMemoModal";
+import axios from "axios";
 
 const reverseMakeProperTime = (input) => {
   let arr = input.split(":");
@@ -48,16 +49,37 @@ class VideoPage extends React.Component {
       username: "annoymous",
       discription: "하하하",
       display: false,
-      currentTime: 7896,
+      currentTime: "00:00:00",
     };
     this.handelQuitBtnClick = this.handelQuitBtnClick.bind(this);
   }
   handleHomeClick = () => {
-    this.props.history.push("/");
+    axios.post("https://server.vimo.link/insert/uservideos", {
+      userId: this.props.userId,
+      videoId: this.props.videoId,
+      currentTime: this.state.currentTime,
+    }, { withCredentials: true })
+      .then((res) => {
+        this.props.history.push("/");
+        console.log(res);
+      })
+      .catch(err => console.log(err));
   };
 
   handleMyPageClick = () => {
-    this.props.history.push("/mypage");
+    axios.post("https://server.vimo.link/insert/uservideos", {
+      userId: this.props.userId,
+      videoId: this.props.videoId,
+      currentTime: this.state.currentTime,
+    })
+      .then((res) => {
+        this.props.history.push("/mypage");
+      })
+      .catch(axios.patch("https://server.vimo.link/update/uservideos"), {
+        userId: this.props.userId,
+        videoId: this.props.videoId,
+        currentTime: this.state.currentTime,
+      })
   };
 
   handelMemoBtnClick = () => {
