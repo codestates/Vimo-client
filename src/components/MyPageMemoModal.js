@@ -11,7 +11,6 @@ class MyPageMemoModal extends React.Component {
   render() {
     const {
       handleVideoMemoModalOnOff,
-      memoProfilePic,
       memoUsername,
       memoContent,
     } = this.props;
@@ -21,11 +20,6 @@ class MyPageMemoModal extends React.Component {
           <div className="MyPageMemoModalMemoPart">
             <div className="MemoModalMemoBanner">Memo</div>
             <div className="MemoModalUserProfile">
-              <img
-                className="MemoModalUserProfilePic"
-                src={memoProfilePic}
-                alt="profilePicture"
-              />
               <div className="MemoModalUsername">{memoUsername}</div>
             </div>
             <p className="MemoModalMemoContent">{memoContent}</p>

@@ -34,7 +34,8 @@
 }
 
 .MyPageNavLogo {
-  width: 12rem;
+  width: 10rem;
+  height: 3.5rem;
   background-image: url("https://i.imgur.com/aS8kJC1.png");
   background-size: cover;
   margin: 0.1rem;
@@ -48,6 +49,7 @@
 .MyPageNavUserContainer {
   display: flex;
   padding: 0.2rem;
+  align-items: center;
 }
 
 .MyPageNavLogoutContainer {
@@ -59,6 +61,8 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  justify-content: center;
+  align-items: center;
 }
 
 .MyPageNavLogout {
@@ -66,53 +70,65 @@
   margin-bottom: auto;
   text-align: center;
   width: 100%;
+  color: var(--main-color-light-gray);
 }
 
 .MyPageUserInfoContainer {
   display: flex;
   margin-top: 4rem;
-  background-color: var(--main-color-dark-gray)
+  background-color: var(--main-color-dark-gray);
+  padding-bottom: 5.25rem;
 }
 
 .MyPageProfilePic {
-  flex: 1 0 auto;
   border-radius: 30rem;
   border: 0.1rem solid var(--main-color-yellow);
-  height: 20rem;
+  height: 18rem;
+  width: 18rem;
   margin-right: 3rem;
-  margin-left: 1rem;
+  margin-left: 3rem;
+  margin-top: 0.5rem;
 }
 
 #MyPageUserInfoBox {
-  flex: 30 0 auto;
   display: flex;
   flex-direction: column;
   color: var(--main-color-white);
+  width: 100%;
 }
 
 #MyPageUsernameBox {
   flex: 2 0 auto;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   align-content: center;
 }
 
 #MyPageUsername {
-  font-size: 4rem;
+  font-size: 3rem;
+  display: flex;
+  height: 100%;
+}
+
+#MyPageUsername > div {
   margin-top: auto;
   margin-bottom: auto;
+  padding-bottom: 0.75rem;
 }
 
 #MyPageUserEditBtn {
-  font-size: 2rem;
-  margin-top: auto;
-  margin-bottom: auto;
+  font-size: 1.5rem;
   margin-left: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   cursor: pointer;
   border-radius: 2rem;
   border: 0.1rem solid var(--main-color-yellow);
   background-color: var(--main-color-gray);
   color: var(--main-color-yellow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #MyPageUserEditBtn:hover {
@@ -148,26 +164,31 @@
   padding: 2rem;
   border-bottom: 0.2rem solid var(--main-color-mustard);
   overflow-x: auto;
+  /* flex-wrap: wrap; */
 }
 
-#MyPageVideoMemoExtendContainer {
-  display: flex;
-  justify-content: center;
+#MyPageVideoMemoContainer::-webkit-scrollbar {
+  height: 10px;
+  transition: 0.2s;
+}
+
+#MyPageVideoMemoContainer:hover::-webkit-scrollbar {
+  height: 10px;
+  transition: 0.2s;
+}
+
+#MyPageVideoMemoContainer::-webkit-scrollbar-thumb {
   background-color: var(--main-color-dark-gray);
-  padding: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.5s;
 }
 
-#MyPageVideoMemoExtend {
+#MyPageVideoMemoContainer:hover::-webkit-scrollbar-thumb {
   background-color: var(--main-color-gray);
   border: 0.1rem solid var(--main-color-yellow);
-  padding: 1rem;
-  font-size: 1rem;
-  border-radius: 2rem;
-  color: var(--main-color-yellow);
-  margin-top: 2rem;
+  border-radius: 5px;
 }
 
-#MyPageVideoMemoExtend:hover {
-  background-color: var(--main-color-yellow);
-  color: var(--main-color-gray);
+#MyPageVideoMemoContainer::-webkit-scrollbar-track {
+  background-color: none;
 }
