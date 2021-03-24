@@ -90,6 +90,7 @@ class App extends React.Component {
               videoUrl={this.state.videoUrl}
               userId={this.state.userId}
               videoId={this.state.videoId}
+              isLogin={this.state.isLogin}
             />
           </Route>
           <Route path="/mypage">

@@ -15,13 +15,13 @@ class MyPage extends React.Component {
       usermemo: "",
       movieCount: "8",
       memoCount: "8",
-      friendsCount: "3",
       displayEdit: false,
       displayMemo: false,
       data: {
         data: "",
         memoInfo: [1, 2, 3, 4, 5],
       },
+      memoData: "",
     };
     this.handleInputValue = this.handleInputValue.bind(this);
     this.handleEditModalOnOff = this.handleEditModalOnOff.bind(this);
@@ -38,9 +38,10 @@ class MyPage extends React.Component {
     })
   };
 
-  handleVideoMemoModalOnOff = () => {
+  handleVideoMemoModalOnOff = (data) => {
     this.setState({
-      displayMemo: (this.state.displayMemo ? false : true)
+      displayMemo: (this.state.displayMemo ? false : true),
+      memoData: data,
     })
   }
 
@@ -70,8 +71,14 @@ class MyPage extends React.Component {
         withCredentials: true,
       })
       .then((res) => {
-        this.setState({ data: res.data });
-        console.log(res.data);
+        console.log(res.data.data);
+        this.setState({
+          data: res.data.data,
+          username: res.data.data.userInfo.username,
+          email: res.data.data.userInfo.email,
+          memoCount: res.data.data.memoInfo.length,
+          movieCount: res.data.data.memoInfo.length
+        })
       })
       .catch(err => alert(err))
   }
@@ -80,7 +87,7 @@ class MyPage extends React.Component {
     return (
       <>
         <MyPageEditModal display={this.state.displayEdit} handleEditModalOnOff={this.handleEditModalOnOff} />
-        <MyPageMemoModal display={this.state.displayMemo} handleVideoMemoModalOnOff={this.handleVideoMemoModalOnOff} />
+        <MyPageMemoModal data={this.state.memoData} display={this.state.displayMemo} handleVideoMemoModalOnOff={this.handleVideoMemoModalOnOff} />
         <div className="MyPagemainContainer">
           <nav className="MyPageNavBar">
             <div
@@ -122,20 +129,17 @@ class MyPage extends React.Component {
                 <span className="MyPageUsercount">
                   메모횟수: {this.state.memoCount}
                 </span>
-                <span className="MyPageUsercount">
-                  총회원수: {this.state.friendsCount}
-                </span>
               </div>
             </div>
           </div>
           <div id="MyPageVideoMemoContainer">
-            {/* {this.state.data.memoInfo.map((item, index) => (
+            {this.state.data.memoInfo.map((item, index) => (
               <MyVideoMemoList
                 key={index}
                 data={item}
                 handleVideoMemo={this.handleVideoMemoModalOnOff}
               ></MyVideoMemoList>
-            ))} */}
+            ))}
           </div>
           <footer className="mainFooter">
             <div className="mainFooterCodeStatesLogo"></div>

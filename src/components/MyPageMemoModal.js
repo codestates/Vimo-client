@@ -13,6 +13,7 @@ class MyPageMemoModal extends React.Component {
       handleVideoMemoModalOnOff,
       memoUsername,
       memoContent,
+      data,
     } = this.props;
     return (
       <>{this.props.display ? <div className="MemoModalWholeContainer">
@@ -20,16 +21,16 @@ class MyPageMemoModal extends React.Component {
           <div className="MyPageMemoModalMemoPart">
             <div className="MemoModalMemoBanner">Memo</div>
             <div className="MemoModalUserProfile">
-              <div className="MemoModalUsername">{memoUsername}</div>
+              <div className="MemoModalUsername"></div>
             </div>
-            <p className="MemoModalMemoContent">{memoContent}</p>
+            <p className="MemoModalMemoContent">{data.content}</p>
           </div>
           <div className="MemoModalVideoPart">
             <div className="MemoModalVideoBanner">Video</div>
             <div className="MemoModalVideoThumbnail" />
             <div className="MemoModalTagContainer">
-              <span>VideoTitle</span>
-              <span>Director</span>
+              <span>{data.createdAt.slice(0, 10)}</span>
+              <span>{String(data.videoTime / 60) + "분"}</span>
               <span>1900</span>
             </div>
           </div>
