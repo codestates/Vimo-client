@@ -54,24 +54,30 @@ class VideoPage extends React.Component {
     this.handelQuitBtnClick = this.handelQuitBtnClick.bind(this);
   }
   handleHomeClick = () => {
-    axios.post("https://server.vimo.link/insert/uservideos", {
-      userId: this.props.userId,
-      videoId: this.props.videoId,
-      currentTime: this.state.currentTime,
-    }, { withCredentials: true })
+    axios
+      .post(
+        "https://server.vimo.link/insert/uservideos",
+        {
+          userId: this.props.userId,
+          videoId: this.props.videoId,
+          currentTime: this.state.currentTime,
+        },
+        { withCredentials: true }
+      )
       .then((res) => {
         this.props.history.push("/");
         console.log(res);
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   handleMyPageClick = () => {
-    axios.post("https://server.vimo.link/insert/uservideos", {
-      userId: this.props.userId,
-      videoId: this.props.videoId,
-      currentTime: this.state.currentTime,
-    })
+    axios
+      .post("https://server.vimo.link/insert/uservideos", {
+        userId: this.props.userId,
+        videoId: this.props.videoId,
+        currentTime: this.state.currentTime,
+      })
       .then((res) => {
         this.props.history.push("/mypage");
       })
@@ -79,7 +85,7 @@ class VideoPage extends React.Component {
         userId: this.props.userId,
         videoId: this.props.videoId,
         currentTime: this.state.currentTime,
-      })
+      });
   };
 
   handelMemoBtnClick = () => {
@@ -107,9 +113,15 @@ class VideoPage extends React.Component {
     videoPageVideo.play();
   };
 
+  componentDidMount() {
+    console.log(
+      `${this.props.videoUrl}#t=${reverseMakeProperTime(
+        this.props.currentTime
+      )}`
+    );
+  }
+
   render() {
-    let newCurrentTime = reverseMakeProperTime(this.props.currentTime);
-    let startPointUrl = `${this.props.videoUrl}#t=${newCurrentTime}`;
     return (
       <div className="VideomainContainer">
         <VideoMemoModal
@@ -145,7 +157,7 @@ class VideoPage extends React.Component {
           </div>
           <video
             className="videoPageVideo"
-            src={startPointUrl}
+            src={`${this.props.videoUrl}#t=${this.props.currentTime}`}
             type="video/mp4"
             controls
             autoPlay

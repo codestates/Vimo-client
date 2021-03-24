@@ -69,7 +69,7 @@ class App extends React.Component {
     });
   }
   updateCurrentTime(input) {
-    this.state({ currentTime: input });
+    this.setState({ currentTime: input });
   }
 
   render() {

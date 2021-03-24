@@ -252,6 +252,7 @@ class MainPage extends React.Component {
                 key={category}
                 changeVideoUrl={this.props.changeVideoUrl}
                 updateCurrentTime={this.props.updateCurrentTime}
+                accessToken={this.props.accessToken}
               />
             ))}
           </div>
