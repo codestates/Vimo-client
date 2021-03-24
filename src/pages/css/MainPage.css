@@ -18,6 +18,7 @@
 .mainContainer {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .mainNavBar {
@@ -102,6 +103,7 @@
   border-bottom: 0.2rem solid var(--main-color-mustard);
   margin-top: 4rem;
   background-position: center;
+  width: 100%;
 }
 .mainTextContainer > h4 {
   font-weight: 300;
@@ -119,6 +121,7 @@
   border-bottom: 0.2rem solid var(--main-color-mustard);
   margin-top: 4rem;
   background-position: center;
+  width: 100%;
 }
 .mainMainBanner3 {
   height: 35rem;
@@ -131,6 +134,7 @@
   border-bottom: 0.2rem solid var(--main-color-mustard);
   margin-top: 4rem;
   background-position: center;
+  width: 100%;
 }
 .mainMainBanner4 {
   height: 35rem;
@@ -143,6 +147,7 @@
   border-bottom: 0.2rem solid var(--main-color-mustard);
   margin-top: 4rem;
   background-position: center;
+  width: 100%;
 }
 
 .mainTextContainer {
@@ -199,6 +204,7 @@
   flex-direction: column;
   padding: 2rem;
   border-bottom: 0.2rem solid var(--main-color-mustard);
+  width: 100%;
 }
 
 .mainMemoContainer {
@@ -208,6 +214,7 @@
   justify-content: space-between;
   padding: 2rem;
   border-bottom: 0.2rem solid var(--main-color-mustard);
+  width: 100%;
 }
 
 .mainFooter {
@@ -216,6 +223,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
 }
 
 .mainFooterCodeStatesLogo {

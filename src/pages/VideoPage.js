@@ -54,16 +54,16 @@ class VideoPage extends React.Component {
     this.handelQuitBtnClick = this.handelQuitBtnClick.bind(this);
   }
   handleHomeClick = () => {
-    axios
-      .post(
-        "https://server.vimo.link/insert/uservideos",
-        {
-          userId: this.props.userId,
-          videoId: this.props.videoId,
-          currentTime: this.state.currentTime,
-        },
-        { withCredentials: true }
-      )
+    let videoPageVideo = document.querySelector(".videoPageVideo");
+    videoPageVideo.pause();
+    let currentTime = Math.floor(videoPageVideo.currentTime);
+    let newCurrentTime = makeProperTime(currentTime);
+    console.log(newCurrentTime);
+    axios.post("https://server.vimo.link/insert/uservideos", {
+      userId: this.props.userId,
+      videoId: this.props.videoId,
+      currentTime: newCurrentTime,
+    }, { withCredentials: true })
       .then((res) => {
         this.props.history.push("/");
         console.log(res);
@@ -72,20 +72,20 @@ class VideoPage extends React.Component {
   };
 
   handleMyPageClick = () => {
-    axios
-      .post("https://server.vimo.link/insert/uservideos", {
-        userId: this.props.userId,
-        videoId: this.props.videoId,
-        currentTime: this.state.currentTime,
-      })
+    let videoPageVideo = document.querySelector(".videoPageVideo");
+    videoPageVideo.pause();
+    let currentTime = Math.floor(videoPageVideo.currentTime);
+    let newCurrentTime = makeProperTime(currentTime);
+    console.log(newCurrentTime);
+    axios.post("https://server.vimo.link/insert/uservideos", {
+      userId: this.props.userId,
+      videoId: this.props.videoId,
+      currentTime: newCurrentTime,
+    })
       .then((res) => {
         this.props.history.push("/mypage");
       })
-      .catch(axios.patch("https://server.vimo.link/update/uservideos"), {
-        userId: this.props.userId,
-        videoId: this.props.videoId,
-        currentTime: this.state.currentTime,
-      });
+      .catch(err => console.log(err))
   };
 
   handelMemoBtnClick = () => {

@@ -28,6 +28,12 @@ class MyPageEditModal extends React.Component {
     }
 
     handleQuit = () => {
+        this.setState({
+            username: "",
+            checkPassword: "",
+            newPassword: "",
+            errorMessage: "",
+        })
         this.props.handleEditModalOnOff();
     }
 
