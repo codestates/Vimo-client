@@ -27,6 +27,7 @@ class VideoList extends React.Component {
                   title={item.title}
                   thumbnail={item.thumbnail}
                   url={item.url}
+                  id={item.id}
                   changeVideoUrl={this.props.changeVideoUrl}
                 ></VideoListEntry>
               ))

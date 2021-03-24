@@ -20,12 +20,18 @@ class App extends React.Component {
       videoTitle: "",
       videoDirector: "",
       videoPubDate: "",
+      videoId: "",
+      userId: "",
     };
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.changeVideoUrl = this.changeVideoUrl.bind(this);
     this.changeMemoInfo = this.changeMemoInfo.bind(this);
     this.changeVideoInfo = this.changeVideoInfo.bind(this);
+    this.appUserIdChange = this.appUserIdChange.bind(this);
+  }
+  appUserIdChange(data) {
+    this.setState({ userId: data });
   }
   handleLogin(data) {
     this.setState({ isLogin: true, accessToken: data });
@@ -36,9 +42,10 @@ class App extends React.Component {
   componentDidUpdate() {
     console.log(this.state.isLogin);
     console.log(this.state.memoContent);
+    console.log(this.state.userId);
   }
-  changeVideoUrl(newUrl) {
-    this.setState({ videoUrl: newUrl });
+  changeVideoUrl(newUrl, videoId) {
+    this.setState({ videoUrl: newUrl, videoId: videoId });
   }
   changeMemoInfo(memoProfilePic, memoUsername, memoContent) {
     this.setState({
@@ -75,10 +82,15 @@ class App extends React.Component {
               videoPubDate={this.state.videoPubDate}
               accessToken={this.state.accessToken}
               isLogin={this.state.isLogin}
+              appUserIdChange={this.appUserIdChange}
             />
           </Route>
           <Route path="/video">
-            <VideoPage videoUrl={this.state.videoUrl} isLogin={this.state.isLogin} />
+            <VideoPage
+              videoUrl={this.state.videoUrl}
+              userId={this.state.userId}
+              videoId={this.state.videoId}
+            />
           </Route>
           <Route path="/mypage">
             <MyPage handleLogout={this.handleLogout} accessToken={this.state.accessToken} />

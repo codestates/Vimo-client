@@ -151,8 +151,10 @@ class MainPage extends React.Component {
         <LoginModal
           isLoginModalOn={this.state.isLoginModalOn}
           close={this.closeModal}
+          open={this.openModal}
           handleLoginChange={this.handleLoginChange}
           handleLogin={this.props.handleLogin}
+          appUserIdChange={this.props.appUserIdChange}
         />
         <MemoModal
           isMemoModalOn={this.state.isMemoModalOn}
@@ -191,7 +193,11 @@ class MainPage extends React.Component {
               <img
                 className="mainNavProfilePic"
                 alt="profilePic"
-                src={this.state.userData.profilePic}
+                src={
+                  this.state.userData.profilePic
+                    ? this.state.userData.profilePic
+                    : "/images/defaultProfilePic"
+                }
               />
               <div className="mainNavUsernameBox">
                 <div className="mainNavUsername">
