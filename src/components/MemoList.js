@@ -9,7 +9,7 @@ class MemoList extends React.Component {
   }
 
   render() {
-    const { openMemoModal, title } = this.props;
+    const { openMemoModal, title, data } = this.props;
     let category;
     if (this.props.title === "베스트 유저의 메모") {
       category = "collectionMemos";
@@ -27,16 +27,18 @@ class MemoList extends React.Component {
         <div className="MemoListEntryContainer">
           {Array.isArray(this.props.data[category])
             ? this.props.data[category].map((item) => (
-                <MemoListEntry
-                  openMemoModal={openMemoModal}
-                  content={item.content}
-                  thumbnail={item.thumbnail}
-                  changeMemoInfo={this.props.changeMemoInfo}
-                  videoId={item.videoId}
-                  videoData={this.props.data[categoryVideo]}
-                  changeVideoInfo={this.props.changeVideoInfo}
-                ></MemoListEntry>
-              ))
+              <MemoListEntry
+                openMemoModal={openMemoModal}
+                content={item.content}
+                // thumbnail={item.thumbnail}
+                changeMemoInfo={this.props.changeMemoInfo}
+                videoId={item.videoId}
+                data={data.newMemosVidoes}
+                videoData={this.props.data[categoryVideo]}
+                changeVideoInfo={this.props.changeVideoInfo}
+                videoThumbnail={this.props.videoThumbnail}
+              ></MemoListEntry>
+            ))
             : null}
         </div>
       </div>

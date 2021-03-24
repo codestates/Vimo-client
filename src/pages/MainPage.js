@@ -12,6 +12,7 @@ class MainPage extends React.Component {
     super(props);
     this.state = {
       username: "Anonymous",
+      profilePic: "",
       // isLogin: false,
       isLoginModalOn: false,
       isMemoModalOn: false,
@@ -20,6 +21,7 @@ class MainPage extends React.Component {
       queryString: "",
       data: {},
       searchData: [],
+      userData: {},
     };
     this.handleVideoClick = this.handleVideoClick.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -42,68 +44,10 @@ class MainPage extends React.Component {
     this.props.history.push("/video");
   };
 
-  handleLoginChange = () => {
-    // axios
-    //   .get("https://server.vimo.link/link/mainpage", {
-    //     withCredentials: true,
-    //   })
-    //   .then((res) => {
-    //     this.props.handleLogin();
-    //     console.log(res.data);
-    //   })
-    //   .catch((err) => console.log("바보"));
-    console.log(this.props.accessToken);
-    console.log(this.props.isLogin);
-    axios
-      .get("https://server.vimo.link/link/mainpage", {
-        headers: {
-          Authorization: `Bearer ${this.props.accessToken}`,
-          // "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      })
-      .then((res) => {
-        this.setState({ data: res.data.data });
-        console.log(this.state.data);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  handleSearchBox = (event) => {
-    this.setState({ queryString: event.target.value });
+  handleInputValue = (key) => (e) => {
+    this.setState({ [key]: e.target.value });
     this.setState({ isSearching: true });
-  };
-
-  async componentDidMount() {
-    // this.props.handleLogin();
-    // await axios
-    //   .get("https://server.vimo.link/link/mainpage", {
-    //     "Content-Type": "application/json",
-    //     withCredentials: true,
-    //   })
-    //   .then((res) => {
-    //     this.setState({ data: res.data.data });
-    //     console.log(this.state.data);
-    //   })
-    //   .catch((err) => console.log(err));
-    console.log(this.props.accessToken);
-    axios
-      .get("https://server.vimo.link/link/mainpage", {
-        headers: {
-          Authorization: `Bearer ${this.props.accessToken}`,
-          // "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      })
-      .then((res) => {
-        this.setState({ data: res.data.data });
-        console.log(this.state.data);
-      })
-      .catch((err) => console.log(err));
-  }
-
-  componentDidUpdate() {
-    if (this.state.searchData.length === 0) {
+    if (this.state.queryString === "") {
       return;
     } else {
       axios
@@ -111,23 +55,86 @@ class MainPage extends React.Component {
           `https://server.vimo.link/link/searchvideos?keyword=${this.state.queryString}`
         )
         .then((res) => {
-          // console.log(res.data);
+          console.log(this.state.queryString);
+          console.log(res.data.videos);
           this.setState({ searchData: res.data.videos });
+          this.setState({ isSearching: true });
         })
         .catch((err) => console.log(err));
     }
+  };
+
+  handleLoginChange = (input) => {
+    console.log(this.props.accessToken);
+    console.log(this.props.isLogin);
+    this.setState({ userData: input });
+    axios
+      .get("https://server.vimo.link/link/mainpage", {
+        headers: {
+          Authorization: `Bearer ${this.props.accessToken}`,
+          // "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      })
+      .then((res) => {
+        this.setState({ data: res.data.data });
+        console.log(this.state.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  handleSearchBox = () => {
+    if (this.state.queryString === "") {
+      return;
+    } else {
+      axios
+        .get(
+          `https://server.vimo.link/link/searchvideos?keyword=${this.state.queryString}`
+        )
+        .then((res) => {
+          console.log(this.state.queryString);
+          console.log(res.data.videos);
+          this.setState({ searchData: res.data.videos });
+          this.setState({ isSearching: true });
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
+  enterKey = (e) => {
+    if (e.key == "Enter") {
+      // 엔터키가 눌렸을 때 실행할 내용
+      this.handleSearchBox();
+    }
+  }
+
+  async componentDidMount() {
+    console.log(this.props.accessToken);
+    axios
+      .get("https://server.vimo.link/link/mainpage", {
+        headers: {
+          Authorization: `Bearer ${this.props.accessToken}`,
+          // "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      })
+      .then((res) => {
+        this.setState({ data: res.data.data });
+        console.log(this.state.data);
+      })
+      .catch((err) => console.log(err));
   }
 
   render() {
     const videoListArr =
-      this.state.isSearching && this.state.isLogin
+      this.state.isSearching && this.props.isLogin
         ? [
           `검색결과: ${this.state.queryString}`,
           "감상중인 콘텐츠",
           "메모가 가장 많은 콘텐츠",
           "새로운 콘텐츠",
         ]
-        : !this.state.isSearching && this.state.isLogin
+        : !this.state.isSearching && this.props.isLogin
           ? ["감상중인 콘텐츠", "메모가 가장 많은 콘텐츠", "새로운 콘텐츠"]
           : this.state.isSearching && !this.state.isLogin
             ? [
@@ -136,7 +143,7 @@ class MainPage extends React.Component {
               "새로운 콘텐츠",
             ]
             : ["메모가 가장 많은 콘텐츠", "새로운 콘텐츠"];
-    const memoListArr = this.state.isLogin
+    const memoListArr = this.props.isLogin
       ? ["내가 감상한 콘텐츠의 메모", "인기 콘텐츠의 메모", "새로운 메모"]
       : ["베스트 유저의 메모", "인기 콘텐츠의 메모", "새로운 메모"];
     return (
@@ -168,17 +175,30 @@ class MainPage extends React.Component {
                 type="text"
                 placeholder="검색어를 입력하세요"
                 value={this.state.queryString}
-                onChange={this.handleSearchBox}
+                onChange={this.handleInputValue("queryString")}
+                onKeyUp={this.enterKey}
               />
+              <div className="searchBtn" onClick={this.handleSearchBox}><i className="fas fa-search"> </i></div>
             </div>
-            <div className="mainNavUserContainer" onClick={this.openModal}>
+            <div
+              className="mainNavUserContainer"
+              onClick={() => {
+                this.props.isLogin
+                  ? window.location.replace("/mypage")
+                  : this.openModal();
+              }}
+            >
               <img
                 className="mainNavProfilePic"
                 alt="profilePic"
-                src="https://i.imgur.com/FP3hraO.png"
+                src={this.state.userData.profilePic}
               />
               <div className="mainNavUsernameBox">
-                <div className="mainNavUsername">{this.state.username}</div>
+                <div className="mainNavUsername">
+                  {this.state.userData.username
+                    ? this.state.userData.username
+                    : "Anonymous"}
+                </div>
               </div>
             </div>
           </nav>
@@ -242,6 +262,7 @@ class MainPage extends React.Component {
                 key={category}
                 changeMemoInfo={this.props.changeMemoInfo}
                 changeVideoInfo={this.props.changeVideoInfo}
+                videoThumbnail={this.props.videoThumbnail}
               />
             ))}
           </div>

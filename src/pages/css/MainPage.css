@@ -232,3 +232,12 @@
 .footerContents {
   margin: 3rem;
 }
+
+.searchBtn {
+  color: var(--main-color-white);
+  padding-left: 1rem;
+}
+
+.searchBtn:hover {
+  color: var(--main-color-yellow);
+}

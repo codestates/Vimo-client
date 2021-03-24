@@ -78,10 +78,10 @@ class App extends React.Component {
             />
           </Route>
           <Route path="/video">
-            <VideoPage videoUrl={this.state.videoUrl} />
+            <VideoPage videoUrl={this.state.videoUrl} isLogin={this.state.isLogin} />
           </Route>
           <Route path="/mypage">
-            <MyPage handleLogout={this.handleLogout} />
+            <MyPage handleLogout={this.handleLogout} accessToken={this.state.accessToken} />
           </Route>
         </Switch>
       </div>
