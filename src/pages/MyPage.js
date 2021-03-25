@@ -31,16 +31,16 @@ class MyPage extends React.Component {
 
   handleEditModalOnOff = () => {
     this.setState({
-      displayEdit: (this.state.displayEdit ? false : true)
-    })
+      displayEdit: this.state.displayEdit ? false : true,
+    });
   };
 
   handleVideoMemoModalOnOff = (data) => {
     this.setState({
-      displayMemo: (this.state.displayMemo ? false : true),
+      displayMemo: this.state.displayMemo ? false : true,
       memoData: data,
-    })
-  }
+    });
+  };
 
   handleInputValue = (key) => (e) => {
     this.setState({ [key]: e.target.value });
@@ -54,16 +54,16 @@ class MyPage extends React.Component {
       })
       .then((res) => {
         this.props.handleLogout();
-        console.log(res);
+        window.location.replace("/");
       })
-      .catch((err) => console.log("로그아웃실패"));
+      .catch((err) => console.log(err));
   };
 
   componentDidMount() {
-    axios.get("https://server.vimo.link/link/mypage",
-      {
+    axios
+      .get("https://server.vimo.link/link/mypage", {
         headers: {
-          Authorization: `Bearer ${this.props.accessToken}`
+          Authorization: `Bearer ${this.props.accessToken}`,
         },
         withCredentials: true,
       })
@@ -74,17 +74,24 @@ class MyPage extends React.Component {
           username: res.data.data.userInfo.username,
           email: res.data.data.userInfo.email,
           memoCount: res.data.data.memoInfo.length,
-          movieCount: res.data.data.memoInfo.length
-        })
+          movieCount: res.data.data.memoInfo.length,
+        });
       })
-      .catch(err => alert(err))
+      .catch((err) => alert(err));
   }
 
   render() {
     return (
       <>
-        <MyPageEditModal display={this.state.displayEdit} handleEditModalOnOff={this.handleEditModalOnOff} />
-        <MyPageMemoModal data={this.state.memoData} display={this.state.displayMemo} handleVideoMemoModalOnOff={this.handleVideoMemoModalOnOff} />
+        <MyPageEditModal
+          display={this.state.displayEdit}
+          handleEditModalOnOff={this.handleEditModalOnOff}
+        />
+        <MyPageMemoModal
+          data={this.state.memoData}
+          display={this.state.displayMemo}
+          handleVideoMemoModalOnOff={this.handleVideoMemoModalOnOff}
+        />
         <div className="MyPagemainContainer">
           <nav className="MyPageNavBar">
             <div
@@ -99,7 +106,7 @@ class MyPage extends React.Component {
               >
                 <div className="MyPageNavLogout" onClick={this.handleLogoutBtn}>
                   logout
-              </div>
+                </div>
               </div>
             </div>
           </nav>
@@ -111,10 +118,15 @@ class MyPage extends React.Component {
             />
             <div id="MyPageUserInfoBox">
               <div id="MyPageUsernameBox">
-                <div id="MyPageUsername"><div>{this.state.username}</div></div>
-                <button id="MyPageUserEditBtn" onClick={this.handleEditModalOnOff}>
+                <div id="MyPageUsername">
+                  <div>{this.state.username}</div>
+                </div>
+                <button
+                  id="MyPageUserEditBtn"
+                  onClick={this.handleEditModalOnOff}
+                >
                   edit
-              </button>
+                </button>
               </div>
               <div id="MyPageUseremailBox">
                 <span id="MyPageUseremail">{this.state.email}</span>
