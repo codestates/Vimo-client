@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./css/LoginModal.css";
 import axios from "axios";
+import sha256 from "crypto-js/sha256";
 
 const emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 const passwordRule = /^.*(?=^.{0,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
@@ -72,7 +73,7 @@ export default class LoginModal extends Component {
           "https://server.vimo.link/user/signup",
           {
             email: this.state.email,
-            password: this.state.password,
+            password: sha256(this.state.password),
             username: this.state.username,
             isSocialLogin: "false",
           },

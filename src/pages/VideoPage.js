@@ -5,6 +5,9 @@ import VideoMemoModal from "../components/VideoMemoModal";
 import axios from "axios";
 
 const reverseMakeProperTime = (input) => {
+  if (!input) {
+    return undefined;
+  }
   let arr = input.split(":");
   return Number(arr[0]) * 3600 + Number(arr[1]) * 60 + Number(arr[2]);
 };
@@ -58,17 +61,40 @@ class VideoPage extends React.Component {
     videoPageVideo.pause();
     let currentTime = Math.floor(videoPageVideo.currentTime);
     let newCurrentTime = makeProperTime(currentTime);
-    console.log(newCurrentTime);
-    axios.post("https://server.vimo.link/insert/uservideos", {
-      userId: this.props.userId,
-      videoId: this.props.videoId,
-      currentTime: newCurrentTime,
-    }, { withCredentials: true })
-      .then((res) => {
-        this.props.history.push("/");
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
+    console.log(this.props.currentTime);
+
+    if (this.props.currentTime || this.props.currentTime === 0) {
+      axios
+        .patch(
+          "https://server.vimo.link/update/uservideos",
+          {
+            userId: this.props.userId,
+            videoId: this.props.videoId,
+            currentTime: newCurrentTime,
+          },
+          { withCredentials: true }
+        )
+        .then((res) => {
+          this.props.history.push("/");
+          console.log("패치");
+        });
+    } else {
+      axios
+        .post(
+          "https://server.vimo.link/insert/uservideos",
+          {
+            userId: this.props.userId,
+            videoId: this.props.videoId,
+            currentTime: newCurrentTime,
+          },
+          { withCredentials: true }
+        )
+        .then((res) => {
+          this.props.history.push("/");
+          console.log("포스트");
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   handleMyPageClick = () => {
@@ -77,15 +103,16 @@ class VideoPage extends React.Component {
     let currentTime = Math.floor(videoPageVideo.currentTime);
     let newCurrentTime = makeProperTime(currentTime);
     console.log(newCurrentTime);
-    axios.post("https://server.vimo.link/insert/uservideos", {
-      userId: this.props.userId,
-      videoId: this.props.videoId,
-      currentTime: newCurrentTime,
-    })
+    axios
+      .post("https://server.vimo.link/insert/uservideos", {
+        userId: this.props.userId,
+        videoId: this.props.videoId,
+        currentTime: newCurrentTime,
+      })
       .then((res) => {
         this.props.history.push("/mypage");
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err));
   };
 
   handelMemoBtnClick = () => {
