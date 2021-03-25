@@ -1,5 +1,6 @@
 import React from "react";
 import "./css/MyPageEditModal.css";
+import axios from "axios";
 
 class MyPageEditModal extends React.Component {
     constructor(props) {
@@ -20,10 +21,25 @@ class MyPageEditModal extends React.Component {
     };
 
     handleConfirm = () => {
-        if (this.state.newPassword !== this.state.checkPassword) {
+        if (this.state.username === "" && this.state.newPassword === "" && this.state.checkPassword === "") {
+            this.setState({
+                errorMessage: "입력하신 정보가 없습니다!"
+            })
+        } else if (this.state.newPassword !== this.state.checkPassword) {
             this.setState({
                 errorMessage: "입력하신 비밀번호가 일치하지 않습니다!"
             })
+        } else {
+            axios.patch("https://server.vimo.link/update/userinfo", {
+                userId: this.props.userId,
+                username: this.state.username,
+                newPassword: this.state.newPassword,
+            })
+                .then((res) => {
+                    this.props.handleEditModalOnOff();
+                    console.log(res.data);
+                })
+                .catch(err => console.log(err))
         }
     }
 

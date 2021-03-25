@@ -115,6 +115,7 @@ class App extends React.Component {
             <MyPage
               handleLogout={this.handleLogout}
               accessToken={this.state.accessToken}
+              userId={this.state.userId}
             />
           </Route>
         </Switch>
