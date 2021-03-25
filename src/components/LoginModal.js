@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./css/LoginModal.css";
 import axios from "axios";
-import sha256 from "crypto-js/sha256";
+
+const crypto = require("crypto");
 
 const emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 const passwordRule = /^.*(?=^.{0,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
@@ -22,6 +23,10 @@ export default class LoginModal extends Component {
   }
 
   handleLoginBtn = async () => {
+    console.log(this.state.password);
+    console.log(
+      crypto.createHash("sha512").update(this.state.password).digest("base64")
+    );
     if (this.state.email === "" || this.state.password === "") {
       this.setState({ alertLoginMessage: "이메일과 비밀번호를 입력해주세요" });
       // } else if (!emailRule.test(this.state.email)) {
@@ -35,7 +40,10 @@ export default class LoginModal extends Component {
           "https://server.vimo.link/user/login",
           {
             email: this.state.email,
-            password: this.state.password,
+            password: crypto
+              .createHash("sha512")
+              .update(this.state.password)
+              .digest("base64"),
           },
           { "Content-Type": "application/json", withCredentials: true }
         )
@@ -43,6 +51,7 @@ export default class LoginModal extends Component {
           console.log(res.data.data.id);
           this.props.appUserIdChange(res.data.data.id);
           this.props.handleLogin(res.data.data.accessToken);
+          this.props.updateUsername(res.data.data.username);
           this.props.close();
 
           // window.location.replace("/");
@@ -73,7 +82,10 @@ export default class LoginModal extends Component {
           "https://server.vimo.link/user/signup",
           {
             email: this.state.email,
-            password: sha256(this.state.password),
+            password: crypto
+              .createHash("sha512")
+              .update(this.state.password)
+              .digest("base64"),
             username: this.state.username,
             isSocialLogin: "false",
           },
