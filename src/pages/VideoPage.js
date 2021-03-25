@@ -102,17 +102,40 @@ class VideoPage extends React.Component {
     videoPageVideo.pause();
     let currentTime = Math.floor(videoPageVideo.currentTime);
     let newCurrentTime = makeProperTime(currentTime);
-    console.log(newCurrentTime);
-    axios
-      .post("https://server.vimo.link/insert/uservideos", {
-        userId: this.props.userId,
-        videoId: this.props.videoId,
-        currentTime: newCurrentTime,
-      })
-      .then((res) => {
-        this.props.history.push("/mypage");
-      })
-      .catch((err) => console.log(err));
+    console.log(this.props.currentTime);
+
+    if (this.props.currentTime || this.props.currentTime === 0) {
+      axios
+        .patch(
+          "https://server.vimo.link/update/uservideos",
+          {
+            userId: this.props.userId,
+            videoId: this.props.videoId,
+            currentTime: newCurrentTime,
+          },
+          { withCredentials: true }
+        )
+        .then((res) => {
+          this.props.history.push("/mypage");
+          console.log("패치");
+        });
+    } else {
+      axios
+        .post(
+          "https://server.vimo.link/insert/uservideos",
+          {
+            userId: this.props.userId,
+            videoId: this.props.videoId,
+            currentTime: newCurrentTime,
+          },
+          { withCredentials: true }
+        )
+        .then((res) => {
+          this.props.history.push("/mypage");
+          console.log("포스트");
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   handelMemoBtnClick = () => {
@@ -174,7 +197,7 @@ class VideoPage extends React.Component {
               }
             />
             <div className="videoNavUsernameBox">
-              <div className="videoNavUsername">{this.state.username}</div>
+              <div className="videoNavUsername">{this.props.username}</div>
             </div>
           </div>
         </nav>

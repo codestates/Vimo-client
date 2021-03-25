@@ -12,9 +12,9 @@ class MemoList extends React.Component {
     const { openMemoModal, title, data } = this.props;
     let category;
     if (this.props.title === "베스트 유저의 메모") {
-      category = "collectionMemos";
+      category = "colletionMemos";
     } else if (this.props.title === "내가 감상한 콘텐츠의 메모") {
-      category = "viewdContentMemo";
+      category = "viewdContentsMemos";
     } else if (this.props.title === "인기 콘텐츠의 메모") {
       category = "popularMemos";
     } else if (this.props.title === "새로운 메모") {

@@ -24,12 +24,9 @@ export default class VideoMemoModal extends Component {
   };
 
   handleMemoSaveBtnClick = () => {
-    console.log(
-      this.props.userId +
-        this.props.videoId +
-        this.state.content +
-        this.props.currentTime
-    );
+    let textinput = document.querySelector(".videoMemoModalMemoArea");
+    textinput.value = "";
+
     if (this.state.content === "") {
       alert("메모를 적어주세요");
     } else {
@@ -90,7 +87,7 @@ export default class VideoMemoModal extends Component {
                 </div>
                 <textarea
                   className="videoMemoModalMemoArea"
-                  maxlength="100"
+                  maxlength="500"
                   onChange={this.handleMemoChange}
                 ></textarea>
               </div>
