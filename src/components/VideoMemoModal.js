@@ -10,10 +10,14 @@ export default class VideoMemoModal extends Component {
       videoId: "",
       content: "",
       videoTime: "",
+      error: "",
     };
   }
 
   handelQuitBtnClick = () => {
+    this.setState({
+      error: "",
+    })
     this.props.handelQuitBtnClick();
   };
 
@@ -28,7 +32,9 @@ export default class VideoMemoModal extends Component {
     textinput.value = "";
 
     if (this.state.content === "") {
-      alert("메모를 적어주세요");
+      this.setState({
+        error: "메모를 적어주세요",
+      })
     } else {
       axios
         .post(
@@ -42,9 +48,9 @@ export default class VideoMemoModal extends Component {
           { "Content-Type": "application/json", withCredentials: true }
         )
         .then((res) => {
-          alert(res.data);
+          console.log(res.data);
         })
-        .catch((err) => alert(err));
+        .catch((err) => console.log(err));
     }
   };
 
@@ -98,6 +104,7 @@ export default class VideoMemoModal extends Component {
                 >
                   save
                 </button>
+                <div id="alert">{this.state.error}</div>
               </div>
             </div>
             <div

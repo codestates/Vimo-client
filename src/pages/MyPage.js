@@ -23,6 +23,7 @@ class MyPage extends React.Component {
     this.handleInputValue = this.handleInputValue.bind(this);
     this.handleEditModalOnOff = this.handleEditModalOnOff.bind(this);
     this.handleVideoMemoModalOnOff = this.handleVideoMemoModalOnOff.bind(this);
+    this.handleChangeUserName = this.handleChangeUserName.bind(this);
   }
 
   handleHomeClick = () => {
@@ -45,6 +46,12 @@ class MyPage extends React.Component {
   handleInputValue = (key) => (e) => {
     this.setState({ [key]: e.target.value });
   };
+
+  handleChangeUserName = (name) => {
+    this.setState({
+      username: name,
+    })
+  }
 
   handleLogoutBtn = () => {
     axios
@@ -77,7 +84,7 @@ class MyPage extends React.Component {
           movieCount: res.data.data.memoInfo.length,
         });
       })
-      .catch((err) => alert(err));
+      .catch((err) => console.log(err));
   }
 
   render() {
@@ -87,6 +94,7 @@ class MyPage extends React.Component {
           display={this.state.displayEdit}
           handleEditModalOnOff={this.handleEditModalOnOff}
           userId={this.props.userId}
+          changeUsername={this.handleChangeUserName}
         />
         <MyPageMemoModal
           data={this.state.memoData}
@@ -120,7 +128,7 @@ class MyPage extends React.Component {
             <div id="MyPageUserInfoBox">
               <div id="MyPageUsernameBox">
                 <div id="MyPageUsername">
-                  <div>{this.props.username}</div>
+                  <div>{this.state.username}</div>
                 </div>
                 <button
                   id="MyPageUserEditBtn"

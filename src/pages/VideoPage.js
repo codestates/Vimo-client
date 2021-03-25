@@ -91,7 +91,6 @@ class VideoPage extends React.Component {
         )
         .then((res) => {
           this.props.history.push("/");
-          console.log("포스트");
         })
         .catch((err) => console.log(err));
     }
@@ -117,7 +116,6 @@ class VideoPage extends React.Component {
         )
         .then((res) => {
           this.props.history.push("/mypage");
-          console.log("패치");
         });
     } else {
       axios
@@ -132,7 +130,6 @@ class VideoPage extends React.Component {
         )
         .then((res) => {
           this.props.history.push("/mypage");
-          console.log("포스트");
         })
         .catch((err) => console.log(err));
     }

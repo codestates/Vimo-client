@@ -93,10 +93,9 @@ export default class LoginModal extends Component {
         )
         .then((res) => {
           console.log(res.data);
-          // this.props.close();
           this.setState({ isSignin: true });
         })
-        .catch((err) => alert(err));
+        .catch((err) => console.log(err));
     }
   };
 
