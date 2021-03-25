@@ -3,6 +3,9 @@ import "./css/VideoListEntry.css";
 import axios from "axios";
 
 const reverseMakeProperTime = (input) => {
+  if (!input) {
+    return undefined;
+  }
   let arr = input.split(":");
   return Number(arr[0]) * 3600 + Number(arr[1]) * 60 + Number(arr[2]);
 };

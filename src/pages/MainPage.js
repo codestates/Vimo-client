@@ -112,8 +112,12 @@ class MainPage extends React.Component {
         withCredentials: true,
       })
       .then((res) => {
-        this.setState({ data: res.data.data });
         console.log(res.data.data);
+        if (res.data.data.myVideos) {
+          this.props.handleOnlyLoginChange();
+          this.props.appUserIdChange(res.data.data.userId); //확인
+        }
+        this.setState({ data: res.data.data });
       })
       .catch((err) => console.log(err));
   }

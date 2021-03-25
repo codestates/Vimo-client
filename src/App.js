@@ -32,12 +32,16 @@ class App extends React.Component {
     this.appUserIdChange = this.appUserIdChange.bind(this);
     this.changeOnlyVideoUrl = this.changeOnlyVideoUrl.bind(this);
     this.updateCurrentTime = this.updateCurrentTime.bind(this);
+    this.handleOnlyLoginChange = this.handleOnlyLoginChange.bind(this);
   }
   appUserIdChange(data) {
     this.setState({ userId: data });
   }
   handleLogin(data) {
     this.setState({ isLogin: true, accessToken: data });
+  }
+  handleOnlyLoginChange() {
+    this.setState({ isLogin: true });
   }
   handleLogout() {
     this.setState({ isLogin: false, accessToken: "" });
@@ -94,6 +98,7 @@ class App extends React.Component {
               appUserIdChange={this.appUserIdChange}
               changeOnlyVideoUrl={this.changeOnlyVideoUrl}
               updateCurrentTime={this.updateCurrentTime}
+              handleOnlyLoginChange={this.handleOnlyLoginChange}
             />
           </Route>
           <Route path="/video">
@@ -103,6 +108,7 @@ class App extends React.Component {
               videoId={this.state.videoId}
               isLogin={this.state.isLogin}
               currentTime={this.state.currentTime}
+              accessToken={this.state.accessToken}
             />
           </Route>
           <Route path="/mypage">
