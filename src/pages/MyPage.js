@@ -83,7 +83,7 @@ class MyPage extends React.Component {
   render() {
     return (
       <>
-        <MyPageEditModal display={this.state.displayEdit} handleEditModalOnOff={this.handleEditModalOnOff} />
+        <MyPageEditModal display={this.state.displayEdit} handleEditModalOnOff={this.handleEditModalOnOff} userId={this.props.userId} />
         <MyPageMemoModal data={this.state.memoData} display={this.state.displayMemo} handleVideoMemoModalOnOff={this.handleVideoMemoModalOnOff} />
         <div className="MyPagemainContainer">
           <nav className="MyPageNavBar">
