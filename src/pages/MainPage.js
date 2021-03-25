@@ -12,8 +12,7 @@ class MainPage extends React.Component {
     super(props);
     this.state = {
       username: "Anonymous",
-      profilePic: "",
-      // isLogin: false,
+      profilePic: "/images/defaultProfilePic.png",
       isLoginModalOn: false,
       isMemoModalOn: false,
       bgNum: 1,
@@ -115,7 +114,8 @@ class MainPage extends React.Component {
         console.log(res.data.data);
         if (res.data.data.myVideos) {
           this.props.handleOnlyLoginChange();
-          this.props.appUserIdChange(res.data.data.userId); //확인
+          this.props.appUserIdChange(res.data.data.userId);
+          this.props.updateUsername(res.data.data.username);
         }
         this.setState({ data: res.data.data });
       })
@@ -152,6 +152,7 @@ class MainPage extends React.Component {
           handleLoginChange={this.handleLoginChange}
           handleLogin={this.props.handleLogin}
           appUserIdChange={this.props.appUserIdChange}
+          updateUsername={this.props.updateUsername}
         />
         <MemoModal
           isMemoModalOn={this.state.isMemoModalOn}
@@ -195,15 +196,11 @@ class MainPage extends React.Component {
                 src={
                   this.state.userData.profilePic
                     ? this.state.userData.profilePic
-                    : "/images/defaultProfilePic"
+                    : "/images/defaultProfilePic.png"
                 }
               />
               <div className="mainNavUsernameBox">
-                <div className="mainNavUsername">
-                  {this.state.userData.username
-                    ? this.state.userData.username
-                    : "Anonymous"}
-                </div>
+                <div className="mainNavUsername">{this.props.username}</div>
               </div>
             </div>
           </nav>

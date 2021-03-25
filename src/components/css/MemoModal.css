@@ -72,9 +72,6 @@
 .MemoModalUserProfilePic {
   width: 6rem;
   height: 6rem;
-  background-image: url("https://i.imgur.com/FP3hraO.png");
-  background-position: center;
-  background-size: cover;
   border: 0.1rem solid var(--main-color-yellow);
   border-radius: 3rem;
   margin: 1rem;

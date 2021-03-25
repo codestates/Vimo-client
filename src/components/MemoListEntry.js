@@ -32,6 +32,15 @@ class MemoListEntry extends React.Component {
       (item) => item.videoId === videoId
     );
 
+    let shortenMemo = function (input) {
+      if (input.length > 20) {
+        return input.slice(0, 20);
+      }
+      return input;
+    };
+
+    let shortenedMemo = shortenMemo(content) + "...";
+
     return (
       <div
         className="memoListEntryContainer"
@@ -58,7 +67,7 @@ class MemoListEntry extends React.Component {
           alt="MemoThumbnail"
           src={videoObj.thumbnail}
         />
-        <div className="videoListEntryMemo">{content}</div>
+        <div className="videoListEntryMemo">{shortenedMemo}</div>
       </div>
     );
   }

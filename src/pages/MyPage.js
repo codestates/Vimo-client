@@ -23,6 +23,7 @@ class MyPage extends React.Component {
     this.handleInputValue = this.handleInputValue.bind(this);
     this.handleEditModalOnOff = this.handleEditModalOnOff.bind(this);
     this.handleVideoMemoModalOnOff = this.handleVideoMemoModalOnOff.bind(this);
+    this.handleChangeUserName = this.handleChangeUserName.bind(this);
   }
 
   handleHomeClick = () => {
@@ -45,6 +46,12 @@ class MyPage extends React.Component {
   handleInputValue = (key) => (e) => {
     this.setState({ [key]: e.target.value });
   };
+
+  handleChangeUserName = (name) => {
+    this.setState({
+      username: name,
+    })
+  }
 
   handleLogoutBtn = () => {
     axios
@@ -77,14 +84,23 @@ class MyPage extends React.Component {
           movieCount: res.data.data.memoInfo.length,
         });
       })
-      .catch((err) => alert(err));
+      .catch((err) => console.log(err));
   }
 
   render() {
     return (
       <>
-        <MyPageEditModal display={this.state.displayEdit} handleEditModalOnOff={this.handleEditModalOnOff} userId={this.props.userId} />
-        <MyPageMemoModal data={this.state.memoData} display={this.state.displayMemo} handleVideoMemoModalOnOff={this.handleVideoMemoModalOnOff} />
+        <MyPageEditModal
+          display={this.state.displayEdit}
+          handleEditModalOnOff={this.handleEditModalOnOff}
+          userId={this.props.userId}
+          changeUsername={this.handleChangeUserName}
+        />
+        <MyPageMemoModal
+          data={this.state.memoData}
+          display={this.state.displayMemo}
+          handleVideoMemoModalOnOff={this.handleVideoMemoModalOnOff}
+        />
         <div className="MyPagemainContainer">
           <nav className="MyPageNavBar">
             <div

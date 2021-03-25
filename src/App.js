@@ -9,6 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      username: "Anonymous",
       isLogin: false,
       accessToken: "",
       videoUrl: "./videos/video1.mp4",
@@ -33,6 +34,7 @@ class App extends React.Component {
     this.changeOnlyVideoUrl = this.changeOnlyVideoUrl.bind(this);
     this.updateCurrentTime = this.updateCurrentTime.bind(this);
     this.handleOnlyLoginChange = this.handleOnlyLoginChange.bind(this);
+    this.updateUsername = this.updateUsername.bind(this);
   }
   appUserIdChange(data) {
     this.setState({ userId: data });
@@ -75,6 +77,9 @@ class App extends React.Component {
   updateCurrentTime(input) {
     this.setState({ currentTime: input });
   }
+  updateUsername(input) {
+    this.setState({ username: input });
+  }
 
   render() {
     return (
@@ -82,6 +87,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/">
             <MainPage
+              username={this.state.username}
               handleLogin={this.handleLogin}
               changeVideoUrl={this.changeVideoUrl}
               memoProfilePic={this.state.memoProfilePic}
@@ -99,10 +105,12 @@ class App extends React.Component {
               changeOnlyVideoUrl={this.changeOnlyVideoUrl}
               updateCurrentTime={this.updateCurrentTime}
               handleOnlyLoginChange={this.handleOnlyLoginChange}
+              updateUsername={this.updateUsername}
             />
           </Route>
           <Route path="/video">
             <VideoPage
+              username={this.state.username}
               videoUrl={this.state.videoUrl}
               userId={this.state.userId}
               videoId={this.state.videoId}
@@ -113,6 +121,7 @@ class App extends React.Component {
           </Route>
           <Route path="/mypage">
             <MyPage
+              username={this.state.username}
               handleLogout={this.handleLogout}
               accessToken={this.state.accessToken}
               userId={this.state.userId}

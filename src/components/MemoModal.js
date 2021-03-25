@@ -30,7 +30,7 @@ export default class LoginModal extends Component {
                 <div className="MemoModalUserProfile">
                   <img
                     className="MemoModalUserProfilePic"
-                    src={memoProfilePic}
+                    src={"/images/defaultProfilePic.png"}
                     alt="profilePicture"
                   />
                   <div className="MemoModalUsername">{memoUsername}</div>
