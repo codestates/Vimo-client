@@ -37,7 +37,7 @@
 
 # 🔨 Architecture
 
-### Client-Side Storyboard flow chart[DYNAMIC]
+### Client-Side Storyboard flow chart
 ![ezgif com-resize](https://ifh.cc/g/Nj2R1l.jpg)
 
 # 🗣 우리를 소개합니다.
