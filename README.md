@@ -1,3 +1,16 @@
+![](https://img.shields.io/badge/project-Memory.log-blue?style=for-the-badge)
+![](https://img.shields.io/badge/Memory.log-Mobile-black?style=for-the-badge)
+<a href="https://gitmoji.carloscuesta.me">
+  <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=for-the-badge" alt="Gitmoji">
+</a> 
+
+
+✅ [위의 뱃지를 활용하여 여러분의 저장소에 활용 해보세요](https://github.com/badges/shields)
+
+# 📸 Memory_log
+<img src=https://user-images.githubusercontent.com/48914716/89749904-b0283a80-db04-11ea-9a9f-827a9cecea8c.png width=300 height=300 />
+
+✅ [이미지를 통해 여러분의 서비스를 소개해주세요](https://worthpreading.tistory.com/83)
 
 영상을 보며 무언가를 기록해두고 싶었던 적이 있나요?
 
