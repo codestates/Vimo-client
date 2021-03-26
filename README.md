@@ -57,7 +57,7 @@
       <td align="center">
         <a href="https://github.com/codeFabian">
           <sub>
-            <b>김현규</b>
+            <b>최정호</b>
           </sub>
         </a>
         <br>
@@ -70,38 +70,38 @@
       <td align="center">
         <a href="https://github.com/sokim1616">
           <sub>
-            <b>김소현</b>
+            <b>신민제</b>
           </sub>
         </a>
         <br>
       </td>
       <td>
-        <strong>🏁 Full Stack</strong>
+        <strong>🏁 Frontend</strong>
       </td>
     </tr>
       <td align="center">
         <a href="https://github.com/bombamong">
           <sub>
-            <b>변민우</b>
+            <b>성재영</b>
           </sub>
         </a>
         <br>
       </td>
       <td>
-        <strong>🚩 Frontend</strong>
+        <strong>🚩 Backend</strong>
       </td>
     </tr>
     <tr>
       <td align="center">
         <a href="https://github.com/Kyung-Douhyun">
           <sub>
-            <b>경두현</b>
+            <b>박선아</b>
           </sub>
         </a>
         <br>
       </td>
       <td>
-        <strong>🏁 Full Stack</strong>
+        <strong>🏁 Backend</strong>
       </td>
     </tr>
     <tr>
