@@ -101,7 +101,6 @@ class MainPage extends React.Component {
   };
 
   async componentDidMount() {
-    console.log(this.props.accessToken);
     axios
       .get("https://server.vimo.link/link/mainpage", {
         headers: {
