@@ -33,7 +33,7 @@
 ![](https://img.shields.io/badge/BACK-Express-092E20?style=for-the-badge)
 
 
-<img width="1781" alt="TechStack" src="https://user-images.githubusercontent.com/48914716/89753542-b1149880-db13-11ea-9f00-d129920afd26.png">
+<img width="1781" alt="TechStack" src="https://ifh.cc/g/w9u22F.jpg">
 
 # 🔨 Architecture
 
