@@ -49,9 +49,6 @@ class App extends React.Component {
     this.setState({ isLogin: false, accessToken: "" });
   }
   componentDidUpdate() {
-    console.log(this.state.isLogin);
-    console.log(this.state.memoContent);
-    console.log(this.state.userId);
   }
   changeVideoUrl(newUrl, videoId) {
     this.setState({ videoUrl: newUrl, videoId: videoId });

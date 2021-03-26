@@ -48,7 +48,6 @@ class MyPageEditModal extends React.Component {
         .then((res) => {
           this.props.handleEditModalOnOff();
           this.props.changeUsername(this.state.username);
-          console.log(res.data);
         })
         .catch((err) => console.log(err));
     }

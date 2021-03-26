@@ -39,9 +39,7 @@ class VideoListEntry extends React.Component {
                 }
               )
               .then((res) => {
-                console.log(res.data);
                 let current = reverseMakeProperTime(res.data.data.currenttime);
-                console.log(current);
                 this.props.updateCurrentTime(current);
               })
               .catch((err) => console.log(err));
