@@ -1,5 +1,5 @@
 ![](https://img.shields.io/badge/project-vimo-blue)
-![](https://img.shields.io/badge/Memory.log-Mobile-black?style=for-the-badge)
+![](https://img.shields.io/badge/vimo-webservice-lightgrey)
 <a href="https://gitmoji.carloscuesta.me">
   <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=for-the-badge" alt="Gitmoji">
 </a> 
