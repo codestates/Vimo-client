@@ -49,7 +49,7 @@
   <tbody>
     <tr>
       <td align="center">
-        <a href="https://github.com/codeFabian">
+        <a href="https://github.com/9rganizedchaos">
           <sub>
             <b>최정호</b>
           </sub>
