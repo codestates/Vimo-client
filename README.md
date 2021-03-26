@@ -62,7 +62,7 @@
     </tr>
      <tr>
       <td align="center">
-        <a href="https://github.com/sokim1616">
+        <a href="https://github.com/tlsalswp1004">
           <sub>
             <b>신민제</b>
           </sub>
@@ -74,7 +74,7 @@
       </td>
     </tr>
       <td align="center">
-        <a href="https://github.com/bombamong">
+        <a href="https://github.com/Sungjaeyeong">
           <sub>
             <b>성재영</b>
           </sub>
@@ -87,7 +87,7 @@
     </tr>
     <tr>
       <td align="center">
-        <a href="https://github.com/Kyung-Douhyun">
+        <a href="https://github.com/spark0109">
           <sub>
             <b>박선아</b>
           </sub>
