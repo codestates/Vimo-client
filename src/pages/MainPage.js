@@ -111,7 +111,6 @@ class MainPage extends React.Component {
         withCredentials: true,
       })
       .then((res) => {
-        console.log(res.data.data);
         if (res.data.data.myVideos) {
           this.props.handleOnlyLoginChange();
           this.props.appUserIdChange(res.data.data.userId);
@@ -126,20 +125,20 @@ class MainPage extends React.Component {
     const videoListArr =
       this.state.isSearching && this.props.isLogin
         ? [
-            `검색결과: ${this.state.queryString}`,
-            "감상중인 콘텐츠",
-            "메모가 가장 많은 콘텐츠",
-            "새로운 콘텐츠",
-          ]
+          `검색결과: ${this.state.queryString}`,
+          "감상중인 콘텐츠",
+          "메모가 가장 많은 콘텐츠",
+          "새로운 콘텐츠",
+        ]
         : !this.state.isSearching && this.props.isLogin
-        ? ["감상중인 콘텐츠", "메모가 가장 많은 콘텐츠", "새로운 콘텐츠"]
-        : this.state.isSearching && !this.state.isLogin
-        ? [
-            `검색결과: ${this.state.queryString}`,
-            "메모가 가장 많은 콘텐츠",
-            "새로운 콘텐츠",
-          ]
-        : ["메모가 가장 많은 콘텐츠", "새로운 콘텐츠"];
+          ? ["감상중인 콘텐츠", "메모가 가장 많은 콘텐츠", "새로운 콘텐츠"]
+          : this.state.isSearching && !this.state.isLogin
+            ? [
+              `검색결과: ${this.state.queryString}`,
+              "메모가 가장 많은 콘텐츠",
+              "새로운 콘텐츠",
+            ]
+            : ["메모가 가장 많은 콘텐츠", "새로운 콘텐츠"];
     const memoListArr = this.props.isLogin
       ? ["내가 감상한 콘텐츠의 메모", "인기 콘텐츠의 메모", "새로운 메모"]
       : ["베스트 유저의 메모", "인기 콘텐츠의 메모", "새로운 메모"];
@@ -209,10 +208,10 @@ class MainPage extends React.Component {
               this.state.bgNum === 1
                 ? "mainMainBanner1"
                 : this.state.bgNum === 2
-                ? "mainMainBanner2"
-                : this.state.bgNum === 3
-                ? "mainMainBanner3"
-                : "mainMainBanner4"
+                  ? "mainMainBanner2"
+                  : this.state.bgNum === 3
+                    ? "mainMainBanner3"
+                    : "mainMainBanner4"
             }
           >
             <div className="mainTextContainer">
@@ -244,13 +243,13 @@ class MainPage extends React.Component {
             </div>
           </div>
           <div className="mainVideoContainer">
-            {videoListArr.map((category) => (
+            {videoListArr.map((category, index) => (
               <VideoList
                 title={category}
                 handleVideoClick={this.handleVideoClick}
                 data={this.state.data}
                 searchData={this.state.searchData}
-                key={category}
+                key={index}
                 changeVideoUrl={this.props.changeVideoUrl}
                 updateCurrentTime={this.props.updateCurrentTime}
                 accessToken={this.props.accessToken}
@@ -258,12 +257,12 @@ class MainPage extends React.Component {
             ))}
           </div>
           <div className="mainMemoContainer">
-            {memoListArr.map((category) => (
+            {memoListArr.map((category, index) => (
               <MemoList
                 title={category}
                 openMemoModal={this.openMemoModal}
                 data={this.state.data}
-                key={category}
+                key={index}
                 changeMemoInfo={this.props.changeMemoInfo}
                 changeVideoInfo={this.props.changeVideoInfo}
                 videoThumbnail={this.props.videoThumbnail}

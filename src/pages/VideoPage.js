@@ -56,12 +56,12 @@ class VideoPage extends React.Component {
     };
     this.handelQuitBtnClick = this.handelQuitBtnClick.bind(this);
   }
+
   handleHomeClick = () => {
     let videoPageVideo = document.querySelector(".videoPageVideo");
     videoPageVideo.pause();
     let currentTime = Math.floor(videoPageVideo.currentTime);
     let newCurrentTime = makeProperTime(currentTime);
-    console.log(this.props.currentTime);
 
     if (this.props.currentTime || this.props.currentTime === 0) {
       axios
@@ -76,7 +76,6 @@ class VideoPage extends React.Component {
         )
         .then((res) => {
           this.props.history.push("/");
-          console.log("패치");
         });
     } else {
       axios
@@ -94,6 +93,7 @@ class VideoPage extends React.Component {
         })
         .catch((err) => console.log(err));
     }
+    window.location.replace("/");
   };
 
   handleMyPageClick = () => {
@@ -101,7 +101,6 @@ class VideoPage extends React.Component {
     videoPageVideo.pause();
     let currentTime = Math.floor(videoPageVideo.currentTime);
     let newCurrentTime = makeProperTime(currentTime);
-    console.log(this.props.currentTime);
 
     if (this.props.currentTime || this.props.currentTime === 0) {
       axios
@@ -159,14 +158,6 @@ class VideoPage extends React.Component {
     let videoPageVideo = document.querySelector(".videoPageVideo");
     videoPageVideo.play();
   };
-
-  componentDidMount() {
-    console.log(
-      `${this.props.videoUrl}#t=${reverseMakeProperTime(
-        this.props.currentTime
-      )}`
-    );
-  }
 
   render() {
     return (

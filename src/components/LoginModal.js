@@ -23,10 +23,6 @@ export default class LoginModal extends Component {
   }
 
   handleLoginBtn = async () => {
-    console.log(this.state.password);
-    console.log(
-      crypto.createHash("sha512").update(this.state.password).digest("base64")
-    );
     if (this.state.email === "" || this.state.password === "") {
       this.setState({ alertLoginMessage: "이메일과 비밀번호를 입력해주세요" });
       // } else if (!emailRule.test(this.state.email)) {
@@ -48,7 +44,6 @@ export default class LoginModal extends Component {
           { "Content-Type": "application/json", withCredentials: true }
         )
         .then((res) => {
-          console.log(res.data.data.id);
           this.props.appUserIdChange(res.data.data.id);
           this.props.handleLogin(res.data.data.accessToken);
           this.props.updateUsername(res.data.data.username);
@@ -92,7 +87,6 @@ export default class LoginModal extends Component {
           { "Content-Type": "application/json", withCredentials: true }
         )
         .then((res) => {
-          console.log(res.data);
           this.setState({ isSignin: true });
         })
         .catch((err) => console.log(err));

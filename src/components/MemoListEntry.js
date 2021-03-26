@@ -45,7 +45,6 @@ class MemoListEntry extends React.Component {
       <div
         className="memoListEntryContainer"
         onClick={() => {
-          console.log(videoInfo);
           changeMemoInfo(
             newFilteredArr[0].user.propfilePic,
             newFilteredArr[0].user.username,
@@ -59,7 +58,6 @@ class MemoListEntry extends React.Component {
           );
           changeOnlyVideoUrl(videoInfo.url);
           openMemoModal();
-          console.log(videoInfo.url);
         }}
       >
         <img

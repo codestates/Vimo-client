@@ -75,7 +75,6 @@ class MyPage extends React.Component {
         withCredentials: true,
       })
       .then((res) => {
-        console.log(res.data.data);
         this.setState({
           data: res.data.data,
           username: res.data.data.userInfo.username,

@@ -47,9 +47,6 @@ export default class VideoMemoModal extends Component {
           },
           { "Content-Type": "application/json", withCredentials: true }
         )
-        .then((res) => {
-          console.log(res.data);
-        })
         .catch((err) => console.log(err));
     }
   };
