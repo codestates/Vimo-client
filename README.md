@@ -23,7 +23,7 @@
 # 🕵🏼 어떤 기술이 사용되었나요?
 
 ## FRONT
-![](https://img.shields.io/badge/FRONT-Typescript-007ACC?style=for-the-badge&logo=TypeScript)
+![](https://img.shields.io/badge/FRONT-Typescript-007ACC?style=for-the-badge&logo=axios)
 
 ![](https://img.shields.io/badge/FRONT-React-61DAFB?style=for-the-badge&logo=React)
 
