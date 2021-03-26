@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/project-vimo-blue)
 ![](https://img.shields.io/badge/vimo-webservice-lightgrey)
 <a href="https://gitmoji.carloscuesta.me">
-  <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=for-the-badge" alt="Gitmoji">
+  <img src="https://img.shields.io/badge/OTT-%E2%9D%A4%EF%B8%8F%E2%9C%8C%EF%B8%8F-yellow">
 </a> 
 
 
