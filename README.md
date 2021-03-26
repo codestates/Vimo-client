@@ -5,12 +5,10 @@
 </a> 
 
 
-✅ [위의 뱃지를 활용하여 여러분의 저장소에 활용 해보세요](https://github.com/badges/shields)
 
 # 🚀 VIMO
 <img src=https://ifh.cc/g/KWNrfV.png />
 
-✅ [이미지를 통해 여러분의 서비스를 소개해주세요](https://worthpreading.tistory.com/83)
 
 영상을 보며 무언가를 기록해두고 싶었던 적이 있나요?
 
@@ -42,9 +40,6 @@
 
 # 🗣 우리를 소개합니다.
 
-✅ [테이블 형식을 통해 깔끔하게 정리해보세요!](https://www.markdownguide.org/cheat-sheet/)
-
-✅ [마크다운이 익숙치 않다면, html을 사용해보세요](https://www.w3schools.com/tags/tag_table.asp)
 <table>
   <tbody>
     <tr>
