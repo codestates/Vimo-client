@@ -8,7 +8,7 @@
 ✅ [위의 뱃지를 활용하여 여러분의 저장소에 활용 해보세요](https://github.com/badges/shields)
 
 # 🚀 VIMO
-<img src=https://raw.githubusercontent.com/tlsalswp1004/thatFlix-client/feature16/src/images/vimo_logo.png?token=AQQWNYMQHRG5Q5WMPH45GK3AMZTMS />
+<img src=https://ifh.cc/g/KWNrfV.png />
 
 ✅ [이미지를 통해 여러분의 서비스를 소개해주세요](https://worthpreading.tistory.com/83)
 
