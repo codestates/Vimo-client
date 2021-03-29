@@ -1,0 +1,42 @@
+.memoListEntryContainer {
+  position: relative;
+}
+
+.videoListEntryThumbnail {
+  margin: 2rem;
+  height: 10rem;
+  width: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s;
+  /* background-image: url("https://i.imgur.com/GWWl6sO.png"); */
+  background-size: cover;
+  background-position: center;
+  border-radius: 1rem;
+  border: 0.1rem solid var(--main-color-yellow);
+}
+
+/* .videoListEntryThumbnail:hover {
+  z-index: 3;
+} */
+
+.videoListEntryMemo {
+  color: var(--main-color-white);
+  text-shadow: -1px 0 var(--main-color-black), 0 1px var(--main-color-black),
+    1px 0 var(--main-color-black), 0 -1px var(--main-color-black);
+  font-weight: 800;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-style: italic;
+}
+
+/* .videoListEntryMemo:hover {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */

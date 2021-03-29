@@ -1,0 +1,126 @@
+:root {
+  --main-color-white: #e1e1e0;
+  --main-color-yellow: #e0ad24;
+  --main-color-mustard: #8c7337;
+  --main-color-dark-yellow: #51431f;
+  --main-color-light-gray: #a2a3a4;
+  --main-color-gray: #747576;
+  --main-color-dark-gray: #333436;
+  --main-color-black: #1e2021;
+}
+
+* {
+  /* border: 1px solid black; */
+  padding: 0rem;
+  margin: 0rem;
+}
+
+.VideomainContainer {
+  display: flex;
+  flex-direction: column;
+  min-width: 1100px;
+}
+
+.VideoNavBar {
+  position: fixed;
+  background-color: var(--main-color-black);
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 0rem;
+  z-index: 1;
+}
+
+.videoNavLogo {
+  width: 10rem;
+  height: 3.5rem;
+  background-image: url("https://i.imgur.com/aS8kJC1.png");
+  background-size: cover;
+  margin: 0.1rem;
+}
+
+.videoNavLogo:hover,
+.videoNavLogo:focus {
+  cursor: pointer;
+}
+
+.videoNavUserContainer {
+  display: flex;
+  padding: 0.2rem;
+  align-items: center;
+}
+
+.videoNavProfilePic {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 2rem;
+  /* background-image: url("https://i.imgur.com/FP3hraO.png");
+  background-size: cover;
+  background-position: center; */
+  border: 0.1rem solid var(--main-color-yellow);
+}
+
+.videoNavProfilePic:hover,
+.videoNavProfilePic:focus {
+  cursor: pointer;
+}
+
+.videoNavUsernameBox {
+  margin: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.videoNavUsername {
+  margin: 0.5rem;
+  color: var(--main-color-light-gray);
+  font-size: 1.125rem;
+}
+
+#videoVideoPlayerContainer {
+  display: flex;
+  border-bottom: 0.2rem solid var(--main-color-mustard);
+  margin-top: 4rem;
+  background-position: center;
+  background-color: var(--main-color-dark-gray);
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#videoDescriptionContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-color-dark-gray);
+  padding: 2rem;
+  border-bottom: 0.2rem solid var(--main-color-mustard);
+}
+
+#videoDescription {
+  flex: 10 0 auto;
+  color: var(--main-color-black);
+  font-size: 2.3rem;
+  margin: 1rem;
+  text-shadow: -1px 0 var(--main-color-yellow), 0 1px var(--main-color-yellow),
+    1px 0 var(--main-color-yellow), 0 -1px var(--main-color-yellow);
+}
+
+#videoMemoBtn {
+  flex: 1 0 auto;
+  font-size: 1.5rem;
+  border-radius: 2rem;
+  border: 0.1rem solid var(--main-color-yellow);
+  background-color: var(--main-color-gray);
+  color: var(--main-color-yellow);
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+#videoMemoBtn:hover {
+  color: var(--main-color-gray);
+  background-color: var(--main-color-yellow);
+}

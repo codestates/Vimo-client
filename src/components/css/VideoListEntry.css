@@ -1,0 +1,20 @@
+.VideoListEntryContainer {
+  margin: 1rem;
+}
+
+.VideoListEntryThumbnail {
+  height: 14rem;
+  width: 11rem;
+}
+
+.VideoListEntryThumbnail:hover {
+  box-shadow: 7px 7px 8px black, 0 0 10px var(--main-color-mustard),
+    0 0 18px var(--main-color-dark-yellow);
+}
+
+.VideoListEntryTitle {
+  margin-left: 0.75rem;
+  margin-top: 1rem;
+  color: var(--main-color-light-gray);
+  width: 164px;
+}
