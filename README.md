@@ -96,3 +96,5 @@
     <tr>
   </tbody>
 </table>
+
+<a href="https://github.com/codestates/Vimo-client/wiki"><sub><b>wiki</b></sub></a>
